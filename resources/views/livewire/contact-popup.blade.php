@@ -38,7 +38,7 @@
                     class="sm:w-1/2"
                     for="contact_name"
                     type="text"
-                    wire:model.live.blur="contact_name"
+                    wire:model.blur="contact_name"
                 />
             </div>
             <div>
@@ -52,7 +52,7 @@
                     class="sm:w-1/2"
                     for="contact_email"
                     type="email"
-                    wire:model.live.blur="contact_email"
+                    wire:model.blur="contact_email"
                 />
             </div>
             <div>
@@ -66,7 +66,7 @@
                     for="contact_message"
                     cols="30"
                     rows="10"
-                    wire:model.live.blur="contact_message"
+                    wire:model.blur="contact_message"
                 ></x-form.textarea>
             </div>
             <div class="w-full sm:w-1/2 flex justify-end">

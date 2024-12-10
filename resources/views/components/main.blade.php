@@ -56,6 +56,7 @@
                         <x-link
                             to="{{ route('cv') }}"
                             underline="false"
+                            wire:navigate.hover
                         >
                             <span class="text-pop ml-3 font-merriweather text-2xl">CV</span>
                         </x-link>

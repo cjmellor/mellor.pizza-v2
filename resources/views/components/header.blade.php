@@ -12,7 +12,12 @@
                 <x-link to="{{ route('blog') }}">Articles</x-link>
             </div>
             <div>
-                <x-link to="{{ route('cv') }}">View CV</x-link>
+                <x-link
+                    to="{{ route('cv') }}"
+                    wire:navigate.hover
+                >
+                    View CV
+                </x-link>
             </div>
             <div>
                 <x-link x-data x-on:click.prevent="$dispatch('show-contact')">
