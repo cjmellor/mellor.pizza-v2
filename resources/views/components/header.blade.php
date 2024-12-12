@@ -1,7 +1,7 @@
 <header class="print:hidden">
     <div class="flex h-16 flex-col items-center justify-around space-y-8 sm:mx-20 md:flex-row md:space-y-0">
         <div class="w-full lg:w-5/12 xl:w-1/3">
-            <a href="{{ route("homepage") }}">
+            <a href="{{ route('homepage') }}">
                 <h2 class="text-center font-anton text-6xl uppercase tracking-wider text-pizza drop-shadow-lg md:text-left md:text-5xl dark:text-pizza-dark">
                     Chris.Mellor
                 </h2>
@@ -18,7 +18,7 @@
             </div>
             <div>
                 <x-link
-                    to="{{ route('cv') }}"
+                        to="{{ route('cv') }}"
                     wire:navigate.hover
                 >
                     View CV

@@ -1,5 +1,5 @@
 <x-layout.main container subTitle="Chris Mellors' CV">
-    <x-header></x-header>
+    <x-header />
 
     @section("meta-description")
         <meta
