@@ -9,7 +9,12 @@
         </div>
         <div class="flex w-full justify-evenly px-6 font-roboto-mono uppercase tracking-wider md:items-center md:px-0 md:text-xl lg:w-7/12 xl:w-2/3">
             <div>
-                <x-link to="{{ route('blog') }}">Articles</x-link>
+                <x-link
+                    to="{{ route('articles') }}"
+                    wire:navigate.hover
+                >
+                    Articles
+                </x-link>
             </div>
             <div>
                 <x-link
