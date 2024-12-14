@@ -49,7 +49,7 @@
                                 </p>
                             </div>
                             <a
-                                class="mt-4 text-pizza dark:text-pizza-dark hover:underline"
+                                class="mt-4 text-pizza hover:underline dark:text-pizza-dark"
                                 href="{{ $article->slug }}"
                             >
                                 Read article &rarr;
