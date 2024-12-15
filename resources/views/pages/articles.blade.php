@@ -51,6 +51,7 @@
                             <a
                                 class="mt-4 text-pizza hover:underline dark:text-pizza-dark"
                                 href="{{ $article->slug }}"
+                                wire:navigate.hover
                             >
                                 Read article &rarr;
                             </a>
