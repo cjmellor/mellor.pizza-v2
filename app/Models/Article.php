@@ -53,6 +53,14 @@ class Article extends Model
             'slug' => 'build-a-chat-room-using-tall-stack-and-websockets',
             'title' => 'Build a Chat Room using TALL Stack and WebSockets',
         ],
+        [
+            'author' => 'Chris Mellor',
+            'content' => 'articles/simplifying-my-blog-laravel-folio-sushi.md',
+            'excerpt' => 'Learn how I simplified my blog by moving from a traditional MySQL database to a static-content approach using Laravel\'s Sushi package. Through this process I discovered how to maintain Eloquent\'s powerful features without the overhead of a full database. The changes not only made my site snappier but also simplified the content management process.',
+            'published_at' => '2024-12-19',
+            'slug' => 'simplifying-my-blog-laravel-folio-sushi',
+            'title' => 'Simplifying My Blog: Laravel Folio & Sushi',
+        ],
     ];
 
     public function content(): string
