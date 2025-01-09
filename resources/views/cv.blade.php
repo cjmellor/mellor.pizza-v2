@@ -210,7 +210,7 @@
                             59club Ltd
                         </p>
                     </div>
-                    <p class="dark:text-gray-400">01/2022 - Present</p>
+                    <p class="dark:text-gray-400">01/2022 - 11/2024</p>
                 </div>
                 <ul
                     class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300"
