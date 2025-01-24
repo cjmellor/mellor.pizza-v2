@@ -9,7 +9,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "aws/aws-sdk-php": "^3.334",
         "calebporzio/sushi": "^2.5",
         "laravel/folio": "^1.1",

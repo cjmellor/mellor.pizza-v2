@@ -1,5 +1,5 @@
 <div
-    class="max-w-full md:max-w-screen-md lg:max-w-screen-xl p-8 shadow-2xl sticky bottom-0 sm:rounded-t-3xl h-screen sm:h-[42rem] text-gray-500 bg-white dark:bg-dark-focus border border-gray-300 dark:border-dark-line-lighter border-b-0"
+    class="max-w-full md:max-w-(--breakpoint-md) lg:max-w-(--breakpoint-xl) p-8 shadow-2xl sticky bottom-0 sm:rounded-t-3xl h-screen sm:h-[42rem] text-gray-500 bg-white dark:bg-dark-focus border border-gray-300 dark:border-dark-line-lighter border-b-0"
     @slideUp()
     x-data="{
         showContactMePopUp: @entangle('showContactMePopUp').live

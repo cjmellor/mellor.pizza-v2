@@ -4,7 +4,7 @@
 >
     <div
         class="animate-slide-in-down absolute text-center w-1/2 bg-green-100 rounded-b-md py-4 text-green-800 shadow-xl"
-        :class="{ '!text-red-800 !bg-red-100': type === 'error' }"
+        :class="{ 'text-red-800! bg-red-100!': type === 'error' }"
         {{ $attributes }}
         x-cloak
         x-on:send-toast.window="sendEventData"

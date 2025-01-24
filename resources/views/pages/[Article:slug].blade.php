@@ -2,7 +2,7 @@
     <x-header />
 
     <article
-        class="prose mx-4 mt-6 sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert prose-a:no-underline hover:prose-a:underline prose-code:bg-pizza/30 prose-code:px-1.5 prose-code:font-roboto-mono prose-code:text-pizza prose-code:before:content-none prose-code:after:content-none prose-pre:px-0 sm:mx-auto sm:mb-24 sm:mt-12 sm:prose-pre:px-0 lg:prose-pre:px-0 xl:prose-pre:px-0 2xl:prose-pre:px-0 dark:hover:prose-a:decoration-pizza-dark dark:prose-code:bg-pink-900/30 dark:prose-code:text-pink-600"
+        class="prose mx-4 mt-6 sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl dark:prose-invert prose-a:no-underline prose-a:hover:underline prose-code:bg-pizza/30 prose-code:px-1.5 prose-code:font-roboto-mono prose-code:text-pizza prose-code:before:content-none prose-code:after:content-none prose-pre:px-0 sm:mx-auto sm:mb-24 sm:mt-12 sm:prose-pre:px-0 lg:prose-pre:px-0 xl:prose-pre:px-0 2xl:prose-pre:px-0 dark:prose-a:hover:decoration-pizza-dark dark:prose-code:bg-pink-900/30 dark:prose-code:text-pink-600"
     >
         <header class="flex flex-col gap-y-6 mt-24 sm:mt-0">
             <time
