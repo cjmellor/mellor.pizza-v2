@@ -10,7 +10,7 @@
                     target="_blank"
                 >
                     <svg
-                        class="size-7 text-gray-900 hover:text-pizza dark:text-white dark:hover:text-pizza-dark"
+                        class="hover:text-pizza dark:hover:text-pizza-dark size-7 text-gray-900 dark:text-white"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                     >
@@ -27,7 +27,7 @@
                     target="_blank"
                 >
                     <svg
-                        class="size-7 text-gray-900 hover:text-pizza dark:text-white dark:hover:text-pizza-dark"
+                        class="hover:text-pizza dark:hover:text-pizza-dark size-7 text-gray-900 dark:text-white"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                     >
@@ -39,70 +39,81 @@
             </div>
         </div>
         <div class="lg:ml-24 lg:w-2/3">
-            <div
-                class="mx-8 flex h-full flex-col justify-center space-y-8 font-merriweather tracking-wider lg:mx-0 lg:text-left">
-                <h2 class="text-2xl lg:text-3xl">👋 Hi I'm <span class="font-extrabold">Chris</span></h2>
-                <div class="ml-6 space-y-8">
-                    <p class="md:text-xl">🏗️ I build rock-solid web applications</p>
+            <div class="font-merriweather mx-8 flex h-full flex-col justify-center space-y-8 tracking-wider lg:mx-0 lg:text-left">
+                <h2 class="text-2xl lg:text-3xl">
+                    Hi, I'm
+                    <span class="font-extrabold">Chris</span>
+                </h2>
+                <div class="space-y-8">
+                    <p class="md:text-xl">I can help you build your next bright idea.</p>
                     <p class="md:text-xl">
-                        🚀 I specialise in PHP backends that scale, with expertise in
-                        <span class="font-semibold">Laravel</span> and the
-                        <span class="font-semibold">TALL</span>stack.
-                        I turn complex problems into elegant, tested solutions.
+                        My specialty is with PHP, with expertise in the
+                        <span class="font-semibold">Laravel</span>
+                        framework. To accompany this, I have a strong background in using:
                     </p>
-                    <p class="md:text-xl">✨ Clean code and thorough testing are core to my workflow</p>
-                    <p class="md:text-xl">🟢 Open to Remote Roles<br>(Permanent • Contract • Freelance)</p>
-                    <p class="inline-block md:text-xl">📄 Check out my
+                    <ul class="flex gap-x-2 justify-around *:text-pizza *:dark:text-pizza-dark">
+                        <li>Tailwind CSS</li>
+                        <li>AlpineJS</li>
+                        <li>Livewire</li>
+                        <li>Inertia.js</li>
+                        <li>Vue.js</li>
+                    </ul>
+                    <p class="md:text-xl">Clean code and thorough testing are core to my workflow</p>
+                    <p class="italic underline md:text-xl">Available for remote contract positions</p>
+                    <p class="inline-block md:text-xl">
+                        📄 Check out my
                         <x-link
                             to="{{ route('cv') }}"
                             underline="false"
                             wire:navigate.hover
                         >
-                            <span class="text-pop ml-3 font-merriweather text-2xl">CV</span>
+                            <span class="text-pop font-merriweather ml-3 text-2xl">CV</span>
                         </x-link>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-    {{--<div class="space-y-10 sm:space-y-16">
+    {{--
+        <div class="space-y-10 sm:space-y-16">
         <div class="mt-4 text-center font-merriweather text-neutral-600 dark:text-gray-400">
-            <p class="inline-flex text-2xl sm:text-4xl">Check out my latest articles
-                <a
-                    href="#blog-posts"
-                    aria-label="check out latest articles"
-                >
-                    <svg
-                        class="ml-6 hidden h-10 w-8 animate-bounce text-pizza sm:block dark:text-pizza-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M19 9l-7 7-7-7"
-                        />
-                    </svg>
-                </a>
-            </p>
+        <p class="inline-flex text-2xl sm:text-4xl">Check out my latest articles
+        <a
+        href="#blog-posts"
+        aria-label="check out latest articles"
+        >
+        <svg
+        class="ml-6 hidden h-10 w-8 animate-bounce text-pizza sm:block dark:text-pizza-dark"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        >
+        <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 9l-7 7-7-7"
+        />
+        </svg>
+        </a>
+        </p>
         </div>
         <hr class="mx-auto w-1/2 border-gray-300 dark:border-gray-700">
         <div id="blog-posts">
-            <x-posts-list
-                format="short"
-                limit="3"
-            ></x-posts-list>
-            <div class="flex justify-center pb-8 lg:pb-16">
-                <x-link
-                    class="font-merriweather text-xl"
-                    href="{{ route('blog') }}"
-                    to="#"
-                >See more posts
-                </x-link>
-            </div>
+        <x-posts-list
+        format="short"
+        limit="3"
+        ></x-posts-list>
+        <div class="flex justify-center pb-8 lg:pb-16">
+        <x-link
+        class="font-merriweather text-xl"
+        href="{{ route('blog') }}"
+        to="#"
+        >See more posts
+        </x-link>
         </div>
-    </div>--}}
+        </div>
+        </div>
+    --}}
 </main>
