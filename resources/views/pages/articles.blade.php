@@ -11,10 +11,10 @@
 <x-layout.main sub-title="Web Development Articles & Tutorials">
     <x-header />
 
-    <div class="bg-white py-24 sm:py-32 dark:bg-dark">
+    <div class="dark:bg-dark bg-white pt-60 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-5xl">
-                <h2 class="text-pretty font-merriweather text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-zinc-100">Web Development Notes</h2>
+                <h2 class="font-merriweather text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-zinc-100">Web Development Notes</h2>
                 <p class="mt-6 text-lg/8 text-gray-600 dark:text-zinc-400">Documenting my coding adventures and sharing what I've learned along the way</p>
 
                 <div class="mt-16 flex flex-col gap-16">
@@ -49,7 +49,7 @@
                                 </p>
                             </div>
                             <a
-                                class="mt-4 text-pizza hover:underline dark:text-pizza-dark"
+                                class="text-pizza dark:text-pizza-dark mt-4 hover:underline"
                                 href="{{ $article->slug }}"
                                 wire:navigate.hover
                             >

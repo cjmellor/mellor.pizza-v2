@@ -1,6 +1,6 @@
 <main>
     <div class="mt-20 flex flex-col space-y-12 lg:mx-12 lg:flex-row lg:space-y-0 xl:mx-32 2xl:mx-48">
-        <div class="flex flex-col items-center justify-center gap-y-8 md:gap-y-12 lg:ml-16 lg:w-1/3 lg:justify-start">
+        <div class="mt-44 flex flex-col items-center justify-center gap-y-8 md:mt-0 md:gap-y-12 lg:ml-16 lg:w-1/3 lg:justify-start">
             <x-floating-head />
             {{-- X (Twitter) --}}
             <div class="flex space-x-6">
@@ -51,7 +51,7 @@
                         <span class="font-semibold">Laravel</span>
                         framework. To accompany this, I have a strong background in using:
                     </p>
-                    <ul class="flex gap-x-2 justify-around *:text-pizza *:dark:text-pizza-dark">
+                    <ul class="*:text-pizza *:dark:text-pizza-dark flex justify-around gap-x-2">
                         <li>Tailwind CSS</li>
                         <li>AlpineJS</li>
                         <li>Livewire</li>

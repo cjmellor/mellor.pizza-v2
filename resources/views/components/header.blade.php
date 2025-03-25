@@ -2,12 +2,10 @@
     <div class="flex h-16 flex-col items-center justify-around space-y-8 sm:mx-20 md:flex-row md:space-y-0">
         <div class="w-full lg:w-5/12 xl:w-1/3">
             <a href="{{ route('homepage') }}">
-                <h2 class="text-center font-anton text-6xl uppercase tracking-wider text-pizza drop-shadow-lg md:text-left md:text-5xl dark:text-pizza-dark">
-                    Chris.Mellor
-                </h2>
+                <h2 class="font-anton text-pizza dark:text-pizza-dark text-center text-6xl tracking-wider uppercase drop-shadow-lg md:text-left md:text-5xl">Chris.Mellor</h2>
             </a>
         </div>
-        <div class="flex w-full justify-evenly px-6 font-roboto-mono uppercase tracking-wider md:items-center md:px-0 md:text-xl lg:w-7/12 xl:w-2/3">
+        <div class="font-roboto-mono flex w-full flex-col items-center justify-evenly space-y-6 px-6 tracking-wider uppercase md:flex-row md:items-center md:space-y-0 md:px-0 md:text-xl lg:w-7/12 xl:w-2/3">
             <div>
                 <x-link
                     to="{{ route('articles') }}"
@@ -18,7 +16,7 @@
             </div>
             <div>
                 <x-link
-                        to="{{ route('cv') }}"
+                    to="{{ route('cv') }}"
                     wire:navigate.hover
                 >
                     View CV
