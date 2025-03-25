@@ -25,7 +25,18 @@
                 </x-link>
             </div>
             <div>
-                <x-link x-data x-on:click.prevent="$dispatch('show-contact')">
+                <x-link
+                    to="{{ route('portfolio') }}"
+                    wire:navigate.hover
+                >
+                    Portfolio
+                </x-link>
+            </div>
+            <div>
+                <x-link
+                    x-data
+                    x-on:click.prevent="$dispatch('show-contact')"
+                >
                     Contact.Me
                 </x-link>
             </div>
