@@ -44,22 +44,37 @@
                     Hi, I'm
                     <span class="font-extrabold">Chris</span>
                 </h2>
-                <div class="space-y-8">
-                    <p class="md:text-xl">I can help you build your next bright idea.</p>
-                    <p class="md:text-xl">
-                        My specialty is with PHP, with expertise in the
-                        <span class="font-semibold">Laravel</span>
-                        framework. To accompany this, I have a strong background in using:
+                <div
+                    class="flex items-center gap-3 rounded-full bg-lime-50/50 px-2 py-1.5 ring-1 ring-lime-400/25 dark:bg-lime-800/50 dark:ring-lime-600/25"
+                >
+                    <span class="relative flex size-4">
+                        <span
+                            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-400 opacity-75 dark:bg-lime-200"
+                        ></span>
+                        <span class="relative inline-flex size-4 rounded-full bg-lime-500 dark:bg-lime-300"></span>
+                    </span>
+                    <p class="font-mono text-lime-800 uppercase md:text-sm dark:text-lime-100">
+                        Available for remote contract or full-time positions
                     </p>
-                    <ul class="*:text-pizza *:dark:text-pizza-dark flex justify-around gap-x-2">
-                        <li>Tailwind CSS</li>
-                        <li>AlpineJS</li>
-                        <li>Livewire</li>
-                        <li>Inertia.js</li>
+                </div>
+                <div class="space-y-8">
+                    <p class="text-lime-900 md:text-xl dark:text-lime-100">I can help you build your next bright idea.</p>
+                    <p class="text-lime-900 md:text-xl dark:text-lime-100">
+                        I specialize in the
+                        <span class="font-semibold text-lime-900 dark:text-lime-100">Laravel</span>
+                        framework, delivering robust and scalable solutions.
+                    </p>
+                    <p class="text-lime-900 md:text-xl dark:text-lime-100">To accompany this, I have a strong background in using:</p>
+                    <ul
+                        class="*:text-pizza *:dark:text-pizza-dark *:dark:bg-pizza-dark/10 *:dark:ring-pizza-dark/50 flex flex-col gap-y-3 text-center *:rounded-full *:bg-orange-50 *:px-2 *:py-1.5 *:ring-1 *:ring-orange-400/25 md:flex md:flex-row md:justify-between"
+                    >
                         <li>Vue.js</li>
+                        <li>Tailwind CSS</li>
+                        <li>Livewire</li>
+                        <li>AlpineJS</li>
+                        <li>AI</li>
                     </ul>
                     <p class="md:text-xl">Clean code and thorough testing are core to my workflow</p>
-                    <p class="italic underline md:text-xl">Available for remote contract positions</p>
                     <p class="inline-block md:text-xl">
                         📄 Check out my
                         <x-link
