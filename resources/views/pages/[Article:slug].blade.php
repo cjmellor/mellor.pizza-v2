@@ -6,8 +6,8 @@
     >
         <header class="mt-24 flex flex-col gap-y-6 sm:mt-0">
             <time
-                datetime="{{ $article->published_at->format('F jS, Y') }}"
                 class="flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                datetime="{{ $article->published_at->format('F jS, Y') }}"
             >
                 <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500"></span>
                 <span class="ml-3">{{ $article->published_at->format('F jS, Y') }}</span>

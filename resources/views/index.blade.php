@@ -6,8 +6,9 @@
         <meta
             name="description"
             content="The personal website and blog writings of Chris Mellor"
-        >
+        />
     @endsection
+
     <x-header></x-header>
     <x-main></x-main>
 </x-layout.main>

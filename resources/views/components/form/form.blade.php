@@ -7,7 +7,7 @@
         @csrf
     @endif
 
-    @unless($method == 'POST')
+    @unless ($method == 'POST')
         @method($method)
     @endunless
 

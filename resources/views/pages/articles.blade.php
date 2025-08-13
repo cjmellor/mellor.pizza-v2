@@ -14,8 +14,14 @@
     <div class="dark:bg-dark bg-white pt-60 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-5xl">
-                <h2 class="font-merriweather text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-zinc-100">Web Development Notes</h2>
-                <p class="mt-6 text-lg/8 text-gray-600 dark:text-zinc-400">Documenting my coding adventures and sharing what I've learned along the way</p>
+                <h2
+                    class="font-merriweather text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-zinc-100"
+                >
+                    Web Development Notes
+                </h2>
+                <p class="mt-6 text-lg/8 text-gray-600 dark:text-zinc-400">
+                    Documenting my coding adventures and sharing what I've learned along the way
+                </p>
 
                 <div class="mt-16 flex flex-col gap-16">
                     @foreach ($articles as $article)

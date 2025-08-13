@@ -35,18 +35,18 @@
 <style>
     .progress-line {
         stroke-dasharray: 100 100;
-        stroke-dashoffset: {{ !$reverse ? $lineLength : '100' }};
+        stroke-dashoffset: {{ ! $reverse ? $lineLength : '100' }};
         stroke-linecap: round;
         animation: progress {{ $animationSpeed }} ease-in-out;
     }
 
     @keyframes progress {
         from {
-            stroke-dashoffset: {{ !$reverse ? '100' : $lineLength }};
+            stroke-dashoffset: {{ ! $reverse ? '100' : $lineLength }};
         }
 
         to {
-            stroke-dashoffset: {{ !$reverse ? $lineLength : '100' }};
+            stroke-dashoffset: {{ ! $reverse ? $lineLength : '100' }};
         }
     }
 </style>

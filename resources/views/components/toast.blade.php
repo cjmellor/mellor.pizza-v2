@@ -1,16 +1,16 @@
 <div
-    class="relative flex justify-center z-10"
+    class="relative z-10 flex justify-center"
     x-data="toast"
 >
     <div
-        class="animate-slide-in-down absolute text-center w-1/2 bg-green-100 rounded-b-md py-4 text-green-800 shadow-xl"
+        class="animate-slide-in-down absolute w-1/2 rounded-b-md bg-green-100 py-4 text-center text-green-800 shadow-xl"
         :class="{ 'text-red-800! bg-red-100!': type === 'error' }"
         {{ $attributes }}
         x-cloak
         x-on:send-toast.window="sendEventData"
         x-ref="type"
         x-show="show"
-        x-transition:leave="transition ease-out duration-1000"
+        x-transition:leave="transition duration-1000 ease-out"
         x-transition:leave-end="-translate-y-24"
         x-transition:leave-start="translate-y-full"
     >
@@ -38,11 +38,11 @@
             message: '',
             type: 'success',
 
-            close () {
+            close() {
                 this.show = false;
             },
 
-            sendEventData (event) {
+            sendEventData(event) {
                 this.show = true;
                 this.message = event.detail.messageContent;
                 this.type = event.detail.type;
@@ -50,7 +50,7 @@
                 setTimeout(() => {
                     this.close();
                 }, 5000);
-            }
+            },
         }));
     });
 </script>

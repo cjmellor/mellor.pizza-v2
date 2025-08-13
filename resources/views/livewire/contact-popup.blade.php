@@ -1,8 +1,8 @@
 <div
-    class="max-w-full md:max-w-(--breakpoint-md) lg:max-w-(--breakpoint-xl) p-8 shadow-2xl sticky bottom-0 sm:rounded-t-3xl h-screen sm:h-168 text-gray-500 bg-white dark:bg-dark-focus border border-gray-300 dark:border-dark-line-lighter border-b-0"
+    class="dark:bg-dark-focus dark:border-dark-line-lighter sticky bottom-0 z-10 h-screen w-full max-w-full border border-b-0 border-gray-300 bg-white p-8 text-gray-500 shadow-2xl backdrop-blur-none sm:h-168 sm:rounded-t-3xl"
     @slideUp()
     x-data="{
-        showContactMePopUp: @entangle('showContactMePopUp').live
+        showContactMePopUp: @entangle('showContactMePopUp').live,
     }"
     x-show="showContactMePopUp"
     x-on:click.away="showContactMePopUp = false"
@@ -11,17 +11,17 @@
 >
     {{-- Same button for different screen sizes --}}
     <div
-        class="sm:hidden flex absolute top-1 sm:top-4 right-1 sm:right-4"
+        class="absolute top-1 right-1 flex sm:top-4 sm:right-4 sm:hidden"
         wire:click="closePopUp"
     >
-        <span class="text-pizza dark:text-white font-semibold text-3xl sm:text-5xl rotate-45">&plus;</span>
+        <span class="text-pizza rotate-45 text-3xl font-semibold sm:text-5xl dark:text-white">&plus;</span>
     </div>
 
     <div
-        class="hidden sm:flex justify-center items-center contact-close hover:bg-pizza/90 dark:hover:bg-pizza-dark/75"
+        class="contact-close hover:bg-pizza/90 dark:hover:bg-pizza-dark/75 hidden items-center justify-center sm:flex"
         wire:click="closePopUp"
     >
-        <span class="text-pizza dark:text-white font-semibold text-2xl rotate-45 hover:text-white">&plus;</span>
+        <span class="text-pizza rotate-45 text-2xl leading-none font-semibold hover:text-white dark:text-white">+</span>
     </div>
     {{-- End --}}
 
@@ -29,7 +29,7 @@
         <div class="space-y-5">
             <div>
                 <label
-                    class="block text-lg sm:text-sm font-medium text-gray-700 dark:text-dark-gray/70"
+                    class="dark:text-dark-gray/70 block text-lg font-medium text-gray-700 sm:text-sm"
                     for="contact_name"
                 >
                     What's your name?
@@ -43,7 +43,7 @@
             </div>
             <div>
                 <label
-                    class="block text-lg sm:text-sm font-medium text-gray-700 dark:text-dark-gray/70"
+                    class="dark:text-dark-gray/70 block text-lg font-medium text-gray-700 sm:text-sm"
                     for="contact_email"
                 >
                     What's your email address?
@@ -57,7 +57,7 @@
             </div>
             <div>
                 <label
-                    class="block text-lg sm:text-sm font-medium text-gray-700 dark:text-dark-gray/70"
+                    class="dark:text-dark-gray/70 block text-lg font-medium text-gray-700 sm:text-sm"
                     for="contact_message"
                 >
                     What's up?
@@ -69,9 +69,9 @@
                     wire:model.blur="contact_message"
                 ></x-form.textarea>
             </div>
-            <div class="w-full sm:w-1/2 flex justify-end">
+            <div class="flex w-full justify-end sm:w-1/2">
                 <button
-                    class="inline-flex items-center space-x-3 button-pizza"
+                    class="button-pizza inline-flex items-center space-x-3"
                     type="submit"
                 >
                     <svg
@@ -82,10 +82,12 @@
                         wire:target="send"
                         xmlns="http://www.w3.org/2000/svg"
                     >
-                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                        <path
+                            d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
+                        />
                     </svg>
                     <svg
-                        class="animate-spin h-6 w-6 text-white"
+                        class="h-6 w-6 animate-spin text-white"
                         fill="none"
                         viewBox="0 0 24 24"
                         wire:loading
@@ -109,11 +111,15 @@
                     <span
                         wire:loading.remove
                         wire:target="send"
-                    >Send message</span>
+                    >
+                        Send message
+                    </span>
                     <span
                         wire:loading
                         wire:target="send"
-                    >Sending message...</span>
+                    >
+                        Sending message...
+                    </span>
                 </button>
             </div>
         </div>
