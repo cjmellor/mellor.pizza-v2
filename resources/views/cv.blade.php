@@ -119,7 +119,7 @@
                 trends—not only in the PHP and Laravel space, but across the broader software landscape, including the fast-evolving world
                 of artificial intelligence. I'm particularly engaged with exploring AI-driven tools that improve productivity and software
                 quality, and I understand their growing significance in modern development. Embracing these innovations has allowed me to
-                remain adaptable and forward-thinking in a competitive industry.
+                remain adaptable and forward-thinking in a competitive industry. I also enjoy building side projects to explore new technologies and expand my skillset.
             </p>
         </section>
 
@@ -149,10 +149,10 @@
                     <ul class="space-y-2 text-gray-700 dark:text-gray-300">
                         <li>Alpine.js</li>
                         <li>Inertia.js</li>
-                        <li>PestPHP/PHPUnit</li>
+                        <li>PestPHP / PHPUnit</li>
                         <li>Git</li>
                         <li>GitHub</li>
-                        <li>CI/CD</li>
+                        <li>CI / CD</li>
                     </ul>
                 </div>
 
@@ -162,11 +162,10 @@
                 >
                     <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Development Environment</h3>
                     <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                        <li>PHPStorm</li>
-                        <li>GitHub Copilot (for AI-assisted coding)</li>
+                        <li>PHPStorm</li></li>
                         <li>Agentic AI tools (for task automation and productivity)</li>
                         <li>Docker</li>
-                        <li>TablePlus</li>
+                        <li>TablePlus (for database management)</li>
                     </ul>
                 </div>
             </div>
