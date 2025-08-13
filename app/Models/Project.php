@@ -26,5 +26,12 @@ class Project extends Model
             'logo' => '16p.svg',
             'url' => 'https://16personalities.com/',
         ],
+        [
+            'name' => 'Everyone.co.uk',
+            'description' => 'A contract helping set-up a new learning platform',
+            'testimonial' => '',
+            'logo' => 'everyone.png',
+            'url' => '',
+        ]
     ];
 }
