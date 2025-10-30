@@ -12,7 +12,9 @@
     @endsection
 
     <!-- Main container -->
-    <main class="relative container my-20 space-y-8 px-3.5 pt-40 sm:pt-0 md:px-24">
+    <main
+        class="relative container my-20 space-y-8 px-3.5 pt-40 sm:pt-0 md:px-24 print:my-8 print:space-y-4 print:px-4 print:text-sm print:leading-tight"
+    >
         {{-- Print button --}}
         <div class="hidden xl:absolute xl:top-0 xl:right-0 xl:block print:hidden">
             <flux:button
@@ -25,9 +27,9 @@
             </flux:button>
         </div>
         <!-- Header section -->
-        <header class="mb-12 text-center">
+        <header class="mb-12 text-center print:mb-6">
             <h1 class="mb-2 hidden text-4xl font-bold print:block">Chris Mellor</h1>
-            <p class="text-xl text-gray-600 dark:text-gray-300">
+            <p class="text-xl text-gray-600 dark:text-gray-300 print:text-sm print:leading-tight print:text-black">
                 A
                 <strong class="font-semibold">Full-stack Developer</strong>
                 from
@@ -35,7 +37,7 @@
             </p>
 
             <!-- Contact links -->
-            <div class="mt-6 flex flex-wrap justify-center gap-4 text-lg md:text-base">
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-lg md:text-base print:gap-2 print:text-xs">
                 {{-- Email --}}
                 <a
                     class="text-pizza dark:text-pizza-dark flex items-center gap-2 hover:underline hover:opacity-80 print:text-black"
@@ -112,8 +114,12 @@
 
         <!-- Professional Summary -->
         <section>
-            <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:text-black">Professional Summary</h2>
-            <p class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300">
+            <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:mb-2 print:text-lg print:text-black">
+                Professional Summary
+            </h2>
+            <p
+                class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300 print:text-sm print:leading-tight print:text-black"
+            >
                 I’m a full-stack developer with six years’ experience building SaaS platforms and internal tools. Most of my work has been
                 in the Laravel ecosystem, but I’m quick to pick up whatever stack a project calls for. I care about writing clean, testable
                 code and focus on building solutions that are both practical and maintainable.
@@ -127,65 +133,89 @@
 
         <!-- Technical Skills -->
         <section>
-            <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:text-black">Technical Skills</h2>
+            <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:mb-2 print:text-lg print:text-black">
+                Technical Skills
+            </h2>
 
-            <div class="grid gap-6 md:grid-cols-3 print:grid-cols-1">
-                <!-- Primary Stack -->
-                <div
-                    class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:px-4 print:ring-0"
-                >
-                    <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Primary Stack</h3>
-                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                        <li>Laravel</li>
-                        <li>Vue.js</li>
-                        <li>Livewire</li>
-                        <li>Tailwind CSS</li>
-                    </ul>
-                </div>
+            <div class="print:hidden">
+                <div class="grid gap-6 md:grid-cols-3 print:grid-cols-1">
+                    <!-- Primary Stack -->
+                    <div
+                        class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:px-4 print:shadow-none print:ring-0"
+                    >
+                        <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Primary Stack</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>Laravel</li>
+                            <li>Vue.js</li>
+                            <li>Livewire</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
 
-                <!-- Additional Technologies -->
-                <div
-                    class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:px-4 print:ring-0"
-                >
-                    <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Additional Technologies</h3>
-                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                        <li>Alpine.js</li>
-                        <li>Inertia.js</li>
-                        <li>PestPHP / PHPUnit</li>
-                        <li>Git</li>
-                        <li>GitHub</li>
-                        <li>CI / CD</li>
-                    </ul>
-                </div>
+                    <!-- Additional Technologies -->
+                    <div
+                        class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:px-4 print:shadow-none print:ring-0"
+                    >
+                        <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Additional Technologies</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>Alpine.js</li>
+                            <li>Inertia.js</li>
+                            <li>PestPHP / PHPUnit</li>
+                            <li>Git</li>
+                            <li>GitHub</li>
+                            <li>CI / CD</li>
+                        </ul>
+                    </div>
 
-                <!-- Development Environment -->
-                <div
-                    class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:px-4 print:ring-0"
-                >
-                    <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Development Environment</h3>
-                    <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                        <li>PhpStorm for daily development</li>
-                        <li>AI tools for productivity and faster coding workflows</li>
-                        <li>Docker (and Laravel Sail) when required</li>
-                        <li>Experience managing Laravel Vapor environments</li>
-                    </ul>
+                    <!-- Development Environment -->
+                    <div
+                        class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:px-4 print:shadow-none print:ring-0"
+                    >
+                        <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Development Environment</h3>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                            <li>PhpStorm for daily development</li>
+                            <li>AI tools for productivity and faster coding workflows</li>
+                            <li>Docker (and Laravel Sail) when required</li>
+                            <li>Experience managing Laravel Vapor environments</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
+            <ul class="hidden space-y-1 text-black print:block print:list-disc print:pl-6 print:text-sm print:leading-tight">
+                <li>
+                    <strong>Primary Stack:</strong>
+                    Laravel, Vue.js, Livewire, Tailwind CSS
+                </li>
+                <li>
+                    <strong>Additional Technologies:</strong>
+                    Alpine.js, Inertia.js, PestPHP / PHPUnit, Git, GitHub, CI / CD
+                </li>
+                <li>
+                    <strong>Development Environment:</strong>
+                    PhpStorm for daily development; AI tools for productivity and faster coding workflows; Docker (and Laravel Sail) when
+                    required; Experience managing Laravel Vapor environments
+                </li>
+            </ul>
         </section>
 
         <!-- Professional Experience -->
-        <section class="space-y-8 sm:space-y-0 print:space-y-6">
-            <h2 class="text-pizza dark:text-pizza-dark text-2xl font-bold print:text-black">Professional Experience</h2>
+        <section class="space-y-8 sm:space-y-0 print:space-y-4">
+            <h2 class="text-pizza dark:text-pizza-dark text-2xl font-bold print:mb-2 print:text-lg print:text-black">
+                Professional Experience
+            </h2>
 
             {{-- Contract work --}}
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-black">Freelance</h3>
+                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">Freelance</h3>
                     </div>
-                    <p class="dark:text-gray-400">02/2025 - Present</p>
+                    <p class="dark:text-gray-400 print:text-black">02/2025 - Present</p>
                 </div>
-                <ul class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300">
+                <ul
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                >
                     <li>
                         Completed freelance contracts focused on Laravel and the TALL stack, contributing to maintenance, feature builds,
                         and front-end improvements while quickly adapting to different codebases and delivering results.
@@ -197,12 +227,14 @@
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-black">Senior Laravel Developer</h3>
-                        <p class="font-semibold text-gray-600 dark:text-gray-400">Townsend Music</p>
+                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">Senior Laravel Developer</h3>
+                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">Townsend Music</p>
                     </div>
-                    <p class="dark:text-gray-400">08/2025 - Present</p>
+                    <p class="dark:text-gray-400 print:text-black">08/2025 - Present</p>
                 </div>
-                <ul class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300">
+                <ul
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                >
                     <li>
                         Implemented new website designs from Figma into the company’s Filament-based platform, integrating templates with
                         dynamic data
@@ -229,12 +261,14 @@
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-black">Laravel Developer</h3>
-                        <p class="font-semibold text-gray-600 dark:text-gray-400">59club Ltd</p>
+                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">Laravel Developer</h3>
+                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">59club Ltd</p>
                     </div>
-                    <p class="dark:text-gray-400">01/2022 - 11/2024</p>
+                    <p class="dark:text-gray-400 print:text-black">01/2022 - 11/2024</p>
                 </div>
-                <ul class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300">
+                <ul
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                >
                     <li>Spearheaded system modernisation by resolving critical bugs and implementing new features</li>
                     <li>
                         Core member of a three-person team rebuilding the company's flagship software from the ground up using the TALL
@@ -258,12 +292,14 @@
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-black">PHP Developer</h3>
-                        <p class="font-semibold text-gray-600 dark:text-gray-400">Jump Twenty Four Ltd</p>
+                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">PHP Developer</h3>
+                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">Jump Twenty Four Ltd</p>
                     </div>
-                    <p class="dark:text-gray-400">06/2021 - 12/2021</p>
+                    <p class="dark:text-gray-400 print:text-black">06/2021 - 12/2021</p>
                 </div>
-                <ul class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300">
+                <ul
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                >
                     <li>
                         Led multiple client projects in an agency environment, focusing on modernising legacy applications using Laravel and
                         modern PHP practices
@@ -284,12 +320,14 @@
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-black">Full-stack Developer</h3>
-                        <p class="font-semibold text-gray-600 dark:text-gray-400">Interior Goods Direct</p>
+                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">Full-stack Developer</h3>
+                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">Interior Goods Direct</p>
                     </div>
-                    <p class="dark:text-gray-400">01/2021 - 06/2021</p>
+                    <p class="dark:text-gray-400 print:text-black">01/2021 - 06/2021</p>
                 </div>
-                <ul class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300">
+                <ul
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                >
                     <li>
                         Played a key role in developing and enhancing a Laravel-based eCommerce platform for a major UK blinds and curtains
                         retailer
@@ -304,12 +342,14 @@
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-black">Full-stack Developer</h3>
-                        <p class="font-semibold text-gray-600 dark:text-gray-400">VOODOO</p>
+                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">Full-stack Developer</h3>
+                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">VOODOO</p>
                     </div>
-                    <p class="dark:text-gray-400">11/2019 - 11/2020</p>
+                    <p class="dark:text-gray-400 print:text-black">11/2019 - 11/2020</p>
                 </div>
-                <ul class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300">
+                <ul
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                >
                     <li>
                         Spearheaded complete rebuild of company website using Laravel, Vue.js, and Tailwind CSS, delivering a modern,
                         responsive platform
@@ -323,9 +363,13 @@
 
         <!-- Industry Engagement & Open Source -->
         <section>
-            <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:text-black">Laravel Community & Open Source</h2>
+            <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:mb-2 print:text-lg print:text-black">
+                Laravel Community & Open Source
+            </h2>
             <div class="dark:bg-dark rounded-lg bg-white">
-                <p class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300">
+                <p
+                    class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300 print:text-sm print:leading-tight print:text-black"
+                >
                     I actively contribute to the Laravel ecosystem by creating and maintaining open source packages, with my projects
                     collectively receiving over 1,000 stars on GitHub. Some of these packages have been highlighted on social media and even
                     reviewed on YouTube, helping them reach a wider audience. I take pride in maintaining my work to high standards,
@@ -339,9 +383,11 @@
 
         <!-- Interests -->
         <section>
-            <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:text-black">Interests</h2>
+            <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:mb-2 print:text-lg print:text-black">Interests</h2>
             <div class="dark:bg-dark rounded-lg bg-white">
-                <p class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300">
+                <p
+                    class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300 print:text-sm print:leading-tight print:text-black"
+                >
                     Outside of work, I love travel—often solo, sometimes with my partner—and I’m the sort who plans trips after falling down
                     a YouTube travel‑vlog rabbit hole. I’m into live music and the occasional festival when a favourite band is touring. I
                     also tinker with tech and use AI day‑to‑day (for learning, planning, and general life admin), more out of curiosity than
