@@ -24,7 +24,7 @@ class Project extends Model
             'description' => 'A 3 month contract job asissting in modernising the codebase and helping to develop API\'s',
             'testimonial' => '',
             'logo' => '16p.svg',
-            'url' => 'https://16personalities.com/',
+            'url' => '16personalities.com',
         ],
         [
             'name' => 'Everyone.co.uk',
@@ -32,6 +32,13 @@ class Project extends Model
             'testimonial' => '',
             'logo' => 'everyone.png',
             'url' => '',
-        ]
+        ],
+        [
+            'name' => 'Townsend Music',
+            'description' => 'Assisting in a brand redesign and general day-to-day development work',
+            'testimonial' => '',
+            'logo' => 'townsendmusic.svg',
+            'url' => 'tmstor.es',
+        ],
     ];
 }
