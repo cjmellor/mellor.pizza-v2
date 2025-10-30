@@ -171,46 +171,4 @@
             </div>
         </div>
     </div>
-    {{--
-        <div class="space-y-10 sm:space-y-16">
-        <div class="mt-4 text-center font-merriweather text-neutral-600 dark:text-gray-400">
-        <p class="inline-flex text-2xl sm:text-4xl">Check out my latest articles
-        <a
-        href="#blog-posts"
-        aria-label="check out latest articles"
-        >
-        <svg
-        class="ml-6 hidden h-10 w-8 animate-bounce text-pizza sm:block dark:text-pizza-dark"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        >
-        <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M19 9l-7 7-7-7"
-        />
-        </svg>
-        </a>
-        </p>
-        </div>
-        <hr class="mx-auto w-1/2 border-gray-300 dark:border-gray-700">
-        <div id="blog-posts">
-        <x-posts-list
-        format="short"
-        limit="3"
-        ></x-posts-list>
-        <div class="flex justify-center pb-8 lg:pb-16">
-        <x-link
-        class="font-merriweather text-xl"
-        href="{{ route('blog') }}"
-        to="#"
-        >See more posts
-        </x-link>
-        </div>
-        </div>
-        </div>
-    --}}
 </main>

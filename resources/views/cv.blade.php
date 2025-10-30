@@ -15,12 +15,14 @@
     <main class="relative container my-20 space-y-8 px-3.5 pt-40 sm:pt-0 md:px-24">
         {{-- Print button --}}
         <div class="hidden xl:absolute xl:top-0 xl:right-0 xl:block print:hidden">
-            <button
-                class="button-pizza dark:button-pizza-dark"
+            <flux:button
+                variant="primary"
+                color="orange"
                 onclick="window.print()"
+                icon="printer"
             >
                 Print
-            </button>
+            </flux:button>
         </div>
         <!-- Header section -->
         <header class="mb-12 text-center">
@@ -112,14 +114,14 @@
         <section>
             <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:text-black">Professional Summary</h2>
             <p class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300">
-                Full-stack developer with 6 years of commercial experience creating SaaS platforms and eCommerce solutions. My expertise
-                lies in the Laravel ecosystem, though I readily adapt to other modern development stacks when needed. I focus on writing
-                clean, maintainable code backed by solid testing practices. My approach combines practical solutions with modern development
-                techniques to deliver robust, well-structured applications. I actively keep pace with the latest technologies and industry
-                trends—not only in the PHP and Laravel space, but across the broader software landscape, including the fast-evolving world
-                of artificial intelligence. I'm particularly engaged with exploring AI-driven tools that improve productivity and software
-                quality, and I understand their growing significance in modern development. Embracing these innovations has allowed me to
-                remain adaptable and forward-thinking in a competitive industry. I also enjoy building side projects to explore new technologies and expand my skillset.
+                I’m a full-stack developer with six years’ experience building SaaS platforms and internal tools. Most of my work has been
+                in the Laravel ecosystem, but I’m quick to pick up whatever stack a project calls for. I care about writing clean, testable
+                code and focus on building solutions that are both practical and maintainable.
+                <br />
+                <br />
+                I keep up with new tech, not just in PHP and Laravel but across the wider software world—especially around AI, which I’ve
+                been exploring as a way to improve workflows and code quality. I also enjoy working on side projects to try out new ideas,
+                experiment with tools, and keep learning.
             </p>
         </section>
 
@@ -162,10 +164,10 @@
                 >
                     <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Development Environment</h3>
                     <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                        <li>PHPStorm</li></li>
-                        <li>Agentic AI tools (for task automation and productivity)</li>
-                        <li>Docker</li>
-                        <li>TablePlus (for database management)</li>
+                        <li>PhpStorm for daily development</li>
+                        <li>AI tools for productivity and faster coding workflows</li>
+                        <li>Docker (and Laravel Sail) when required</li>
+                        <li>Experience managing Laravel Vapor environments</li>
                     </ul>
                 </div>
             </div>
@@ -185,8 +187,40 @@
                 </div>
                 <ul class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300">
                     <li>
-                        Completed freelance projects focused on Laravel and modern front-end stacks, with outcomes showcased in my
-                        portfolio.
+                        Completed freelance contracts focused on Laravel and the TALL stack, contributing to maintenance, feature builds,
+                        and front-end improvements while quickly adapting to different codebases and delivering results.
+                    </li>
+                </ul>
+            </div>
+
+            {{-- Townsend Music --}}
+            <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
+                <div class="mb-4 flex flex-wrap items-start justify-between">
+                    <div class="space-y-1.5">
+                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-black">Senior Laravel Developer</h3>
+                        <p class="font-semibold text-gray-600 dark:text-gray-400">Townsend Music</p>
+                    </div>
+                    <p class="dark:text-gray-400">08/2025 - Present</p>
+                </div>
+                <ul class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300">
+                    <li>
+                        Implemented new website designs from Figma into the company’s Filament-based platform, integrating templates with
+                        dynamic data
+                    </li>
+                    <li>
+                        Maintained and extended core systems built on the Filament framework, resolving bugs reported through Sentry and
+                        ClickUp
+                    </li>
+                    <li>
+                        Participated in a rotating support schedule, acting as first point of contact for internal teams and prioritising
+                        issues by severity
+                    </li>
+                    <li>
+                        Monitored and resolved failed jobs and service outages, responding to automated alerts via Slack to minimise
+                        downtime
+                    </li>
+                    <li>
+                        Created and updated technical documentation for new features and fixes to support knowledge sharing across the team
                     </li>
                 </ul>
             </div>
@@ -201,15 +235,11 @@
                     <p class="dark:text-gray-400">01/2022 - 11/2024</p>
                 </div>
                 <ul class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300">
-                    <li>
-                        Spearheaded system modernisation by resolving critical bugs and implementing new features while successfully
-                        upgrading the Laravel framework version
-                    </li>
+                    <li>Spearheaded system modernisation by resolving critical bugs and implementing new features</li>
                     <li>
                         Core member of a three-person team rebuilding the company's flagship software from the ground up using the TALL
                         stack (Tailwind, Alpine.js, Laravel, Livewire)
                     </li>
-                    <li>Actively contributed to code quality through regular peer review processes and pull request assessments</li>
                     <li>
                         Successfully delivered a complete mobile solution, encompassing both a cross-platform application (built with Vue.js
                         and Ionic Framework) and its supporting Laravel API using Sanctum authentication. Notable achievement in
@@ -242,7 +272,6 @@
                         Architected and implemented new features using Inertia.js, demonstrating ability to adapt to client-specific
                         technology requirements
                     </li>
-                    <li>Championed test-driven development practices, significantly improving code reliability and maintenance</li>
                     <li>
                         Collaborated directly with clients through daily stand-ups to gather requirements and demonstrate feature
                         implementations
@@ -267,7 +296,6 @@
                     </li>
                     <li>Built complex product customisation features using Vue.js components integrated with Laravel backend</li>
                     <li>Implemented responsive admin interfaces using Bootstrap, improving internal team efficiency</li>
-                    <li>Collaborated in an agile environment to deliver new features while maintaining existing functionality</li>
                     <li>Optimised database queries and API endpoints to improve application performance</li>
                 </ul>
             </div>
@@ -289,42 +317,22 @@
                     <li>Designed and implemented scalable architecture using Docker containerisation and Kubernetes orchestration</li>
                     <li>Established automated deployment workflows through custom CI/CD pipeline configurations</li>
                     <li>Improved development workflow by implementing containerised environments using Rancher</li>
-                    <li>Collaborated with UK development team to establish new technical standards and practices</li>
                 </ul>
             </div>
-
-            <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
-                <div class="mb-4 flex flex-wrap items-start justify-between">
-                    <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-black">Technical Engineer</h3>
-                        <p class="font-semibold text-gray-600 dark:text-gray-400">VOODOO</p>
-                    </div>
-                    <p class="dark:text-gray-400">02/2017 - 11/2019</p>
-                </div>
-                <ul class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300">
-                    <li>Led the development of a new RESTful API, implementing PSR standards and comprehensive documentation</li>
-                    <li>Revolutionised deployment processes by introducing Git-based workflows, replacing legacy FTP deployments</li>
-                    <li>Mentored development team on modern version control practices and deployment strategies</li>
-                    <li>Architected and delivered a white-label solution based on the core API platform</li>
-                    <li>Implemented monitoring solutions using Docker to improve service reliability</li>
-                    <li>Enhanced support processes through effective ticketing system management and customer query resolution</li>
-                </ul>
-            </div>
-
-            <!-- Additional experience entries would follow the same pattern -->
-            <!-- For brevity, I'll truncate here as the structure repeats -->
         </section>
 
         <!-- Industry Engagement & Open Source -->
         <section>
-            <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:text-black">Industry Engagement & Open Source</h2>
+            <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:text-black">Laravel Community & Open Source</h2>
             <div class="dark:bg-dark rounded-lg bg-white">
                 <p class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300">
-                    I create Laravel packages that solve problems I’ve encountered in my own development work. When existing packages don’t
-                    meet my standards or specific needs, I build my own solutions. One of my packages has gained over 500 stars on GitHub
-                    and continues to receive recognition on X. I maintain an active presence in the Laravel ecosystem, staying ahead of
-                    framework developments and emerging tools. Alongside this, I’m also exploring AI-assisted development through various
-                    side projects, using modern tooling to experiment with new workflows and capabilities.
+                    I actively contribute to the Laravel ecosystem by creating and maintaining open source packages, with my projects
+                    collectively receiving over 1,000 stars on GitHub. Some of these packages have been highlighted on social media and even
+                    reviewed on YouTube, helping them reach a wider audience. I take pride in maintaining my work to high standards,
+                    preferring to build and support my own solutions (or forks) rather than rely on unmaintained packages. Alongside
+                    publishing code, I stay engaged with the Laravel community through newsletters, Laracasts, and online discussion,
+                    keeping up with new features and tools. I also experiment with AI-assisted development in my side projects to explore
+                    new workflows and improve productivity.
                 </p>
             </div>
         </section>
@@ -334,9 +342,10 @@
             <h2 class="text-pizza dark:text-pizza-dark mb-4 text-2xl font-bold print:text-black">Interests</h2>
             <div class="dark:bg-dark rounded-lg bg-white">
                 <p class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300">
-                    Beyond development, I'm passionate about solo travel and experiencing different cultures. A long-time wrestling fan, I
-                    balance this with regularly attending live music events and festivals. I maintain a keen interest in AI technologies,
-                    exploring their potential in modern development practices.
+                    Outside of work, I love travel—often solo, sometimes with my partner—and I’m the sort who plans trips after falling down
+                    a YouTube travel‑vlog rabbit hole. I’m into live music and the occasional festival when a favourite band is touring. I
+                    also tinker with tech and use AI day‑to‑day (for learning, planning, and general life admin), more out of curiosity than
+                    hype.
                 </p>
             </div>
         </section>
