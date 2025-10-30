@@ -18,6 +18,7 @@
         @yield('openGraph')
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @stack('stylesheets')
+        @fluxAppearance
     </head>
 
     <body>
@@ -27,5 +28,6 @@
             <livewire:contact-popup />
         </div>
         @stack('scripts')
+        @fluxScripts
     </body>
 </html>

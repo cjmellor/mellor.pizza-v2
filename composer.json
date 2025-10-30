@@ -10,25 +10,27 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "aws/aws-sdk-php": "^3.334",
-        "calebporzio/sushi": "^2.5",
-        "laravel/folio": "^1.1",
-        "laravel/framework": "^12.0",
-        "laravel/tinker": "^2.9",
-        "livewire/livewire": "^3.5",
+        "aws/aws-sdk-php": "^3.359",
+        "calebporzio/sushi": "^2.5.3",
+        "laravel/folio": "^1.1.10",
+        "laravel/framework": "^12.36.1",
+        "laravel/tinker": "^2.10.1",
+        "livewire/flux": "^2.6",
+        "livewire/flux-pro": "^2.6",
+        "livewire/livewire": "^3.6.4",
         "torchlight/torchlight-commonmark": "dev-main",
         "torchlight/torchlight-laravel": "dev-main@dev"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.14",
-        "fakerphp/faker": "^1.23",
-        "laravel/pail": "^1.1",
-        "laravel/pint": "^1.13",
-        "laravel/sail": "^1.26",
-        "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.1",
-        "pestphp/pest": "^3.6",
-        "pestphp/pest-plugin-laravel": "^3.0"
+        "barryvdh/laravel-debugbar": "^3.16",
+        "fakerphp/faker": "^1.24.1",
+        "laravel/pail": "^1.2.3",
+        "laravel/pint": "^1.25.1",
+        "laravel/sail": "^1.47",
+        "mockery/mockery": "^1.6.12",
+        "nunomaduro/collision": "^8.8.2",
+        "pestphp/pest": "^3.8.4",
+        "pestphp/pest-plugin-laravel": "^3.2"
     },
     "autoload": {
         "psr-4": {
@@ -42,16 +44,20 @@
             "Tests\\": "tests/"
         }
     },
-    "repositories": [
-        {
+    "repositories": {
+        "flux-pro": {
+            "type": "composer",
+            "url": "https://composer.fluxui.dev"
+        },
+        "0": {
             "type": "vcs",
             "url": "https://github.com/cjmellor/torchlight-commonmark-php"
         },
-        {
+        "1": {
             "type": "vcs",
             "url": "https://github.com/cjmellor/torchlight-laravel"
         }
-    ],
+    },
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
