@@ -4,6 +4,7 @@
     <div class="mt-20 flex flex-col space-y-12 lg:mx-12 lg:flex-row lg:space-y-0 xl:mx-32 2xl:mx-48">
         <div class="mt-44 flex flex-col items-center justify-center gap-y-8 md:mt-0 lg:ml-16 lg:w-1/3 lg:justify-start">
             <x-floating-head />
+
             {{-- X (Twitter) --}}
             <div class="flex space-x-4">
                 <flux:button
@@ -24,6 +25,7 @@
                         />
                     </svg>
                 </flux:button>
+
                 {{-- GitHub --}}
                 <flux:button
                     class="group"
@@ -76,6 +78,7 @@
                 @endforeach
             </ul>
         </div>
+
         <div class="lg:ml-24 lg:w-2/3">
             <div
                 class="font-merriweather mx-8 flex h-full max-w-prose flex-col justify-center space-y-8 tracking-wider lg:mx-0 lg:text-left"
@@ -84,19 +87,36 @@
                     Hi, I'm
                     <span class="font-extrabold">Chris</span>
                 </h2>
-                <div
+
+                <flux:callout color="lime">
+                    <flux:callout.heading>
+                        <x-slot name="icon">
+                            <span class="relative flex size-4">
+                                <span
+                                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-400 opacity-75 dark:bg-lime-200"
+                                ></span>
+                                <span class="relative inline-flex size-4 rounded-full bg-lime-500 dark:bg-lime-300"></span>
+                            </span>
+                        </x-slot>
+                        Available for remote contract or full-time positions
+                    </flux:callout.heading>
+                </flux:callout>
+
+                {{--
+                    <div
                     class="flex items-center gap-3 rounded-full bg-lime-50/50 px-2 py-1.5 ring-1 ring-lime-400/25 dark:bg-lime-800/50 dark:ring-lime-600/25"
-                >
+                    >
                     <span class="relative flex size-4">
-                        <span
-                            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-400 opacity-75 dark:bg-lime-200"
-                        ></span>
-                        <span class="relative inline-flex size-4 rounded-full bg-lime-500 dark:bg-lime-300"></span>
+                    <span
+                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-400 opacity-75 dark:bg-lime-200"
+                    ></span>
+                    <span class="relative inline-flex size-4 rounded-full bg-lime-500 dark:bg-lime-300"></span>
                     </span>
                     <p class="font-mono text-lime-800 uppercase md:text-sm dark:text-neutral-100">
-                        Available for remote contract or full-time positions
+                    Available for remote contract or full-time positions
                     </p>
-                </div>
+                    </div>
+                --}}
                 <div class="space-y-8">
                     <p class="leading-8 text-neutral-900 md:text-xl dark:text-neutral-100">
                         <strong class="font-bold">Senior Laravel Developer</strong>
