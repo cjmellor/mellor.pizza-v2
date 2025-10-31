@@ -31,7 +31,7 @@
             <h1 class="mb-2 hidden text-4xl font-bold print:block">Chris Mellor</h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 print:text-sm print:leading-tight print:text-black">
                 A
-                <strong class="font-semibold">Full-stack Developer</strong>
+                <strong class="font-semibold">Laravel / Full-stack Developer</strong>
                 from
                 <strong class="font-semibold">Leeds, UK</strong>
             </p>
@@ -47,7 +47,6 @@
                         class="h-5 w-5"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        fill="none"
                         stroke="currentColor"
                         stroke-width="2"
                         stroke-linecap="round"
@@ -75,7 +74,6 @@
                         class="h-5 w-5"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        fill="none"
                         stroke="currentColor"
                         stroke-width="2"
                         stroke-linecap="round"
@@ -99,7 +97,6 @@
                         class="h-5 w-5"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
-                        fill="none"
                         stroke="currentColor"
                         stroke-width="2"
                         stroke-linecap="round"
