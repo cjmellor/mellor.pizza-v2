@@ -44,7 +44,7 @@
                     href="mailto:chris@mellor.pizza"
                 >
                     <svg
-                        class="h-5 w-5"
+                        class="h-5 w-5 fill-none"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -71,7 +71,7 @@
                     href="https://github.com/cjmellor"
                 >
                     <svg
-                        class="h-5 w-5"
+                        class="h-5 w-5 fill-none"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -94,7 +94,7 @@
                     href="https://x.com/cmellor"
                 >
                     <svg
-                        class="h-5 w-5"
+                        class="h-5 w-5 fill-none"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -206,12 +206,16 @@
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">Freelance</h3>
+                        <h3
+                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
+                        >
+                            Freelance
+                        </h3>
                     </div>
                     <p class="dark:text-gray-400 print:text-black">02/2025 - Present</p>
                 </div>
                 <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
                 >
                     <li>
                         Completed freelance contracts focused on Laravel and the TALL stack, contributing to maintenance, feature builds,
@@ -224,13 +228,17 @@
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">Senior Laravel Developer</h3>
+                        <h3
+                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
+                        >
+                            Senior Laravel Developer
+                        </h3>
                         <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">Townsend Music</p>
                     </div>
                     <p class="dark:text-gray-400 print:text-black">08/2025 - Present</p>
                 </div>
                 <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
                 >
                     <li>
                         Implemented new website designs from Figma into the company’s Filament-based platform, integrating templates with
@@ -258,13 +266,17 @@
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">Laravel Developer</h3>
+                        <h3
+                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
+                        >
+                            Laravel Developer
+                        </h3>
                         <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">59club Ltd</p>
                     </div>
                     <p class="dark:text-gray-400 print:text-black">01/2022 - 11/2024</p>
                 </div>
                 <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
                 >
                     <li>Spearheaded system modernisation by resolving critical bugs and implementing new features</li>
                     <li>
@@ -289,13 +301,17 @@
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">PHP Developer</h3>
+                        <h3
+                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
+                        >
+                            PHP Developer
+                        </h3>
                         <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">Jump Twenty Four Ltd</p>
                     </div>
                     <p class="dark:text-gray-400 print:text-black">06/2021 - 12/2021</p>
                 </div>
                 <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
                 >
                     <li>
                         Led multiple client projects in an agency environment, focusing on modernising legacy applications using Laravel and
@@ -317,13 +333,17 @@
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">Full-stack Developer</h3>
+                        <h3
+                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
+                        >
+                            Full-stack Developer
+                        </h3>
                         <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">Interior Goods Direct</p>
                     </div>
                     <p class="dark:text-gray-400 print:text-black">01/2021 - 06/2021</p>
                 </div>
                 <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
                 >
                     <li>
                         Played a key role in developing and enhancing a Laravel-based eCommerce platform for a major UK blinds and curtains
@@ -339,13 +359,17 @@
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
                     <div class="space-y-1.5">
-                        <h3 class="text-pizza dark:text-pizza-dark text-xl font-bold print:text-base print:font-semibold print:mb-1 print:text-black">Full-stack Developer</h3>
+                        <h3
+                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
+                        >
+                            Full-stack Developer
+                        </h3>
                         <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">VOODOO</p>
                     </div>
                     <p class="dark:text-gray-400 print:text-black">11/2019 - 11/2020</p>
                 </div>
                 <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:text-black print:leading-snug"
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
                 >
                     <li>
                         Spearheaded complete rebuild of company website using Laravel, Vue.js, and Tailwind CSS, delivering a modern,
