@@ -40,6 +40,7 @@
                         viewBox="0 0 24 24"
                     >
                         <path
+                            fill="currentColor"
                             d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.76-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.527.117-3.176 0 0 1.008-.322 3.3 1.23a11.53 11.53 0 0 1 3-.405 11.53 11.53 0 0 1 3 .405c2.29-1.552 3.297-1.23 3.297-1.23.653 1.649.241 2.873.118 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.803 5.62-5.475 5.92.43.37.81 1.102.81 2.222 0 1.606-.015 2.898-.015 3.293 0 .319.218.694.825.576C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z"
                         />
                     </svg>
@@ -102,21 +103,6 @@
                     </flux:callout.heading>
                 </flux:callout>
 
-                {{--
-                    <div
-                    class="flex items-center gap-3 rounded-full bg-lime-50/50 px-2 py-1.5 ring-1 ring-lime-400/25 dark:bg-lime-800/50 dark:ring-lime-600/25"
-                    >
-                    <span class="relative flex size-4">
-                    <span
-                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-400 opacity-75 dark:bg-lime-200"
-                    ></span>
-                    <span class="relative inline-flex size-4 rounded-full bg-lime-500 dark:bg-lime-300"></span>
-                    </span>
-                    <p class="font-mono text-lime-800 uppercase md:text-sm dark:text-neutral-100">
-                    Available for remote contract or full-time positions
-                    </p>
-                    </div>
-                --}}
                 <div class="space-y-8">
                     <p class="leading-8 text-neutral-900 md:text-xl dark:text-neutral-100">
                         <strong class="font-bold">Senior Laravel Developer</strong>
@@ -179,12 +165,12 @@
 
                     <div>
                         <flux:button
+                            class="button-pizza!"
                             href="{{ route('cv') }}"
                             aria-label="View CV"
-                            icon="file-text"
                             variant="primary"
                         >
-                            View CV
+                            View my CV
                         </flux:button>
                     </div>
                 </div>
