@@ -117,9 +117,9 @@
             <p
                 class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300 print:text-sm print:leading-tight print:text-black"
             >
-                I’m a full-stack developer with six years’ experience building SaaS platforms and internal tools. Most of my work has been
-                in the Laravel ecosystem, but I’m quick to pick up whatever stack a project calls for. I care about writing clean, testable
-                code and focus on building solutions that are both practical and maintainable.
+                I’m a Laravel / full-stack developer with six years’ experience building SaaS platforms and internal tools. Most of my work
+                has been in the Laravel ecosystem, but I’m quick to pick up whatever stack a project calls for. I care about writing clean,
+                testable code and focus on building solutions that are both practical and maintainable.
                 <br />
                 <br />
                 I keep up with new tech, not just in PHP and Laravel but across the wider software world—especially around AI, which I’ve
