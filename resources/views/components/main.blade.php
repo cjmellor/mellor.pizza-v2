@@ -165,7 +165,7 @@
 
                     <div>
                         <flux:button
-                            class="button-pizza!"
+                            class="bg-pizza hover:bg-orange-500 dark:bg-pizza-dark dark:hover:bg-orange-500"
                             href="{{ route('cv') }}"
                             aria-label="View CV"
                             variant="primary"
