@@ -28,6 +28,7 @@ class Article extends Model
             'published_at' => '2021-12-14',
             'slug' => 'torchlight-code-highlighting-in-a-markdown-wysiwyg',
             'title' => 'Torchlight: Code Highlighting in a Markdown WYSIWYG',
+            'visibility' => 'public'
         ],
         [
             'author' => 'Chris Mellor',
@@ -36,6 +37,7 @@ class Article extends Model
             'published_at' => '2022-06-25',
             'slug' => 'query-scopes-an-undocumented-feature',
             'title' => 'Query Scopes: An Undocumented Feature',
+            'visibility' => 'public'
         ],
         [
             'author' => 'Chris Mellor',
@@ -44,6 +46,7 @@ class Article extends Model
             'published_at' => '2022-06-29',
             'slug' => 'replace-laravel-mix-with-vite',
             'title' => 'Replace Laravel Mix with Vite',
+            'visibility' => 'public'
         ],
         [
             'author' => 'Chris Mellor',
@@ -52,6 +55,7 @@ class Article extends Model
             'published_at' => '2023-01-15',
             'slug' => 'build-a-chat-room-using-tall-stack-and-websockets',
             'title' => 'Build a Chat Room using TALL Stack and WebSockets',
+            'visibility' => 'public'
         ],
         [
             'author' => 'Chris Mellor',
@@ -60,6 +64,7 @@ class Article extends Model
             'published_at' => '2024-12-19',
             'slug' => 'simplifying-my-blog-laravel-folio-sushi',
             'title' => 'Simplifying My Blog: Laravel Folio & Sushi',
+            'visibility' => 'public'
         ],
     ];
 

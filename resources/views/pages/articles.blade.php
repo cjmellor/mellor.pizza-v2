@@ -1,9 +1,19 @@
 <?php
 
-\Laravel\Folio\name('articles');
+use App\Models\Article;
 
-\Laravel\Folio\render(function (Illuminate\View\View $view, \App\Models\Article $article): void {
-    $view->with('articles', $article->latest('published_at')->simplePaginate(perPage: 10));
+use function Laravel\Folio\name;
+use function Laravel\Folio\render;
+
+name('articles');
+
+render(function (Illuminate\View\View $view, Article $article): void {
+    $view->with(
+        key: 'articles',
+        value: $article->latest('published_at')
+            ->where('visibility', 'public')
+            ->simplePaginate(perPage: 10)
+    );
 });
 
 ?>
