@@ -14,61 +14,59 @@
         class="absolute top-1 right-1 flex sm:top-4 sm:right-4 sm:hidden"
         wire:click="closePopUp"
     >
-        <span class="text-pizza rotate-45 text-3xl font-semibold sm:text-5xl dark:text-white">&plus;</span>
+        <flux:icon.x-mark
+            class="text-pizza size-5"
+            variant="solid"
+        />
     </div>
 
     <div
-        class="contact-close hover:bg-pizza/90 dark:hover:bg-pizza-dark/75 hidden items-center justify-center sm:flex"
+        class="contact-close group hover:bg-pizza/90 dark:hover:bg-pizza-dark/75 hidden items-center justify-center sm:flex"
         wire:click="closePopUp"
     >
-        <span class="text-pizza rotate-45 text-2xl leading-none font-semibold hover:text-white dark:text-white">+</span>
+        <flux:icon.x-mark
+            class="text-pizza size-5 group-hover:text-white"
+            variant="solid"
+        />
     </div>
     {{-- End --}}
+
+    <flux:heading
+        class="mb-3"
+        level="1"
+        size="xl"
+    >
+        How can I help?
+    </flux:heading>
 
     <x-form.form wire:submit="send">
         <div class="space-y-5">
             <div>
-                <label
-                    class="dark:text-dark-gray/70 block text-lg font-medium text-gray-700 sm:text-sm"
-                    for="contact_name"
-                >
-                    What's your name?
-                </label>
-                <x-form.input
+                <flux:input
                     class="sm:w-1/2"
-                    for="contact_name"
                     type="text"
+                    placeholder="Name"
                     wire:model.blur="contact_name"
                 />
             </div>
             <div>
-                <label
-                    class="dark:text-dark-gray/70 block text-lg font-medium text-gray-700 sm:text-sm"
-                    for="contact_email"
-                >
-                    What's your email address?
-                </label>
-                <x-form.input
+                <flux:input
                     class="sm:w-1/2"
-                    for="contact_email"
                     type="email"
+                    placeholder="Email"
                     wire:model.blur="contact_email"
                 />
             </div>
             <div>
-                <label
-                    class="dark:text-dark-gray/70 block text-lg font-medium text-gray-700 sm:text-sm"
-                    for="contact_message"
-                >
-                    What's up?
-                </label>
-                <x-form.textarea
-                    for="contact_message"
+                <flux:textarea
+                    class="sm:w-1/2"
+                    placeholder="Tell me about your project, timeline, or what you’d like help with…"
                     cols="30"
-                    rows="10"
+                    rows="16"
                     wire:model.blur="contact_message"
-                ></x-form.textarea>
+                ></flux:textarea>
             </div>
+
             <div class="flex w-full justify-end sm:w-1/2">
                 <button
                     class="button-pizza inline-flex items-center space-x-3"

@@ -1,8 +1,8 @@
 @use(App\Actions\FetchTopGithubReposAction)
 
 <main>
-    <div class="mt-20 flex flex-col space-y-12 lg:mx-12 lg:flex-row lg:space-y-0 xl:mx-32 2xl:mx-48">
-        <div class="mt-44 flex flex-col items-center justify-center gap-y-8 md:mt-0 lg:ml-16 lg:w-1/3 lg:justify-start">
+    <div class="mt-18 flex flex-col space-y-12 lg:mx-12 lg:flex-row lg:space-y-0 xl:mx-32 2xl:mx-48">
+        <div class="mt-42 flex flex-col items-center justify-center space-y-8 md:mt-0 lg:ml-16 lg:w-1/3 lg:justify-start lg:space-y-6">
             <x-floating-head />
 
             {{-- X (Twitter) --}}
@@ -103,16 +103,42 @@
                     </flux:callout.heading>
                 </flux:callout>
 
-                <div class="space-y-8">
+                <div class="space-y-10">
                     <p class="leading-8 text-neutral-900 md:text-xl dark:text-neutral-100">
-                        <strong class="font-bold">Senior Laravel Developer</strong>
-                        specializing in the
-                        <strong class="font-bold">TALL stack (Tailwind, Alpine, Laravel, Livewire)</strong>
-                        . I deliver
-                        <strong class="font-bold">scalable, maintainable, and tested solutions</strong>
-                        that help teams ship faster and more reliably.
+                        <strong>Senior Laravel Developer helping teams ship, scale, and modernise apps using the TALL stack.</strong>
                     </p>
-                    <p class="text-sm text-neutral-900 sm:text-base md:text-lg dark:text-neutral-100">Strong background in:</p>
+
+                    <p class="text-sm text-neutral-900 sm:text-base md:text-lg dark:text-neutral-100">
+                        I build maintainable, well-tested features for Laravel and Livewire apps — fast, clean, and with a focus on
+                        long-term reliability.
+                    </p>
+
+                    <div>
+                        <flux:button
+                            class="bg-pizza dark:bg-pizza-dark hover:bg-orange-500 dark:hover:bg-orange-500"
+                            href="{{ route('cv') }}"
+                            aria-label="View CV"
+                            variant="primary"
+                        >
+                            Let's work together
+                        </flux:button>
+                    </div>
+
+                    <flux:avatar.group>
+                        <flux:avatar
+                            src="https://unavatar.io/tmstor.es"
+                            tooltip="Townsend Music"
+                        />
+                        <flux:avatar
+                            src="https://unavatar.io/16personalities.com"
+                            tooltip="16 Personalities"
+                        />
+                        <flux:avatar
+                            src="https://unavatar.io/youtube/keisone"
+                            tooltip="Keis One: YouTuber"
+                        />
+                        <flux:avatar :href="route('portfolio')">+</flux:avatar>
+                    </flux:avatar.group>
 
                     <ul
                         class="mt-2 flex flex-wrap items-center gap-2 md:gap-3"
@@ -121,7 +147,7 @@
                     >
                         <li>
                             <flux:badge
-                                class="transition-transform hover:-translate-y-0.5"
+                                class="transition-transform hover:scale-105"
                                 color="red"
                                 size="lg"
                             >
@@ -130,7 +156,7 @@
                         </li>
                         <li>
                             <flux:badge
-                                class="transition-transform hover:-translate-y-0.5"
+                                class="transition-transform hover:scale-105"
                                 color="yellow"
                                 size="lg"
                             >
@@ -139,7 +165,7 @@
                         </li>
                         <li>
                             <flux:badge
-                                class="transition-transform hover:-translate-y-0.5"
+                                class="transition-transform hover:scale-105"
                                 color="sky"
                                 size="lg"
                             >
@@ -148,31 +174,33 @@
                         </li>
                         <li>
                             <flux:badge
-                                class="transition-transform hover:-translate-y-0.5"
+                                class="transition-transform hover:scale-105"
                                 color="green"
                                 size="lg"
                             >
                                 Vue.js
                             </flux:badge>
                         </li>
+
+                        <li>
+                            <flux:badge
+                                class="transition-transform hover:scale-105"
+                                color="orange"
+                                size="lg"
+                            >
+                                CI/CD
+                            </flux:badge>
+                        </li>
+                        <li>
+                            <flux:badge
+                                class="transition-transform hover:scale-105"
+                                color="purple"
+                                size="lg"
+                            >
+                                API
+                            </flux:badge>
+                        </li>
                     </ul>
-
-                    <p class="leading-8 md:text-xl">
-                        I focus on
-                        <strong class="font-bold">clean code, testing, and developer experience</strong>
-                        so projects stay solid as they grow.
-                    </p>
-
-                    <div>
-                        <flux:button
-                            class="bg-pizza hover:bg-orange-500 dark:bg-pizza-dark dark:hover:bg-orange-500"
-                            href="{{ route('cv') }}"
-                            aria-label="View CV"
-                            variant="primary"
-                        >
-                            View my CV
-                        </flux:button>
-                    </div>
                 </div>
             </div>
         </div>

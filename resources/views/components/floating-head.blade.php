@@ -1,9 +1,9 @@
 <div class="relative -z-10 flex h-48 w-48 lg:h-56 lg:w-56">
     <div class="dark:bg-dark absolute z-10 flex h-full w-full items-center justify-center rounded-full bg-white"></div>
-    <div class="bg-pizza dark:bg-pizza-dark absolute h-full w-full rounded-full blur-xl"></div>
-    <div class="bg-pizza dark:bg-pizza-dark absolute h-full w-full animate-pulse rounded-full opacity-60 blur-2xl"></div>
+    <div class="bg-pizza dark:bg-pizza-dark absolute h-full w-full rounded-full blur-sm"></div>
+    <div class="bg-pizza dark:bg-pizza-dark absolute h-full w-full animate-pulse rounded-full opacity-60"></div>
     <div class="bg-pizza dark:bg-pizza-dark absolute -inset-0.5 rounded-full"></div>
-    <div class="absolute z-10 rounded-full bg-pizza/20 dark:bg-pizza-dark/20">
+    <div class="bg-pizza/20 dark:bg-pizza-dark/20 absolute z-10 rounded-full">
         <picture>
             <source
                 type="image/avif"
