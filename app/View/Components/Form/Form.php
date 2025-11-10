@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\View\Components\Form;
 
 use Illuminate\Contracts\View\View;

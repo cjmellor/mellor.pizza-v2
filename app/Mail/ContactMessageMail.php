@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Mail;
 
 use Illuminate\Mail\Mailable;
@@ -14,6 +16,7 @@ class ContactMessageMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
+            to: [new Address(config('mail.current_contact_email'))],
             replyTo: [new Address($this->data['contact_email'])],
             subject: config('mail.subject'),
         );

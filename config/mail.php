@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 
     /*
@@ -113,7 +115,7 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
-    'current_contact_email' => env('MAIL_TO_ADDRESS'),
+    'current_contact_email' => env('MAIL_TO_ADDRESS', 'contact@example.com'),
 
     'subject' => env('MAIL_SUBJECT', 'Enquiry'),
 
