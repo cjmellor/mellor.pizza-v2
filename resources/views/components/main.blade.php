@@ -105,12 +105,12 @@
 
                 <div class="space-y-10">
                     <p class="leading-8 text-neutral-900 md:text-xl dark:text-neutral-100">
-                        <strong>Senior Laravel Developer helping teams ship, scale, and modernise apps using the TALL stack.</strong>
+                        <strong>Senior Laravel Developer helping teams ship, scale, and modernise apps.</strong>
                     </p>
 
                     <p class="text-sm text-neutral-900 sm:text-base md:text-lg dark:text-neutral-100">
-                        I build maintainable, well-tested features for Laravel and Livewire apps — fast, clean, and with a focus on
-                        long-term reliability.
+                        I focus on writing clean, reliable code — mostly in Laravel and Livewire — and delivering features that are easy to
+                        maintain long-term.
                     </p>
 
                     <div>
@@ -140,66 +140,33 @@
                         <flux:avatar :href="route('portfolio')">+</flux:avatar>
                     </flux:avatar.group>
 
+                    @php
+                        $technologies = [
+                            ['label' => 'Laravel', 'color' => 'red'],
+                            ['label' => 'Livewire', 'color' => 'yellow'],
+                            ['label' => 'Tailwind CSS', 'color' => 'sky'],
+                            ['label' => 'Vue.js', 'color' => 'green'],
+                            ['label' => 'CI/CD', 'color' => 'orange'],
+                            ['label' => 'API', 'color' => 'purple'],
+                        ];
+                    @endphp
+
                     <ul
                         class="mt-2 flex flex-wrap items-center gap-2 md:gap-3"
                         role="list"
                         aria-label="Technologies"
                     >
-                        <li>
-                            <flux:badge
-                                class="transition-transform hover:scale-105"
-                                color="red"
-                                size="lg"
-                            >
-                                Laravel
-                            </flux:badge>
-                        </li>
-                        <li>
-                            <flux:badge
-                                class="transition-transform hover:scale-105"
-                                color="yellow"
-                                size="lg"
-                            >
-                                Livewire
-                            </flux:badge>
-                        </li>
-                        <li>
-                            <flux:badge
-                                class="transition-transform hover:scale-105"
-                                color="sky"
-                                size="lg"
-                            >
-                                Tailwind CSS
-                            </flux:badge>
-                        </li>
-                        <li>
-                            <flux:badge
-                                class="transition-transform hover:scale-105"
-                                color="green"
-                                size="lg"
-                            >
-                                Vue.js
-                            </flux:badge>
-                        </li>
-
-                        <li>
-                            <flux:badge
-                                class="transition-transform hover:scale-105"
-                                color="orange"
-                                size="lg"
-                            >
-                                CI/CD
-                            </flux:badge>
-                        </li>
-                        <li>
-                            <flux:badge
-                                class="transition-transform hover:scale-105"
-                                color="purple"
-                                size="lg"
-                            >
-                                API
-                            </flux:badge>
-                        </li>
+                        @foreach ($technologies as $technology)
+                            <li>
+                                <flux:badge
+                                    class="transition-transform hover:scale-105"
+                                    color="{{ $technology['color'] }}"
+                                    size="lg"
+                                >
+                                    {{ $technology['label'] }}
+                                </flux:badge>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

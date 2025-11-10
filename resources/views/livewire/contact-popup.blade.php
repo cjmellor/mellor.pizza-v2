@@ -32,7 +32,7 @@
     {{-- End --}}
 
     <flux:heading
-        class="mb-3"
+        class="font-merriweather mb-3"
         level="1"
         size="xl"
     >
