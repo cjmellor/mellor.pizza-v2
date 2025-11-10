@@ -262,6 +262,56 @@
                 </ul>
             </div>
 
+            <!-- Everyone Inc -->
+            <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
+                <div class="mb-4 flex flex-wrap items-start justify-between">
+                    <div class="space-y-1.5">
+                        <h3
+                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
+                        >
+                            Full-stack Developer
+                        </h3>
+                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">
+                            Everyone Inc · Freelance
+                        </p>
+                    </div>
+                    <p class="dark:text-gray-400 print:text-black">06/2025 - 08/2025</p>
+                </div>
+                <ul
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                >
+                    <li>
+                        Collaborated with the management team and their client to rebuild the website from the ground up using the TALL
+                        stack. Developed many of the front-end views with Blade, Tailwind CSS, and Alpine.js base
+                    </li>
+                </ul>
+            </div>
+
+            <!-- NERIS Analytics Limited -->
+            <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
+                <div class="mb-4 flex flex-wrap items-start justify-between">
+                    <div class="space-y-1.5">
+                        <h3
+                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
+                        >
+                            Laravel Developer
+                        </h3>
+                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">
+                            NERIS Analytics Limited · Freelance
+                        </p>
+                    </div>
+                    <p class="dark:text-gray-400 print:text-black">02/2025 - 05/2025</p>
+                </div>
+                <ul
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                >
+                    <li>
+                        Worked closely with the development team via Linear to implement new features and streamline the backlog of support
+                        tickets and bug fixes
+                    </li>
+                </ul>
+            </div>
+
             <!-- 59club Ltd -->
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
