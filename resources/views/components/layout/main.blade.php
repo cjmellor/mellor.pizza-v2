@@ -10,11 +10,39 @@
             name="viewport"
             content="width=device-width, initial-scale=1"
         />
-        <title>Mellor.🍕 - {{ $subTitle ?? 'Home' }}</title>
+        <title>Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website & Blog" }}</title>
 
         <x-tracking-code />
 
-        @yield('openGraph')
+        <meta
+            property="og:title"
+            content="Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website & Blog" }}"
+        />
+        <meta
+            property="og:description"
+            content="The personal website and blog writings of Chris Mellor"
+        />
+        <meta
+            property="og:url"
+            content="https://mellor.pizza/"
+        />
+        <meta
+            property="og:site_name"
+            content="Mellor.🍕"
+        />
+        <meta
+            property="og:locale"
+            content="en_GB"
+        />
+        <meta
+            property="og:image"
+            content="{{ asset('storage/open_graph_image.jpg') }}"
+        />
+        <meta
+            property="og:type"
+            content="website"
+        />
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @stack('stylesheets')
         @fluxAppearance
