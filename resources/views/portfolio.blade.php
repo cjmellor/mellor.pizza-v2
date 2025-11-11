@@ -32,7 +32,7 @@
                     <div class="flex flex-1 flex-col space-y-5">
                         <img
                             class="z-10 mx-auto size-16 rounded-full bg-neutral-100 shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 ring-offset-4 transition-transform duration-200 sm:mx-0 sm:group-hover:scale-105 dark:ring-zinc-100/15 dark:ring-offset-zinc-700"
-                            src="{{ asset('storage/portfolio_logos/' . $project->logo) }}"
+                            src="{{ $project->logo }}"
                             alt="{{ $project->name }}"
                             loading="lazy"
                         />

@@ -124,19 +124,20 @@
                         </flux:button>
                     </div>
 
+                    @php
+                        $featuredProjects = \App\Models\Project::query()
+                            ->featured()
+                            ->get();
+                    @endphp
+
                     <flux:avatar.group>
-                        <flux:avatar
-                            src="https://unavatar.io/tmstor.es"
-                            tooltip="Townsend Music"
-                        />
-                        <flux:avatar
-                            src="https://unavatar.io/16personalities.com"
-                            tooltip="16 Personalities"
-                        />
-                        <flux:avatar
-                            src="https://unavatar.io/youtube/keisone"
-                            tooltip="Keis One: YouTuber"
-                        />
+                        @foreach ($featuredProjects as $project)
+                            <flux:avatar
+                                src="{{ $project->logo }}"
+                                tooltip="{{ $project->name }}"
+                            />
+                        @endforeach
+
                         <flux:avatar :href="route('portfolio')">+</flux:avatar>
                     </flux:avatar.group>
 
