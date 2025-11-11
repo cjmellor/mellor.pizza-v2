@@ -13,7 +13,7 @@
 
     <!-- Main container -->
     <main
-        class="relative container my-20 space-y-8 px-3.5 pt-40 sm:pt-0 md:px-24 print:my-8 print:space-y-4 print:px-4 print:text-sm print:leading-tight"
+        class="relative container my-20 mt-6 space-y-8 px-3.5 pt-0 sm:mt-0 sm:pt-40 md:px-24 print:my-8 print:space-y-4 print:px-4 print:text-sm print:leading-tight"
     >
         {{-- Print button --}}
         <div class="hidden xl:absolute xl:top-0 xl:right-0 xl:block print:hidden">
@@ -26,6 +26,7 @@
                 Print
             </flux:button>
         </div>
+
         <!-- Header section -->
         <header class="mb-12 text-center print:mb-6">
             <h1 class="mb-2 hidden text-4xl font-bold print:block">Chris Mellor</h1>

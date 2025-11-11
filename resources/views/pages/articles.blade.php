@@ -10,9 +10,10 @@ name('articles');
 render(function (Illuminate\View\View $view, Article $article): void {
     $view->with(
         key: 'articles',
-        value: $article->latest('published_at')
+        value: $article
+            ->latest('published_at')
             ->where('visibility', 'public')
-            ->simplePaginate(perPage: 10)
+            ->simplePaginate(perPage: 10),
     );
 });
 

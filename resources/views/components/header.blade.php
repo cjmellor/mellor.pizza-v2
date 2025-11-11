@@ -1,16 +1,16 @@
 <header class="print:hidden">
-    <div class="flex h-16 flex-col items-center justify-around space-y-8 sm:mx-20 md:flex-row md:space-y-0">
-        <div class="w-full lg:w-5/12 xl:w-1/3">
+    <div class="flex h-16 flex-col items-center justify-around space-y-8 sm:mx-20 lg:flex-row lg:space-y-0">
+        <div class="w-auto max-w-full lg:w-5/12 xl:w-1/3">
             <a href="{{ route('homepage') }}">
                 <h2
-                    class="font-anton text-pizza dark:text-pizza-dark text-center text-6xl tracking-wider uppercase drop-shadow-lg md:text-left md:text-5xl"
+                    class="font-anton text-pizza dark:text-pizza-dark text-center text-6xl tracking-wider uppercase drop-shadow-lg min-[820px]:text-[4.25rem] md:text-left md:text-5xl"
                 >
                     Chris.Mellor
                 </h2>
             </a>
         </div>
         <div
-            class="font-roboto-mono flex w-full flex-col items-center justify-evenly space-y-6 px-6 tracking-wider uppercase md:flex-row md:items-center md:space-y-0 md:px-0 md:text-xl lg:w-7/12 xl:w-2/3"
+            class="font-roboto-mono flex w-auto max-w-full flex-col items-center space-y-4 px-6 text-lg tracking-wider uppercase min-[744px]:w-full min-[744px]:flex-row min-[744px]:flex-wrap min-[744px]:justify-center min-[744px]:space-y-0 min-[744px]:gap-x-6 min-[744px]:gap-y-4 min-[744px]:px-0 min-[744px]:tracking-normal md:text-xl lg:w-7/12 lg:flex-nowrap lg:justify-evenly lg:px-0 xl:w-2/3 landscape:w-full landscape:flex-row landscape:flex-wrap landscape:justify-center landscape:space-y-0 landscape:gap-x-6 landscape:gap-y-4"
         >
             <div>
                 <x-link

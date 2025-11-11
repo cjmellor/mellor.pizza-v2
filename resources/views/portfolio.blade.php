@@ -12,7 +12,7 @@
     @endsection
 
     <!-- Main container -->
-    <main class="relative container my-20 space-y-6 px-3.5 pt-40 sm:space-y-20 sm:pt-0 md:px-24 lg:space-y-12">
+    <main class="relative container my-20 mt-64 space-y-6 px-3.5 pt-0 sm:mt-0 sm:space-y-20 sm:pt-40 md:px-24 lg:space-y-12">
         <div class="space-y-6">
             <h1 class="font-merriweather text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">My portfolio</h1>
             <p class="text-lg leading-7 text-zinc-700 dark:text-zinc-300">
