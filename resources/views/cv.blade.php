@@ -13,7 +13,7 @@
 
     <!-- Main container -->
     <main
-        class="relative container my-20 mt-6 space-y-8 px-3.5 pt-0 sm:mt-0 sm:pt-40 md:px-24 print:my-8 print:space-y-4 print:px-4 print:text-sm print:leading-tight"
+        class="relative container my-20 mt-6 space-y-8 px-3.5 pt-0 sm:mt-0 sm:pt-40 md:px-24 print:my-8 print:space-y-4 print:px-4 print:pt-0 print:text-sm print:leading-tight"
     >
         {{-- Print button --}}
         <div class="hidden xl:absolute xl:top-0 xl:right-0 xl:block print:hidden">
@@ -118,14 +118,15 @@
             <p
                 class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300 print:text-sm print:leading-tight print:text-black"
             >
-                I’m a Laravel / full-stack developer with six years’ experience building SaaS platforms and internal tools. Most of my work
-                has been in the Laravel ecosystem, but I’m quick to pick up whatever stack a project calls for. I care about writing clean,
+                I'm a Laravel / full-stack developer with six years' experience building SaaS platforms and internal tools. Most of my work
+                has been in the Laravel ecosystem, but I'm quick to pick up whatever stack a project calls for. I care about writing clean,
                 testable code and focus on building solutions that are both practical and maintainable.
                 <br />
                 <br />
-                I keep up with new tech, not just in PHP and Laravel but across the wider software world—especially around AI, which I’ve
-                been exploring as a way to improve workflows and code quality. I also enjoy working on side projects to try out new ideas,
-                experiment with tools, and keep learning.
+                I've fully adopted an AI-first workflow that has transformed how I approach development—dramatically accelerating my ability
+                to ship features, refactor complex systems, and explore new technologies. AI agents have become central to my daily process,
+                allowing me to maintain the same high standards for code quality while moving significantly faster. I keep up with new tech
+                across the wider software world, continuously experimenting with emerging tools and techniques to stay ahead of the curve.
             </p>
         </section>
 
@@ -157,7 +158,6 @@
                         <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Additional Technologies</h3>
                         <ul class="space-y-2 text-gray-700 dark:text-gray-300">
                             <li>Alpine.js</li>
-                            <li>Inertia.js</li>
                             <li>PestPHP / PHPUnit</li>
                             <li>Git</li>
                             <li>GitHub</li>
@@ -171,10 +171,10 @@
                     >
                         <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Development Environment</h3>
                         <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-                            <li>PhpStorm for daily development</li>
-                            <li>AI tools for productivity and faster coding workflows</li>
+                            <li>PHPStorm as primary IDE</li>
+                            <li>Claude Code (AI agent) for AI-first development workflows</li>
                             <li>Docker (and Laravel Sail) when required</li>
-                            <li>Experience managing Laravel Vapor environments</li>
+                            <li>Linux hosting platforms and web infrastructure</li>
                         </ul>
                     </div>
                 </div>
@@ -187,12 +187,12 @@
                 </li>
                 <li>
                     <strong>Additional Technologies:</strong>
-                    Alpine.js, Inertia.js, PestPHP / PHPUnit, Git, GitHub, CI / CD
+                    Alpine.js, PestPHP / PHPUnit, Git, GitHub, CI / CD
                 </li>
                 <li>
                     <strong>Development Environment:</strong>
-                    PhpStorm for daily development; AI tools for productivity and faster coding workflows; Docker (and Laravel Sail) when
-                    required; Experience managing Laravel Vapor environments
+                    PHPStorm as primary IDE; Claude Code (AI agent) for AI-first development workflows; Docker (and Laravel Sail) when
+                    required; Linux hosting platforms and web infrastructure
                 </li>
             </ul>
         </section>
@@ -203,9 +203,9 @@
                 Professional Experience
             </h2>
 
-            {{-- Contract work --}}
+            {{-- Freelance Contracts --}}
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
-                <div class="mb-4 flex flex-wrap items-start justify-between">
+                <div class="mb-6 flex flex-wrap items-start justify-between print:mb-3">
                     <div class="space-y-1.5">
                         <h3
                             class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
@@ -215,45 +215,81 @@
                     </div>
                     <p class="dark:text-gray-400 print:text-black">02/2025 - Present</p>
                 </div>
-                <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
-                >
-                    <li>
-                        Completed freelance contracts focused on Laravel and the TALL stack, contributing to maintenance, feature builds,
-                        and front-end improvements while quickly adapting to different codebases and delivering results.
-                    </li>
-                </ul>
-            </div>
 
-            {{-- App-Hive --}}
-            <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
-                <div class="mb-4 flex flex-wrap items-start justify-between">
-                    <div class="space-y-1.5">
-                        <h3
-                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
-                        >
-                            Fullstack Laravel Developer
-                        </h3>
-                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">
-                            App-Hive · Freelance
-                        </p>
-                    </div>
-                    <p class="dark:text-gray-400 print:text-black">11/2025 - Present</p>
-                </div>
-                <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                {{-- App-Hive --}}
+                <div
+                    class="border-pizza/30 dark:border-pizza-dark/30 mb-6 border-l-2 pl-4 last:mb-0 print:mb-3 print:border-l print:border-gray-400 print:pl-2"
                 >
-                    <li>
-                        Built and maintained Shopify plugins using the TALL stack (Tailwind, Alpine.js, Laravel, Livewire), implementing
-                        features based on customer requests and requirements
-                    </li>
-                    <li>
-                        Utilised AI agents to accelerate development workflows, shipping multiple features within tight delivery windows
-                    </li>
-                    <li>
-                        Contributed to plugin subscription growth by delivering features that directly addressed customer needs
-                    </li>
-                </ul>
+                    <div class="mb-3 flex flex-wrap items-start justify-between print:mb-2">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:text-sm print:text-black">
+                                Fullstack Laravel Developer
+                            </h4>
+                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 print:text-xs print:text-black">App-Hive</p>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 print:text-xs print:text-black">11/2025 - Present</p>
+                    </div>
+                    <ul
+                        class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                    >
+                        <li>
+                            Built and maintained Shopify plugins using the TALL stack (Tailwind, Alpine.js, Laravel, Livewire), implementing
+                            features based on customer requests and requirements
+                        </li>
+                        <li>
+                            Utilised AI agents to accelerate development workflows, shipping multiple features within tight delivery windows
+                        </li>
+                        <li>Contributed to plugin subscription growth by delivering features that directly addressed customer needs</li>
+                    </ul>
+                </div>
+
+                {{-- Everyone Inc --}}
+                <div
+                    class="border-pizza/30 dark:border-pizza-dark/30 mb-6 border-l-2 pl-4 last:mb-0 print:mb-3 print:border-l print:border-gray-400 print:pl-2"
+                >
+                    <div class="mb-3 flex flex-wrap items-start justify-between print:mb-2">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:text-sm print:text-black">
+                                Full-stack Developer
+                            </h4>
+                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 print:text-xs print:text-black">Everyone Inc</p>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 print:text-xs print:text-black">06/2025 - 08/2025</p>
+                    </div>
+                    <ul
+                        class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                    >
+                        <li>
+                            Collaborated with the management team and their client to rebuild the website from the ground up using the TALL
+                            stack. Developed many of the front-end views with Blade, Tailwind CSS, and Alpine.js base
+                        </li>
+                    </ul>
+                </div>
+
+                {{-- NERIS Analytics --}}
+                <div
+                    class="border-pizza/30 dark:border-pizza-dark/30 mb-6 border-l-2 pl-4 last:mb-0 print:mb-3 print:border-l print:border-gray-400 print:pl-2"
+                >
+                    <div class="mb-3 flex flex-wrap items-start justify-between print:mb-2">
+                        <div class="space-y-1">
+                            <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:text-sm print:text-black">
+                                Laravel Developer
+                            </h4>
+                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 print:text-xs print:text-black">
+                                NERIS Analytics Limited
+                            </p>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 print:text-xs print:text-black">02/2025 - 05/2025</p>
+                    </div>
+                    <ul
+                        class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                    >
+                        <li>
+                            Worked closely with the development team via Linear to implement new features and streamline the backlog of
+                            support tickets and bug fixes
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             {{-- Townsend Music --}}
@@ -290,56 +326,6 @@
                     </li>
                     <li>
                         Created and updated technical documentation for new features and fixes to support knowledge sharing across the team
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Everyone Inc -->
-            <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
-                <div class="mb-4 flex flex-wrap items-start justify-between">
-                    <div class="space-y-1.5">
-                        <h3
-                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
-                        >
-                            Full-stack Developer
-                        </h3>
-                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">
-                            Everyone Inc · Freelance
-                        </p>
-                    </div>
-                    <p class="dark:text-gray-400 print:text-black">06/2025 - 08/2025</p>
-                </div>
-                <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
-                >
-                    <li>
-                        Collaborated with the management team and their client to rebuild the website from the ground up using the TALL
-                        stack. Developed many of the front-end views with Blade, Tailwind CSS, and Alpine.js base
-                    </li>
-                </ul>
-            </div>
-
-            <!-- NERIS Analytics Limited -->
-            <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
-                <div class="mb-4 flex flex-wrap items-start justify-between">
-                    <div class="space-y-1.5">
-                        <h3
-                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
-                        >
-                            Laravel Developer
-                        </h3>
-                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">
-                            NERIS Analytics Limited · Freelance
-                        </p>
-                    </div>
-                    <p class="dark:text-gray-400 print:text-black">02/2025 - 05/2025</p>
-                </div>
-                <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
-                >
-                    <li>
-                        Worked closely with the development team via Linear to implement new features and streamline the backlog of support
-                        tickets and bug fixes
                     </li>
                 </ul>
             </div>
@@ -411,56 +397,19 @@
                 </ul>
             </div>
 
-            <!-- Interior Goods Direct -->
-            <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
-                <div class="mb-4 flex flex-wrap items-start justify-between">
-                    <div class="space-y-1.5">
-                        <h3
-                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
-                        >
-                            Full-stack Developer
-                        </h3>
-                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">Interior Goods Direct</p>
-                    </div>
-                    <p class="dark:text-gray-400 print:text-black">01/2021 - 06/2021</p>
-                </div>
-                <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
-                >
-                    <li>
-                        Played a key role in developing and enhancing a Laravel-based eCommerce platform for a major UK blinds and curtains
-                        retailer
-                    </li>
-                    <li>Built complex product customisation features using Vue.js components integrated with Laravel backend</li>
-                    <li>Implemented responsive admin interfaces using Bootstrap, improving internal team efficiency</li>
-                    <li>Optimised database queries and API endpoints to improve application performance</li>
-                </ul>
-            </div>
-
-            <!-- VOODOO -->
-            <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
-                <div class="mb-4 flex flex-wrap items-start justify-between">
-                    <div class="space-y-1.5">
-                        <h3
-                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
-                        >
-                            Full-stack Developer
-                        </h3>
-                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">VOODOO</p>
-                    </div>
-                    <p class="dark:text-gray-400 print:text-black">11/2019 - 11/2020</p>
-                </div>
-                <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
-                >
-                    <li>
-                        Spearheaded complete rebuild of company website using Laravel, Vue.js, and Tailwind CSS, delivering a modern,
-                        responsive platform
-                    </li>
-                    <li>Designed and implemented scalable architecture using Docker containerisation and Kubernetes orchestration</li>
-                    <li>Established automated deployment workflows through custom CI/CD pipeline configurations</li>
-                    <li>Improved development workflow by implementing containerised environments using Rancher</li>
-                </ul>
+            <!-- LinkedIn Note -->
+            <div class="mt-6 text-center print:hidden">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    For my complete work history, visit my
+                    <a
+                        class="text-pizza dark:text-pizza-dark hover:underline"
+                        href="https://www.linkedin.com/in/chrismellor85"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LinkedIn profile
+                    </a>
+                </p>
             </div>
         </section>
 
@@ -476,10 +425,12 @@
                     I actively contribute to the Laravel ecosystem by creating and maintaining open source packages, with my projects
                     collectively receiving over 1,000 stars on GitHub. Some of these packages have been highlighted on social media and even
                     reviewed on YouTube, helping them reach a wider audience. I take pride in maintaining my work to high standards,
-                    preferring to build and support my own solutions (or forks) rather than rely on unmaintained packages. Alongside
-                    publishing code, I stay engaged with the Laravel community through newsletters, Laracasts, and online discussion,
-                    keeping up with new features and tools. I also experiment with AI-assisted development in my side projects to explore
-                    new workflows and improve productivity.
+                    preferring to build and support my own solutions (or forks) rather than rely on unmaintained packages.
+                    <br />
+                    <br />
+                    I'm currently building AI workflow plugins and contributing to an AI agent plugin marketplace, exploring how AI can
+                    enhance developer productivity within the Laravel ecosystem. Alongside publishing code, I stay engaged with the Laravel
+                    community through newsletters, Laracasts, and online discussion, keeping up with new features and tools.
                 </p>
             </div>
         </section>
