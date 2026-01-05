@@ -56,7 +56,7 @@ class Project extends Model
         [
             'name' => 'App-Hive',
             'description' => 'Contract work developing features and enhancements for a Shopify plugin development agency',
-            'testimonial' => '',
+            'testimonial' => 'I was looking to hire someone to help with my Shopify app, and Chris immediately stood out by going above and beyond writing a thoughtful, personalized motivation letter on his website. Since then, he helped launch new features and improve workflows using AI.',
             'logo' => 'https://unavatar.io/x/Philo01',
             'url' => 'app-hive.dev',
             'featured' => true,
