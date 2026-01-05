@@ -53,6 +53,14 @@ class Project extends Model
             'url' => 'tmstor.es',
             'featured' => true,
         ],
+        [
+            'name' => 'App-Hive',
+            'description' => 'Contract work developing features and enhancements for a Shopify plugin development agency',
+            'testimonial' => '',
+            'logo' => 'https://unavatar.io/x/Philo01',
+            'url' => 'app-hive.dev',
+            'featured' => true,
+        ],
     ];
 
     #[Scope]

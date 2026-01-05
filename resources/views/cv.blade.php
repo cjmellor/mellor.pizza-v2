@@ -225,6 +225,37 @@
                 </ul>
             </div>
 
+            {{-- App-Hive --}}
+            <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
+                <div class="mb-4 flex flex-wrap items-start justify-between">
+                    <div class="space-y-1.5">
+                        <h3
+                            class="text-pizza dark:text-pizza-dark text-xl font-bold print:mb-1 print:text-base print:font-semibold print:text-black"
+                        >
+                            Fullstack Laravel Developer
+                        </h3>
+                        <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">
+                            App-Hive · Freelance
+                        </p>
+                    </div>
+                    <p class="dark:text-gray-400 print:text-black">11/2025 - Present</p>
+                </div>
+                <ul
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                >
+                    <li>
+                        Built and maintained Shopify plugins using the TALL stack (Tailwind, Alpine.js, Laravel, Livewire), implementing
+                        features based on customer requests and requirements
+                    </li>
+                    <li>
+                        Utilised AI agents to accelerate development workflows, shipping multiple features within tight delivery windows
+                    </li>
+                    <li>
+                        Contributed to plugin subscription growth by delivering features that directly addressed customer needs
+                    </li>
+                </ul>
+            </div>
+
             {{-- Townsend Music --}}
             <div class="dark:bg-dark rounded-lg bg-white md:p-6 print:md:p-2">
                 <div class="mb-4 flex flex-wrap items-start justify-between">
@@ -236,7 +267,7 @@
                         </h3>
                         <p class="font-semibold text-gray-600 dark:text-gray-400 print:text-sm print:text-black">Townsend Music</p>
                     </div>
-                    <p class="dark:text-gray-400 print:text-black">08/2025 - Present</p>
+                    <p class="dark:text-gray-400 print:text-black">08/2025 - 11/2025</p>
                 </div>
                 <ul
                     class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
