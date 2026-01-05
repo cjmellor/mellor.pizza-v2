@@ -13,56 +13,56 @@ layer(base);
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --animate-slide-in-down: slideInDown 0.5s;
+    --animate-slide-in-down: slideInDown 0.5s;
 
-  --color-dark: hsl(215, 15%, 16%);
-  --color-dark-input: hsl(220, 16%, 15%);
-  --color-dark-focus: hsl(215, 15%, 16%);
-  --color-dark-gray: hsl(210, 32%, 85%);
-  --color-dark-line: hsl(214, 13%, 25%);
-  --color-dark-line-lighter: hsl(208, 13%, 30%);
-  --color-pizza: hsl(29, 100%, 52%);
-  --color-pizza-dark: hsl(331, 94%, 52%);
+    --color-dark: hsl(215, 15%, 16%);
+    --color-dark-input: hsl(220, 16%, 15%);
+    --color-dark-focus: hsl(215, 15%, 16%);
+    --color-dark-gray: hsl(210, 32%, 85%);
+    --color-dark-line: hsl(214, 13%, 25%);
+    --color-dark-line-lighter: hsl(208, 13%, 30%);
+    --color-pizza: hsl(29, 100%, 52%);
+    --color-pizza-dark: hsl(331, 94%, 52%);
 
-  --font-anton: Anton, sans-serif;
-  --font-merriweather: Merriweather, serif;
-  --font-roboto-mono: Roboto Mono, sans-serif;
-  --font-sans: Inter, sans-serif;
+    --font-anton: Anton, sans-serif;
+    --font-merriweather: Merriweather, serif;
+    --font-roboto-mono: Roboto Mono, sans-serif;
+    --font-sans: Inter, sans-serif;
 
-  @keyframes slideInDown {
-    from {
-      transform: translate3d(0, -100%, 0);
+    @keyframes slideInDown {
+        from {
+            transform: translate3d(0, -100%, 0);
+        }
+        to {
+            transform: translate3d(0, 0, 0);
+        }
     }
-    to {
-      transform: translate3d(0, 0, 0);
-    }
-  }
 }
 
 @utility contact-close {
-  @apply ring-pizza dark:bg-pizza-dark dark:ring-pizza-dark dark:ring-offset-dark absolute -top-4 -right-4 h-10 w-10 cursor-pointer rounded-full bg-white ring-2 ring-offset-2;
+    @apply ring-pizza dark:bg-pizza-dark dark:ring-pizza-dark dark:ring-offset-dark absolute -top-4 -right-4 h-10 w-10 cursor-pointer rounded-full bg-white ring-2 ring-offset-2;
 }
 
 @utility text-pop {
-  @apply from-pizza dark:from-pizza-dark bg-linear-to-r to-amber-400 bg-clip-text px-1 text-transparent dark:bg-linear-to-r dark:to-indigo-500 dark:p-0;
+    @apply from-pizza dark:from-pizza-dark bg-linear-to-r to-amber-400 bg-clip-text px-1 text-transparent dark:bg-linear-to-r dark:to-indigo-500 dark:p-0;
 }
 
 @utility button-pizza {
-  @apply bg-pizza hover:ring-pizza/80 dark:bg-pizza-dark dark:hover:ring-pizza-dark/80 dark:hover:ring-offset-dark cursor-pointer rounded-md px-4 py-3 text-white shadow-md hover:ring-4 hover:ring-offset-2;
+    @apply bg-pizza hover:ring-pizza/80 dark:bg-pizza-dark dark:hover:ring-pizza-dark/80 dark:hover:ring-offset-dark cursor-pointer rounded-md px-4 py-3 text-white shadow-md hover:ring-4 hover:ring-offset-2;
 }
 
 @utility form-pizza {
-  @apply focus:border-pizza dark:border-dark-line dark:focus:border-pizza-dark rounded-md border border-gray-200 bg-white p-2 text-lg leading-6 text-gray-500 focus:bg-white focus:ring-4 focus:ring-[#ff810a]/25 focus:outline-hidden sm:text-sm dark:bg-[#1f232b]/50 dark:text-gray-50 dark:focus:bg-[#22272e] dark:focus:ring-[#f81281]/50;
+    @apply focus:border-pizza dark:border-dark-line dark:focus:border-pizza-dark rounded-md border border-gray-200 bg-white p-2 text-lg leading-6 text-gray-500 focus:bg-white focus:ring-4 focus:ring-[#ff810a]/25 focus:outline-hidden sm:text-sm dark:bg-[#1f232b]/50 dark:text-gray-50 dark:focus:bg-[#22272e] dark:focus:ring-[#f81281]/50;
 }
 
 @utility form-pizza-error {
-  @apply rounded-md border border-red-400 bg-white p-2 text-lg leading-6 text-gray-500 focus:border-red-500 focus:ring-4 focus:ring-red-400/25 focus:outline-hidden sm:text-sm dark:border-[#fd6f6e] dark:bg-[#1f232b]/50 dark:text-gray-50 dark:focus:border-[#ff7070] dark:focus:bg-[#22272e] dark:focus:ring-[#ff7070]/20;
+    @apply rounded-md border border-red-400 bg-white p-2 text-lg leading-6 text-gray-500 focus:border-red-500 focus:ring-4 focus:ring-red-400/25 focus:outline-hidden sm:text-sm dark:border-[#fd6f6e] dark:bg-[#1f232b]/50 dark:text-gray-50 dark:focus:border-[#ff7070] dark:focus:bg-[#22272e] dark:focus:ring-[#ff7070]/20;
 }
 
 @utility text-shadow {
-  text-shadow:
-    0 1px 3px #1f232b,
-    0 2px 30px #1f232b;
+    text-shadow:
+        0 1px 3px #1f232b,
+        0 2px 30px #1f232b;
 }
 
 /*

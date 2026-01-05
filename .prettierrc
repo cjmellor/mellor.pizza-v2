@@ -1,15 +1,9 @@
 {
-    "plugins": [
-        "prettier-plugin-blade",
-        "prettier-plugin-organize-attributes",
-        "prettier-plugin-tailwindcss"
-    ],
+    "plugins": ["prettier-plugin-blade", "prettier-plugin-organize-attributes", "prettier-plugin-tailwindcss"],
     "printWidth": 140,
     "overrides": [
         {
-            "files": [
-                "*.blade.php"
-            ],
+            "files": ["*.blade.php"],
             "options": {
                 "parser": "blade"
             }
