@@ -43,7 +43,7 @@
                             ></div>
 
                             @if ($project->url)
-                                <a href="{{ url($project->url) }}">
+                                <a href="{{ str_starts_with($project->url, 'http') ? $project->url : 'https://' . $project->url }}">
                                     <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
                                     <span class="relative z-10">{{ $project->name }}</span>
                                 </a>
@@ -77,7 +77,7 @@
                         <div class="relative z-10 w-full sm:w-auto">
                             <flux:button
                                 class="bg-pizza dark:bg-pizza-dark text-sm"
-                                href="{{ url($project->url) }}"
+                                href="{{ str_starts_with($project->url, 'http') ? $project->url : 'https://' . $project->url }}"
                                 variant="primary"
                                 target="_blank"
                             >
