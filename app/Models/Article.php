@@ -65,13 +65,22 @@ class Article extends Model
         ],
 
         // Private Articles
+//        [
+//            'author' => 'Chris Mellor',
+//            'content' => 'articles/hi-philo.md',
+//            'excerpt' => 'derp',
+//            'published_at' => '2025-11-03',
+//            'slug' => 'hi-philo',
+//            'title' => 'Hi Philo 👋',
+//            'visibility' => 'private',
+//        ],
         [
             'author' => 'Chris Mellor',
-            'content' => 'articles/hi-philo.md',
-            'excerpt' => 'derp',
-            'published_at' => '2025-11-03',
-            'slug' => 'hi-philo',
-            'title' => 'Hi Philo 👋',
+            'content' => 'articles/hi-rolf.md',
+            'excerpt' => 'Application for Senior Full-Stack Developer position',
+            'published_at' => '2026-01-12',
+            'slug' => 'hi-rolf',
+            'title' => 'Hi Rolf 👋',
             'visibility' => 'private',
         ],
     ];

@@ -14,12 +14,12 @@ class FetchTopGithubReposAction
         return collect(value: Cache::remember(key: 'github.top_repos', ttl: now()->addDay(), callback: function (): mixed {
             return Http::withHeaders(headers: [
                 'Accept' => 'application/vnd.github+json',
-            ])->get(url: 'https://api.github.com/search/repositories', query: [
-                'q' => 'user:cjmellor',
-                'sort' => 'stars',
-                'order' => 'desc',
-            ])->throw()->json(key: 'items') ?? [];
-        }))->take($limit)
+            ])->get(url: 'https://api.github.com/users/cjmellor/repos', query: [
+                'sort' => 'pushed',
+                'direction' => 'desc',
+                'per_page' => 100,
+            ])->throw()->json() ?? [];
+        }))->sortByDesc('stargazers_count')->take($limit)
             ->map(fn (array $repo): array => [
                 'name' => $repo['name'] ?? null,
                 'html_url' => $repo['html_url'] ?? null,
