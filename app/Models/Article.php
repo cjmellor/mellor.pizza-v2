@@ -74,15 +74,15 @@ class Article extends Model
 //            'title' => 'Hi Philo 👋',
 //            'visibility' => 'private',
 //        ],
-        [
-            'author' => 'Chris Mellor',
-            'content' => 'articles/hi-rolf.md',
-            'excerpt' => 'Application for Senior Full-Stack Developer position',
-            'published_at' => '2026-01-12',
-            'slug' => 'hi-rolf',
-            'title' => 'Hi Rolf 👋',
-            'visibility' => 'private',
-        ],
+       [
+           'author' => 'Chris Mellor',
+           'content' => 'articles/hi-pete.md',
+           'excerpt' => 'derp',
+           'published_at' => '2026-04-22',
+           'slug' => 'hi-pete',
+           'title' => 'Hi Pete 👋',
+           'visibility' => 'private',
+       ],
     ];
 
     public function content(): string|RenderedContentInterface
