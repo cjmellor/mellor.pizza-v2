@@ -46,7 +46,7 @@
                     class="sm:w-1/2"
                     type="text"
                     placeholder="Name"
-                    wire:model.blur="contact_name"
+                    wire:model.live.blur="contact_name"
                 />
             </div>
             <div>
@@ -54,7 +54,7 @@
                     class="sm:w-1/2"
                     type="email"
                     placeholder="Email"
-                    wire:model.blur="contact_email"
+                    wire:model.live.blur="contact_email"
                 />
             </div>
             <div>
@@ -63,7 +63,7 @@
                     placeholder="Tell me about your project, timeline, or what you’d like help with…"
                     cols="30"
                     rows="16"
-                    wire:model.blur="contact_message"
+                    wire:model.live.blur="contact_message"
                 ></flux:textarea>
             </div>
 
