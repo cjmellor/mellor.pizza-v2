@@ -9,8 +9,8 @@ use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\MarkdownConverter;
 use League\CommonMark\Output\RenderedContentInterface;
+use Spatie\CommonMarkShikiHighlighter\HighlightCodeExtension;
 use Sushi\Sushi;
-use Torchlight\Commonmark\V2\TorchlightExtension;
 
 class Article extends Model
 {
@@ -89,7 +89,7 @@ class Article extends Model
     {
         $environment = new Environment(['html_input' => 'strip']);
         $environment->addExtension(new CommonMarkCoreExtension());
-        $environment->addExtension(new TorchlightExtension());
+        $environment->addExtension(new HighlightCodeExtension(theme: 'material-theme-palenight'));
 
         $converter = new MarkdownConverter($environment);
 
