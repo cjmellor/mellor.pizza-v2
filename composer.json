@@ -11,26 +11,25 @@
     "require": {
         "php": "^8.4",
         "aws/aws-sdk-php": "^3.359",
-        "calebporzio/sushi": "^2.5.3",
-        "laravel/folio": "^1.1.10",
-        "laravel/framework": "^12.36.1",
-        "laravel/tinker": "^2.10.1",
-        "livewire/flux": "^2.6",
-        "livewire/flux-pro": "^2.6",
-        "livewire/livewire": "^3.6.4",
-        "torchlight/torchlight-commonmark": "dev-main",
-        "torchlight/torchlight-laravel": "dev-main@dev"
+        "calebporzio/sushi": "^2.5.4",
+        "laravel/folio": "^1.1.18",
+        "laravel/framework": "^13.0",
+        "laravel/tinker": "^3.0",
+        "livewire/flux": "^2.14",
+        "livewire/flux-pro": "^2.14",
+        "livewire/livewire": "^4.0",
+        "spatie/commonmark-shiki-highlighter": "^2.5"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.16",
         "fakerphp/faker": "^1.24.1",
         "laravel/pail": "^1.2.3",
-        "laravel/pint": "^1.25.1",
+        "laravel/pint": "^1.27",
         "laravel/sail": "^1.47",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/collision": "^8.8.2",
-        "pestphp/pest": "^3.8.4",
-        "pestphp/pest-plugin-laravel": "^3.2"
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0"
     },
     "autoload": {
         "psr-4": {
@@ -48,14 +47,6 @@
         "flux-pro": {
             "type": "composer",
             "url": "https://composer.fluxui.dev"
-        },
-        "0": {
-            "type": "vcs",
-            "url": "https://github.com/cjmellor/torchlight-commonmark-php"
-        },
-        "1": {
-            "type": "vcs",
-            "url": "https://github.com/cjmellor/torchlight-laravel"
         }
     },
     "scripts": {
