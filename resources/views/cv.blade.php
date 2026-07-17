@@ -144,7 +144,7 @@
                 How I Work
             </h2>
             <div
-                class="bg-pizza/5 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:px-4 print:shadow-none print:ring-0"
+                class="bg-pizza/5 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:shadow-none print:ring-0"
             >
                 <p
                     class="mb-4 text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300 print:mb-2 print:text-sm print:leading-tight print:text-black"
@@ -153,16 +153,16 @@
                     building, the hard decisions are already made, so it lands clean and rarely needs much reworking:
                 </p>
                 <ol
-                    class="mb-4 flex flex-nowrap items-center justify-center gap-x-1.5 whitespace-nowrap font-mono text-[0.6rem] font-medium text-gray-800 sm:gap-x-2 sm:text-xs md:gap-x-3 md:text-sm dark:text-gray-200 print:mb-2 print:flex-wrap print:justify-start print:gap-x-2 print:text-xs print:text-black"
+                    class="mb-4 ml-4 flex flex-nowrap items-center justify-start gap-x-1.5 whitespace-nowrap font-mono text-[0.6rem] font-medium text-gray-800 sm:gap-x-2 sm:text-xs md:gap-x-3 md:text-sm dark:text-gray-200 print:mb-2 print:ml-4 print:flex-wrap print:justify-start print:gap-x-2 print:text-sm print:text-black"
                 >
                     <li class="shrink-0">Map the problem</li>
-                    <li class="text-pizza dark:text-pizza-dark shrink-0" aria-hidden="true">→</li>
+                    <li class="text-pizza dark:text-pizza-dark shrink-0 print:text-black" aria-hidden="true">→</li>
                     <li class="shrink-0">Write the spec</li>
-                    <li class="text-pizza dark:text-pizza-dark shrink-0" aria-hidden="true">→</li>
+                    <li class="text-pizza dark:text-pizza-dark shrink-0 print:text-black" aria-hidden="true">→</li>
                     <li class="shrink-0">Break it into tickets</li>
-                    <li class="text-pizza dark:text-pizza-dark shrink-0" aria-hidden="true">→</li>
+                    <li class="text-pizza dark:text-pizza-dark shrink-0 print:text-black" aria-hidden="true">→</li>
                     <li class="shrink-0">Implement with AI agents</li>
-                    <li class="text-pizza dark:text-pizza-dark shrink-0" aria-hidden="true">→</li>
+                    <li class="text-pizza dark:text-pizza-dark shrink-0 print:text-black" aria-hidden="true">→</li>
                     <li class="shrink-0">Code &amp; security review</li>
                 </ol>
                 <p
@@ -181,14 +181,14 @@
                 Technical Skills
             </h2>
 
-            <div class="print:hidden">
-                <div class="grid gap-6 md:grid-cols-3 print:grid-cols-1">
+            <div>
+                <div class="grid gap-6 md:grid-cols-3 print:grid-cols-3 print:gap-4">
                     <!-- AI Engineering & Workflow -->
                     <div
-                        class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:px-4 print:shadow-none print:ring-0"
+                        class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:shadow-none print:ring-0"
                     >
                         <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">AI Engineering &amp; Workflow</h3>
-                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300 print:space-y-0.5 print:text-black">
                             <li>Claude Code (primary harness)</li>
                             <li>Anthropic (Claude) models</li>
                             <li>Spec-driven agent workflows</li>
@@ -199,10 +199,10 @@
 
                     <!-- Core Stack -->
                     <div
-                        class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:px-4 print:shadow-none print:ring-0"
+                        class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:shadow-none print:ring-0"
                     >
                         <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Core Stack</h3>
-                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300 print:space-y-0.5 print:text-black">
                             <li>Laravel / PHP</li>
                             <li>Livewire</li>
                             <li>Vue.js &amp; Inertia.js</li>
@@ -213,10 +213,10 @@
 
                     <!-- Platform & Practices -->
                     <div
-                        class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:px-4 print:shadow-none print:ring-0"
+                        class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:bg-transparent print:p-0 print:shadow-none print:ring-0"
                     >
                         <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">Platform &amp; Practices</h3>
-                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300 print:space-y-0.5 print:text-black">
                             <li>Pest / PHPUnit</li>
                             <li>CI / CD</li>
                             <li>Docker</li>
@@ -226,21 +226,6 @@
                 </div>
             </div>
 
-            <ul class="hidden space-y-1 text-black print:block print:list-disc print:pl-6 print:text-sm print:leading-tight">
-                <li>
-                    <strong>AI Engineering &amp; Workflow:</strong>
-                    Claude Code (primary harness), Anthropic (Claude) models, spec-driven agent workflows, AI-assisted code &amp; security
-                    review; comfortable across other models &amp; harnesses
-                </li>
-                <li>
-                    <strong>Core Stack:</strong>
-                    Laravel / PHP, Livewire, Vue.js &amp; Inertia.js, Alpine.js, Tailwind CSS
-                </li>
-                <li>
-                    <strong>Platform &amp; Practices:</strong>
-                    Pest / PHPUnit, CI / CD, Docker, Linux &amp; web infrastructure
-                </li>
-            </ul>
         </section>
 
         <!-- Professional Experience -->
@@ -264,31 +249,30 @@
                     </div>
                     <p class="dark:text-gray-400 print:text-black">04/2026 - Present</p>
                 </div>
-                <p class="mb-3 text-sm text-gray-600 md:text-base dark:text-gray-400 print:mb-2 print:text-xs print:text-black">
-                    Full-stack engineer on a multi-tenant, real-money prize-competitions platform (Laravel, Inertia, Vue 3, MariaDB /
-                    PostgreSQL, Redis / Horizon) running roughly 30 production tenant sites. Everything below was built with my AI-first,
-                    spec-driven workflow.
+                <p class="mb-3 text-sm text-gray-600 md:text-base dark:text-gray-400 print:mb-2 print:text-sm print:text-black">
+                    Full-stack engineer on a multi-tenant prize-competitions platform (Laravel, Inertia, Vue 3, MariaDB, Redis / Horizon)
+                    running roughly 30 production tenant sites. Everything below was built with my AI-first, spec-driven workflow.
                 </p>
                 <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-sm print:leading-snug print:text-black"
                 >
                     <li>
-                        Designed and built an in-house SMS marketing platform end-to-end in four weeks—letting tenants message their customers
-                        with merge tags for live data, reusable recipient lists, a rules-based automation engine (e.g. an SMS triggered when a
-                        new customer registers and makes a purchase), and campaign analytics
+                        Designed and built an in-house SMS marketing platform end-to-end—letting tenants message their customers with
+                        reusable recipient lists, a rules-based automation engine (e.g. an SMS triggered when a new customer registers and
+                        makes a purchase), and campaign analytics
                     </li>
                     <li>
                         Laid the groundwork for the company's move to a self-service SaaS on Laravel Cloud, standing up automated per-tenant app
                         provisioning and porting the platform from MariaDB to PostgreSQL where Cloud required it
                     </li>
                     <li>
-                        Owned performance and reliability across the fleet: optimised a ~100M-row tenant database with targeted indexing and
-                        caching, used Laravel Nightwatch to find and fix the next bottlenecks, and replaced a fragile manual deploy script with
-                        a GitHub Actions pipeline that ended recurring out-of-memory failures and enabled fast, parallel multi-tenant deploys
+                        Optimised a ~100M-row tenant database with targeted indexing and caching, used Laravel Nightwatch to find and fix the
+                        next bottlenecks, and replaced a fragile manual deploy script with a GitHub Actions pipeline that ended recurring
+                        out-of-memory failures and enabled fast, parallel multi-tenant deploys
                     </li>
                     <li>
-                        Built a dual-sided referral programme handling real money—letting customers refer new customers for a cut, plus a
-                        separate influencer tier with its own rates and rewards, with the reward and payout logic to back it
+                        Built a dual-sided referral programme—letting customers refer new customers for a cut, plus a separate influencer
+                        tier with its own rates and rewards, with the reward and payout logic to back it
                     </li>
                     <li>
                         Built an on-demand image optimisation proxy (Intervention) that compiles and caches lean image variants on first
@@ -319,21 +303,25 @@
                             <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:text-sm print:text-black">
                                 Fullstack Laravel Developer
                             </h4>
-                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 print:text-xs print:text-black">App-Hive</p>
+                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 print:text-sm print:text-black">App-Hive</p>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400 print:text-xs print:text-black">11/2025 - Present</p>
                     </div>
                     <ul
-                        class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                        class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-sm print:leading-snug print:text-black"
                     >
                         <li>
-                            Built and maintained Shopify plugins using the TALL stack (Tailwind, Alpine.js, Laravel, Livewire), implementing
+                            Built and maintained a Shopify plugin using the TALL stack (Tailwind, Alpine.js, Laravel, Livewire), implementing
                             features based on customer requests and requirements
                         </li>
                         <li>
-                            Utilised AI agents to accelerate development workflows, shipping multiple features within tight delivery windows
+                            Built these the same way I work now—planning up front, then implementing with AI agents—which is what let me turn
+                            features around quickly on tight deadlines
                         </li>
-                        <li>Contributed to plugin subscription growth by delivering features that directly addressed customer needs</li>
+                        <li>
+                            Effectively the sole developer on the product—building from the maintainer's issues and shipping through his
+                            review—I've merged close to 60 pull requests in eight months: around 50 features and a dozen fixes
+                        </li>
                     </ul>
                 </div>
 
@@ -346,12 +334,12 @@
                             <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:text-sm print:text-black">
                                 Full-stack Developer
                             </h4>
-                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 print:text-xs print:text-black">Everyone Inc</p>
+                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 print:text-sm print:text-black">Everyone Inc</p>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400 print:text-xs print:text-black">06/2025 - 08/2025</p>
                     </div>
                     <ul
-                        class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                        class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-sm print:leading-snug print:text-black"
                     >
                         <li>
                             Collaborated with the management team and their client to rebuild the website from the ground up using the TALL
@@ -369,14 +357,14 @@
                             <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100 print:text-sm print:text-black">
                                 Laravel Developer
                             </h4>
-                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 print:text-xs print:text-black">
+                            <p class="text-sm font-medium text-gray-600 dark:text-gray-400 print:text-sm print:text-black">
                                 NERIS Analytics Limited
                             </p>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400 print:text-xs print:text-black">02/2025 - 05/2025</p>
                     </div>
                     <ul
-                        class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                        class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-sm print:leading-snug print:text-black"
                     >
                         <li>
                             Worked closely with the development team via Linear to implement new features and streamline the backlog of
@@ -400,7 +388,7 @@
                     <p class="dark:text-gray-400 print:text-black">08/2025 - 11/2025</p>
                 </div>
                 <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-sm print:leading-snug print:text-black"
                 >
                     <li>
                         Implemented new website designs from Figma into the company’s Filament-based platform, integrating templates with
@@ -431,7 +419,7 @@
                     <p class="dark:text-gray-400 print:text-black">01/2022 - 11/2024</p>
                 </div>
                 <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-sm print:leading-snug print:text-black"
                 >
                     <li>
                         Core member of a three-person team rebuilding the company's flagship software from the ground up using the TALL
@@ -461,7 +449,7 @@
                     <p class="dark:text-gray-400 print:text-black">06/2021 - 12/2021</p>
                 </div>
                 <ul
-                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-xs print:leading-snug print:text-black"
+                    class="list-inside list-disc space-y-2 text-sm text-gray-700 md:text-base dark:text-gray-300 print:space-y-1 print:text-sm print:leading-snug print:text-black"
                 >
                     <li>
                         Led multiple client projects in an agency environment, focusing on modernising legacy applications using Laravel and
@@ -499,7 +487,7 @@
                     class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300 print:text-sm print:leading-tight print:text-black"
                 >
                     The biggest change AI has made for me is that language and framework are no longer the barrier they used to be. When I
-                    need something, I build it—whatever it takes. I wanted a better Markdown viewer, so I built one (Peek); I wanted a
+                    need something, I build it—whatever it takes. I wanted a better Markdown viewer, so I built one; I wanted a
                     voice-dictation tool, so I built that too—both well outside my day-to-day stack, and both built with the same care I'd
                     give production work, code and security reviewed rather than blindly trusted. In a role, that means I can help improve
                     things beyond a company's core stack, not just within it.
