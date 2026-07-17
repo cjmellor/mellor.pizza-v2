@@ -121,19 +121,20 @@
             <p
                 class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300 print:text-sm print:leading-tight print:text-black"
             >
-                I've been writing code since I was 17, professionally for over six years, and working in tech more broadly—support, servers,
-                Linux, project management—for more than a decade around that.
+                I've been building software commercially for over six years, with the better part of a decade in tech before I moved into
+                development proper.
                 <br />
                 <br />
-                The way I build software has changed. These days I spend less time typing code and more time directing it: I run a
-                disciplined, spec-first process where the planning, edge cases and architecture get nailed down before any code exists, then
-                I orchestrate AI agents to implement it. The upshot is I ship more, and faster, without dropping my standards—the judgment,
-                the review, and the "is this actually right?" are still mine.
+                The way I build software has changed. These days I write less of it line by line and spend more time directing the work: I
+                plan it properly first, get the spec and the edge cases sorted before anything gets built, then let AI agents handle the
+                implementation. It means I ship more, and ship it faster, but the standards haven't slipped: the decisions and the review are
+                still mine.
                 <br />
                 <br />
-                I'm not throwing prompts at the wall to see what sticks. I know Laravel well enough to know exactly what's happening under the
-                hood, enough Vue to hold my own, and I review everything the model produces—code and security both—as if I don't trust it,
-                because I don't blindly. Laravel is still home, but AI-first is genuinely how I work now, not a line on a CV.
+                I'm not just guessing and hoping something works. I know Laravel well, I'm more than comfortable on the front-end, and I've
+                got enough range across everything else to stay in control of the code rather than just accepting it—and I review everything
+                the AI writes, security included, because I don't take it on trust. Laravel is still my main framework, and this is
+                just genuinely how I work now.
             </p>
         </section>
 
@@ -148,28 +149,28 @@
                 <p
                     class="mb-4 text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300 print:mb-2 print:text-sm print:leading-tight print:text-black"
                 >
-                    I've settled on a spec-driven loop that does most of the thinking before any code is written. It means the
-                    implementation lands clean and rarely needs many passes to get right:
+                    I've settled into a way of working that does most of the thinking up front, before any code exists. By the time I start
+                    building, the hard decisions are already made, so it lands clean and rarely needs much reworking:
                 </p>
                 <ol
-                    class="mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-gray-800 md:text-base dark:text-gray-200 print:mb-2 print:text-xs print:text-black"
+                    class="mb-4 flex flex-nowrap items-center justify-center gap-x-1.5 whitespace-nowrap font-mono text-[0.6rem] font-medium text-gray-800 sm:gap-x-2 sm:text-xs md:gap-x-3 md:text-sm dark:text-gray-200 print:mb-2 print:flex-wrap print:justify-start print:gap-x-2 print:text-xs print:text-black"
                 >
-                    <li>Map the problem</li>
-                    <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
-                    <li>Write the spec</li>
-                    <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
-                    <li>Break it into tickets</li>
-                    <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
-                    <li>Implement with AI agents</li>
-                    <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
-                    <li>Code &amp; security review</li>
+                    <li class="shrink-0">Map the problem</li>
+                    <li class="text-pizza dark:text-pizza-dark shrink-0" aria-hidden="true">→</li>
+                    <li class="shrink-0">Write the spec</li>
+                    <li class="text-pizza dark:text-pizza-dark shrink-0" aria-hidden="true">→</li>
+                    <li class="shrink-0">Break it into tickets</li>
+                    <li class="text-pizza dark:text-pizza-dark shrink-0" aria-hidden="true">→</li>
+                    <li class="shrink-0">Implement with AI agents</li>
+                    <li class="text-pizza dark:text-pizza-dark shrink-0" aria-hidden="true">→</li>
+                    <li class="shrink-0">Code &amp; security review</li>
                 </ol>
                 <p
                     class="text-sm leading-relaxed text-gray-700 md:text-base dark:text-gray-300 print:text-sm print:leading-tight print:text-black"
                 >
-                    Claude Code is my daily harness and the Anthropic models do the heavy lifting; I keep up with other models and tools, but
-                    this pairing has worked well enough that I've no reason to switch. When I notice myself repeating the same work, I build a
-                    reusable workflow around it so I don't have to think it through twice.
+                    Claude Code is what I use day to day, with Anthropic's models doing the work. I keep an eye on the other models and tools
+                    out there, but this setup has worked so well I've had no reason to move off it. And when I catch myself doing the same
+                    thing more than once, I'll turn it into a reusable skill so I never have to work it out from scratch again.
                 </p>
             </div>
         </section>
