@@ -105,13 +105,32 @@
 
                 <div class="space-y-10">
                     <p class="leading-8 text-neutral-900 md:text-xl dark:text-neutral-100">
-                        <strong>Senior Laravel Developer helping teams ship, scale, and modernise apps.</strong>
+                        <strong>AI-First Full-Stack Engineer.</strong>
+                        I plan the work properly, then ship it with Claude Code.
                     </p>
 
                     <p class="text-sm text-neutral-900 sm:text-base md:text-lg dark:text-neutral-100">
-                        I focus on writing clean, reliable code — mostly in Laravel and Livewire — and delivering features that are easy to
-                        maintain long-term.
+                        I write less code line by line these days and spend more time directing it — getting the spec and the edge cases
+                        sorted up front, then letting AI agents build it. I ship more, and faster, but the decisions and the review are still
+                        mine. Laravel's my main framework.
                     </p>
+
+                    <div>
+                        <ol
+                            class="font-roboto-mono flex flex-wrap items-center gap-x-2 gap-y-2 text-[0.65rem] font-medium tracking-normal text-neutral-800 sm:text-xs dark:text-neutral-200"
+                            aria-label="How I work"
+                        >
+                            <li>Map</li>
+                            <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
+                            <li>Spec</li>
+                            <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
+                            <li>Tickets</li>
+                            <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
+                            <li>Implement</li>
+                            <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
+                            <li>Review</li>
+                        </ol>
+                    </div>
 
                     <div>
                         <flux:button
@@ -143,11 +162,13 @@
 
                     @php
                         $technologies = [
+                            ['label' => 'Claude Code', 'color' => 'orange'],
+                            ['label' => 'AI Agents', 'color' => 'amber'],
                             ['label' => 'Laravel', 'color' => 'red'],
                             ['label' => 'Livewire', 'color' => 'yellow'],
                             ['label' => 'Tailwind CSS', 'color' => 'sky'],
                             ['label' => 'Vue.js', 'color' => 'green'],
-                            ['label' => 'CI/CD', 'color' => 'orange'],
+                            ['label' => 'CI/CD', 'color' => 'blue'],
                             ['label' => 'API', 'color' => 'purple'],
                         ];
                     @endphp
