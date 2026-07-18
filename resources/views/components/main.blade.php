@@ -112,29 +112,19 @@
                     <p class="text-sm text-neutral-900 sm:text-base md:text-lg dark:text-neutral-100">
                         I write less code line by line these days and spend more time directing it — getting the spec and the edge cases
                         sorted up front, then letting AI agents build it. I ship more, and faster, but the decisions and the review are still
-                        mine. Laravel's my main framework.
+                        mine. Laravel's my main framework, and I've packaged my own workflow into tooling I carry between projects — a set of
+                        Claude Code skills and a memory system I
+                        <a
+                            class="hover:text-pizza dark:hover:text-pizza-dark font-medium text-neutral-900 underline dark:text-neutral-100"
+                            href="https://github.com/cjmellor/mella-marketplace"
+                            target="_blank"
+                            rel="noopener"
+                        >published for anyone to use</a>.
                     </p>
 
                     <div>
-                        <ol
-                            class="font-roboto-mono flex flex-wrap items-center gap-x-2 gap-y-2 text-[0.65rem] font-medium tracking-normal text-neutral-800 sm:text-xs dark:text-neutral-200"
-                            aria-label="How I work"
-                        >
-                            <li>Map</li>
-                            <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
-                            <li>Spec</li>
-                            <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
-                            <li>Tickets</li>
-                            <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
-                            <li>Implement</li>
-                            <li class="text-pizza dark:text-pizza-dark" aria-hidden="true">→</li>
-                            <li>Review</li>
-                        </ol>
-                    </div>
-
-                    <div>
                         <flux:button
-                            class="bg-pizza dark:bg-pizza-dark hover:bg-orange-500 dark:hover:bg-orange-500"
+                            class="bg-pizza dark:bg-pizza-dark hover:bg-orange-500 dark:hover:bg-pink-700"
                             href="{{ route('cv') }}"
                             aria-label="View CV"
                             variant="primary"
