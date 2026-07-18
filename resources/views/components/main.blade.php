@@ -105,17 +105,26 @@
 
                 <div class="space-y-10">
                     <p class="leading-8 text-neutral-900 md:text-xl dark:text-neutral-100">
-                        <strong>Senior Laravel Developer helping teams ship, scale, and modernise apps.</strong>
+                        <strong>AI-First Full-Stack Engineer.</strong>
+                        I plan the work properly, then ship it with Claude Code.
                     </p>
 
                     <p class="text-sm text-neutral-900 sm:text-base md:text-lg dark:text-neutral-100">
-                        I focus on writing clean, reliable code — mostly in Laravel and Livewire — and delivering features that are easy to
-                        maintain long-term.
+                        I write less code line by line these days and spend more time directing it — getting the spec and the edge cases
+                        sorted up front, then letting AI agents build it. I ship more, and faster, but the decisions and the review are still
+                        mine. Laravel's my main framework, and I've packaged my own workflow into tooling I carry between projects — a set of
+                        Claude Code skills and a memory system I
+                        <a
+                            class="hover:text-pizza dark:hover:text-pizza-dark font-medium text-neutral-900 underline dark:text-neutral-100"
+                            href="https://github.com/cjmellor/mella-marketplace"
+                            target="_blank"
+                            rel="noopener"
+                        >published for anyone to use</a>.
                     </p>
 
                     <div>
                         <flux:button
-                            class="bg-pizza dark:bg-pizza-dark hover:bg-orange-500 dark:hover:bg-orange-500"
+                            class="bg-pizza dark:bg-pizza-dark hover:bg-orange-500 dark:hover:bg-pink-700"
                             href="{{ route('cv') }}"
                             aria-label="View CV"
                             variant="primary"
@@ -143,11 +152,13 @@
 
                     @php
                         $technologies = [
+                            ['label' => 'Claude Code', 'color' => 'orange'],
+                            ['label' => 'AI Agents', 'color' => 'amber'],
                             ['label' => 'Laravel', 'color' => 'red'],
                             ['label' => 'Livewire', 'color' => 'yellow'],
                             ['label' => 'Tailwind CSS', 'color' => 'sky'],
                             ['label' => 'Vue.js', 'color' => 'green'],
-                            ['label' => 'CI/CD', 'color' => 'orange'],
+                            ['label' => 'CI/CD', 'color' => 'blue'],
                             ['label' => 'API', 'color' => 'purple'],
                         ];
                     @endphp
