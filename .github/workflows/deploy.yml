@@ -1,0 +1,144 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  DEPLOY_HOST: 65.108.58.4
+  DEPLOY_USER: mellor
+  DEPLOY_PATH: /home/mellor/mellor.pizza
+  FPM_SERVICE: php8.4-fpm
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # The server runs 8.4 (Sury's focal repo stops there); GitHub's runner
+      # would otherwise pick a newer PHP and resolve dependencies the server
+      # cannot run.
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: sqlite3, pdo_sqlite, mbstring, curl, dom, zip
+          coverage: none
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/composer/files
+          key: composer-${{ hashFiles('composer.lock') }}
+          restore-keys: composer-
+
+      # flux-pro is a paid package; without credentials composer gets a 401.
+      - name: Authenticate Flux Pro
+        run: composer config --global --auth http-basic.composer.fluxui.dev "${{ secrets.FLUX_USERNAME }}" "${{ secrets.FLUX_LICENSE_KEY }}"
+
+      # Must precede the asset build: Vite imports Livewire's JS from vendor/.
+      - name: Install PHP dependencies
+        run: composer install --no-dev --optimize-autoloader --no-interaction --no-progress
+
+      - name: Install JS dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build assets
+        run: bun run build
+
+      - name: Verify build output
+        run: test -f public/build/manifest.json
+
+      # Written outside the workspace: tar exits non-zero with "file changed as
+      # we read it" if the archive grows inside the directory being archived.
+      - name: Create release archive
+        run: |
+          tar -czf "$RUNNER_TEMP/release.tar.gz" \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='tests' \
+            --exclude='storage' \
+            .
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+
+      - name: Upload release
+        run: |
+          echo "RELEASE=$(date -u +%Y%m%dT%H%M%S)" >> "$GITHUB_ENV"
+          scp -i ~/.ssh/id_ed25519 "$RUNNER_TEMP/release.tar.gz" \
+            "$DEPLOY_USER@$DEPLOY_HOST:/tmp/release.tar.gz"
+
+      - name: Deploy
+        run: |
+          ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" \
+            "DEPLOY_PATH='$DEPLOY_PATH' RELEASE='$RELEASE' FPM_SERVICE='$FPM_SERVICE' bash -s" <<'REMOTE'
+          set -euo pipefail
+
+          RELEASE_DIR="$DEPLOY_PATH/releases/$RELEASE"
+          SHARED="$DEPLOY_PATH/shared"
+
+          mkdir -p "$RELEASE_DIR"
+          tar -xzf /tmp/release.tar.gz -C "$RELEASE_DIR"
+          rm -f /tmp/release.tar.gz
+
+          # Shared state survives releases. The site has no database at all —
+          # articles come from Sushi — so storage/ and .env are the whole of it.
+          rm -rf "$RELEASE_DIR/storage" "$RELEASE_DIR/.env"
+          ln -s "$SHARED/storage" "$RELEASE_DIR/storage"
+          ln -s "$SHARED/.env" "$RELEASE_DIR/.env"
+
+          cd "$RELEASE_DIR"
+
+          # Recreated every release: public/storage is a symlink into storage/,
+          # which is itself a symlink to shared. Without it every uploaded image
+          # 404s while the pages around them return 200.
+          php artisan storage:link
+
+          # Sushi caches each model's rows in a SQLite file under shared
+          # storage/, keyed by the model, not by the release. Left in place it
+          # serves the previous release's articles indefinitely.
+          rm -f "$SHARED"/storage/framework/cache/sushi-*.sqlite
+
+          # Clear before caching: shared storage/ means a previous release's
+          # compiled Blade would otherwise linger.
+          php artisan optimize:clear
+          php artisan optimize
+
+          ln -sfn "$RELEASE_DIR" "$DEPLOY_PATH/current.tmp"
+          mv -Tf "$DEPLOY_PATH/current.tmp" "$DEPLOY_PATH/current"
+
+          test "$(readlink -f "$DEPLOY_PATH/current")" = "$RELEASE_DIR"
+
+          # Without this the site serves the previous release's asset filenames
+          # behind a 200, because opcache and the realpath cache both key on the
+          # resolved path. Nothing is logged when it goes wrong.
+          sudo systemctl reload "$FPM_SERVICE"
+
+          ls -1dt "$DEPLOY_PATH"/releases/*/ | tail -n +6 | xargs -r rm -rf
+          REMOTE
+
+      - name: Smoke test
+        run: |
+          for i in $(seq 1 5); do
+            code=$(curl -sS -o /dev/null -w '%{http_code}' https://mellor.pizza/ || true)
+            [ "$code" = "200" ] && exit 0
+            sleep 5
+          done
+          echo "Site did not return 200 after deploy (last: $code)"
+          exit 1
