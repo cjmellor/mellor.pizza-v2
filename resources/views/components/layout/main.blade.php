@@ -12,8 +12,6 @@
         />
         <title>Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website & Blog" }}</title>
 
-        <x-tracking-code />
-
         <!-- Facebook Meta Tags -->
         <meta
             property="og:url"
