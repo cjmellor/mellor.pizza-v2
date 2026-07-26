@@ -12,6 +12,7 @@
         "php": "^8.4",
         "aws/aws-sdk-php": "^3.359",
         "calebporzio/sushi": "^2.5.4",
+        "laraowl/client": "^1.0",
         "laravel/folio": "^1.1.18",
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
