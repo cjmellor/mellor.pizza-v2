@@ -12,7 +12,7 @@
     @endsection
 
     <!-- Main container -->
-    <main class="relative container my-20 mt-64 space-y-6 px-3.5 pt-0 sm:mt-0 sm:space-y-20 sm:pt-40 md:px-24 lg:space-y-12">
+    <main class="relative container my-20 mt-64 space-y-6 px-3.5 pt-0 sm:mt-0 sm:space-y-20 sm:pt-40 md:px-12 lg:space-y-12">
         <div class="space-y-6">
             <h1 class="font-merriweather text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">My portfolio</h1>
             <p class="text-lg leading-7 text-zinc-700 dark:text-zinc-300">
@@ -22,7 +22,7 @@
         </div>
 
         <ul
-            class="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 sm:gap-y-12 lg:grid-cols-2 lg:gap-y-14 xl:grid-cols-3 xl:gap-x-12 xl:gap-y-16"
+            class="grid grid-cols-[repeat(auto-fill,minmax(19rem,1fr))] 2xl:grid-cols-3 gap-x-10 gap-y-10 sm:gap-y-12 lg:gap-y-14 xl:gap-x-12 xl:gap-y-16"
             role="list"
         >
             @foreach (\App\Portfolio\Project::all()->reverse() as $project)
