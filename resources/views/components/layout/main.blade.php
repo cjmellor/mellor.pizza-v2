@@ -63,6 +63,14 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @stack('stylesheets')
         @fluxAppearance
+
+        @if (config('services.umami.website_id'))
+            <script
+                defer
+                src="{{ config('services.umami.script_url') }}"
+                data-website-id="{{ config('services.umami.website_id') }}"
+            ></script>
+        @endif
     </head>
 
     <body>
