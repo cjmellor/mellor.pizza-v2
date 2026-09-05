@@ -6,9 +6,6 @@ layer(base);
 
 @plugin '@tailwindcss/aspect-ratio';
 @plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -93,14 +90,4 @@ html {
 
 body {
     @apply dark:bg-dark;
-}
-
-pre.shiki {
-    @apply my-4 overflow-x-auto rounded-sm p-4;
-}
-
-/* Undo prose-code: modifiers for code inside pre — let Shiki's
-   theme colours show through instead of the inline-code pizza tint. */
-.prose pre code {
-    @apply bg-transparent p-0 text-inherit;
 }

@@ -10,7 +10,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1"
         />
-        <title>Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website & Blog" }}</title>
+        <title>Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website" }}</title>
 
         <!-- Facebook Meta Tags -->
         <meta
@@ -23,15 +23,15 @@
         />
         <meta
             property="og:title"
-            content="Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website & Blog" }}"
+            content="Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website" }}"
         />
         <meta
             property="og:description"
-            content="The personal website and blog writings of Chris Mellor"
+            content="The personal website and portfolio of Chris Mellor"
         />
         <meta
             property="og:image"
-            content="https://mellor.pizza/storage/open_graph_image.jpg"
+            content="https://mellor.pizza/images/open_graph_image.jpg"
         />
 
         <!-- Twitter Meta Tags -->
@@ -49,15 +49,15 @@
         />
         <meta
             name="twitter:title"
-            content="Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website & Blog" }}"
+            content="Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website" }}"
         />
         <meta
             name="twitter:description"
-            content="The personal website and blog writings of Chris Mellor"
+            content="The personal website and portfolio of Chris Mellor"
         />
         <meta
             name="twitter:image"
-            content="{{ asset('storage/open_graph_image.jpg') }}"
+            content="{{ asset('images/open_graph_image.jpg') }}"
         />
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
