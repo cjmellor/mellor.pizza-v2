@@ -25,7 +25,7 @@
             class="grid grid-cols-1 gap-x-10 gap-y-10 sm:grid-cols-2 sm:gap-y-12 lg:grid-cols-2 lg:gap-y-14 xl:grid-cols-3 xl:gap-x-12 xl:gap-y-16"
             role="list"
         >
-            @foreach (\App\Models\Project::get()->sortDesc() as $project)
+            @foreach (\App\Portfolio\Project::all()->reverse() as $project)
                 <li
                     class="group relative flex h-full flex-col space-y-5 rounded-2xl bg-white/80 p-6 shadow-sm ring-1 ring-zinc-200/60 transition-transform duration-200 ease-out sm:hover:-translate-y-0.5 sm:hover:shadow-md dark:bg-zinc-800/60 dark:ring-zinc-700/60"
                 >

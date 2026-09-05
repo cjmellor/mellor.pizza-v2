@@ -7,15 +7,15 @@
         <picture>
             <source
                 type="image/avif"
-                srcset="{{ asset('storage/faces/avatar-face.avif') }}"
+                srcset="{{ asset('images/faces/avatar-face.avif') }}"
             />
             <source
                 type="image/webp"
-                srcset="{{ asset('storage/faces/avatar-face.webp') }}"
+                srcset="{{ asset('images/faces/avatar-face.webp') }}"
             />
             <img
                 class="h-48 w-48 rounded-full object-cover object-top grayscale lg:h-56 lg:w-56 dark:sepia"
-                src="{{ asset('storage/faces/avatar-face.png') }}"
+                src="{{ asset('images/faces/avatar-face.png') }}"
                 alt="It's me!"
                 height="192"
                 width="192"
