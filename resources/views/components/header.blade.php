@@ -14,14 +14,6 @@
         >
             <div>
                 <x-link
-                    to="{{ route('articles') }}"
-                    wire:navigate.hover
-                >
-                    Articles
-                </x-link>
-            </div>
-            <div>
-                <x-link
                     to="{{ route('cv') }}"
                     wire:navigate.hover
                 >
