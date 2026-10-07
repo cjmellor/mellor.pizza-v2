@@ -1,9 +1,9 @@
 <header class="print:hidden">
-    <div class="flex h-16 flex-col items-center space-y-8 sm:mx-20 lg:mx-12 lg:flex-row lg:space-y-0 xl:mx-32 2xl:mx-48">
+    <div class="flex flex-col items-center space-y-8 sm:mx-20 lg:mx-12 lg:h-16 lg:flex-row lg:space-y-0 xl:mx-32 2xl:mx-48">
         <div class="w-auto max-w-full lg:ml-16 lg:w-1/3">
             <a href="{{ route('homepage') }}">
                 <h2
-                    class="font-anton text-pizza dark:text-pizza-dark text-center text-6xl tracking-wider uppercase drop-shadow-lg min-[820px]:text-[4.25rem] md:text-5xl lg:ml-[26px]"
+                    class="font-anton text-pizza dark:text-pizza-dark text-center text-5xl tracking-wider uppercase drop-shadow-lg min-[375px]:text-6xl min-[820px]:text-[4.25rem] md:text-5xl lg:ml-[26px]"
                 >
                     Chris.Mellor
                 </h2>
