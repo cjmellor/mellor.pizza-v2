@@ -1,94 +1,110 @@
 <x-layout.main
     container
-    subTitle="Chris Mellors' Portfolio"
+    subTitle="Chris Mellor's Portfolio"
 >
     <x-header />
 
     @section('meta-description')
         <meta
             name="description"
-            content="See Chris Mellors' professional work"
+            content="Chris Mellor's portfolio: Kandu, a product in development, and selected client projects."
         />
     @endsection
 
     <!-- Main container -->
-    <main class="relative container my-20 mt-64 space-y-6 px-3.5 pt-0 sm:mt-0 sm:space-y-20 sm:pt-40 md:px-12 lg:space-y-12">
+    <main class="relative container my-20 mt-12 space-y-6 px-4 pt-0 sm:space-y-20 md:px-12 lg:mt-0 lg:space-y-12 lg:pt-40">
         <div class="space-y-6">
             <h1 class="font-merriweather text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">My portfolio</h1>
             <p class="text-lg leading-7 text-zinc-700 dark:text-zinc-300">
-                A selection of client projects I’ve worked on—showcasing design, development, and problem‑solving across different briefs.
-                More coming soon.
+                A product I’m building, plus a selection of client projects—showcasing design, development, and problem‑solving across
+                different briefs. More coming soon.
             </p>
         </div>
 
-        <ul
-            class="grid grid-cols-[repeat(auto-fill,minmax(19rem,1fr))] 2xl:grid-cols-3 gap-x-10 gap-y-10 sm:gap-y-12 lg:gap-y-14 xl:gap-x-12 xl:gap-y-16"
-            role="list"
-        >
-            @foreach (\App\Portfolio\Project::all()->reverse() as $project)
-                <li
-                    class="group relative flex h-full flex-col space-y-5 rounded-2xl bg-white/80 p-6 shadow-sm ring-1 ring-zinc-200/60 transition-transform duration-200 ease-out sm:hover:-translate-y-0.5 sm:hover:shadow-md dark:bg-zinc-800/60 dark:ring-zinc-700/60"
-                >
-                    <div class="flex flex-1 flex-col space-y-5">
-                        <img
-                            class="z-10 mx-auto size-16 rounded-full bg-neutral-100 shadow-md ring-1 shadow-zinc-800/5 ring-zinc-900/5 ring-offset-4 transition-transform duration-200 sm:mx-0 sm:group-hover:scale-105 dark:ring-zinc-100/15 dark:ring-offset-zinc-700"
-                            src="{{ $project->logo }}"
-                            alt="{{ $project->name }}"
-                            loading="lazy"
-                        />
+        <section class="space-y-6">
+            <h2 class="font-merriweather text-2xl font-semibold text-zinc-800 dark:text-zinc-100">Building</h2>
 
-                        <h2 class="w-full text-center text-base font-semibold text-zinc-800 sm:text-left dark:text-zinc-100">
-                            <div
-                                class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 rounded-xl bg-zinc-50 opacity-0 shadow-sm transition sm:-inset-x-6 sm:rounded-2xl sm:group-hover:scale-100 sm:group-hover:opacity-100 dark:bg-zinc-900/50"
-                            ></div>
-
-                            @if ($project->url)
-                                <a href="{{ str_starts_with($project->url, 'http') ? $project->url : 'https://' . $project->url }}">
-                                    <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"></span>
-                                    <span class="relative z-10">{{ $project->name }}</span>
-                                </a>
-                            @else
-                                <span class="relative z-10">{{ $project->name }}</span>
-                            @endif
-                        </h2>
-
-                        <p class="relative z-10 text-[15px] leading-6 text-zinc-600 dark:text-zinc-400">{!! $project->description !!}</p>
-
-                        @if ($project->testimonial)
-                            <blockquote class="relative z-10 text-[15px] leading-6 text-zinc-700 italic dark:text-zinc-300">
-                                <span
-                                    class="text-pizza dark:text-pizza-dark mr-1 align-[-0.2em]"
-                                    aria-hidden="true"
-                                >
-                                    “
-                                </span>
-                                {{ $project->testimonial }}
-                                <span
-                                    class="text-pizza dark:text-pizza-dark ml-1 align-[-0.2em]"
-                                    aria-hidden="true"
-                                >
-                                    ”
-                                </span>
-                            </blockquote>
-                        @endif
+            <flux:card
+                class="max-w-xl"
+                body="separated"
+            >
+                <flux:card.header class="flex items-center justify-between gap-4">
+                    <div>
+                        <flux:card.heading
+                            size="lg"
+                            level="3"
+                        >
+                            Kandu
+                        </flux:card.heading>
+                        <flux:card.subheading>Kanban project tracker</flux:card.subheading>
                     </div>
+                    <flux:card.actions>
+                        <flux:badge
+                            size="sm"
+                            color="amber"
+                        >
+                            In progress
+                        </flux:badge>
+                    </flux:card.actions>
+                </flux:card.header>
+                <flux:card.body>
+                    <flux:text>A kanban project tracker built with Laravel, inspired by Fizzy. In development.</flux:text>
+                </flux:card.body>
+            </flux:card>
+        </section>
 
-                    @if ($project->url)
-                        <div class="relative z-10 w-full sm:w-auto">
-                            <flux:button
-                                class="bg-pizza dark:bg-pizza-dark text-sm"
-                                href="{{ str_starts_with($project->url, 'http') ? $project->url : 'https://' . $project->url }}"
-                                variant="primary"
-                                target="_blank"
-                            >
-                                <span>Check out the project</span>
-                                <span aria-hidden="true">→</span>
-                            </flux:button>
-                        </div>
-                    @endif
-                </li>
-            @endforeach
-        </ul>
+        <section class="space-y-6">
+            <h2 class="font-merriweather text-2xl font-semibold text-zinc-800 dark:text-zinc-100">Client projects</h2>
+
+            <ul
+                class="grid grid-cols-[repeat(auto-fill,minmax(min(19rem,100%),1fr))] gap-6 2xl:grid-cols-3"
+                role="list"
+            >
+                @foreach (\App\Portfolio\Project::all()->reverse() as $project)
+                    <li>
+                        <flux:card
+                            class="h-full"
+                            body="separated"
+                        >
+                            <flux:card.header class="flex items-center gap-3">
+                                <flux:avatar
+                                    src="{{ $project->logo }}"
+                                    alt="{{ $project->name }}"
+                                    size="sm"
+                                    circle
+                                />
+                                <div class="min-w-0 flex-1">
+                                    <flux:card.heading level="3">{{ $project->name }}</flux:card.heading>
+                                    @if ($project->url)
+                                        <flux:card.subheading class="truncate">{{ $project->url }}</flux:card.subheading>
+                                    @endif
+                                </div>
+                                @if ($project->url)
+                                    <flux:card.actions>
+                                        <flux:button
+                                            href="{{ str_starts_with($project->url, 'http') ? $project->url : 'https://' . $project->url }}"
+                                            aria-label="Visit {{ $project->name }}"
+                                            size="sm"
+                                            variant="ghost"
+                                            icon="arrow-up-right"
+                                            target="_blank"
+                                        />
+                                    </flux:card.actions>
+                                @endif
+                            </flux:card.header>
+                            <flux:card.body>
+                                <flux:text>{!! $project->description !!}</flux:text>
+                            </flux:card.body>
+                            @if ($project->testimonial)
+                                <flux:card.footer>
+                                    <flux:text class="italic">“{{ $project->testimonial }}”</flux:text>
+                                </flux:card.footer>
+                            @endif
+                        </flux:card>
+                    </li>
+                @endforeach
+            </ul>
+        </section>
 
         <section class="space-y-6 rounded-2xl bg-zinc-50 p-8 text-center ring-1 ring-zinc-200 dark:bg-zinc-900/40 dark:ring-zinc-700">
             <h2 class="font-merriweather text-2xl font-semibold text-zinc-900 dark:text-zinc-100">Let’s work together</h2>

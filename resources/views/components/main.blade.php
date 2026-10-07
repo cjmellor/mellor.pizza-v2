@@ -1,8 +1,8 @@
 @use(App\Actions\FetchTopGithubReposAction)
 
 <main>
-    <div class="mt-18 flex flex-col space-y-12 lg:mx-12 lg:flex-row lg:space-y-0 xl:mx-32 2xl:mx-48">
-        <div class="mt-42 flex flex-col items-center justify-center space-y-8 md:mt-0 lg:ml-16 lg:w-1/3 lg:justify-start lg:space-y-6">
+    <div class="mt-12 flex flex-col space-y-12 lg:mx-12 lg:mt-18 lg:flex-row lg:space-y-0 xl:mx-32 2xl:mx-48">
+        <div class="flex flex-col items-center justify-center space-y-8 lg:ml-16 lg:w-1/3 lg:justify-start lg:space-y-6">
             <x-floating-head />
 
             {{-- X (Twitter) --}}
@@ -99,7 +99,7 @@
                                 <span class="relative inline-flex size-4 rounded-full bg-lime-500 dark:bg-lime-300"></span>
                             </span>
                         </x-slot>
-                        Available for remote contract or full-time positions
+                        Open to select contract work
                     </flux:callout.heading>
                 </flux:callout>
 
@@ -121,6 +121,13 @@
                             rel="noopener"
                         >published for anyone to use</a>.
                     </p>
+
+                    <div class="space-y-2">
+                        <h3 class="font-semibold text-neutral-900 dark:text-neutral-100">Currently building: Kandu</h3>
+                        <p class="text-sm text-neutral-900 sm:text-base md:text-lg dark:text-neutral-100">
+                            A kanban project tracker built with Laravel, inspired by Fizzy. In development and not yet released.
+                        </p>
+                    </div>
 
                     <div>
                         <flux:button

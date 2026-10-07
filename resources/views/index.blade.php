@@ -1,11 +1,11 @@
 <x-layout.main
     container
-    subTitle="Chris Mellors' Website"
+    subTitle="Chris Mellor's Website"
 >
     @section('meta-description')
         <meta
             name="description"
-            content="The personal website and portfolio of Chris Mellor"
+            content="Chris Mellor, Laravel engineer and founder of Kandu. Portfolio and CV."
         />
     @endsection
 

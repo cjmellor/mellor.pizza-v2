@@ -27,7 +27,7 @@
         />
         <meta
             property="og:description"
-            content="The personal website and portfolio of Chris Mellor"
+            content="Chris Mellor, Laravel engineer and founder of Kandu. Portfolio and CV."
         />
         <meta
             property="og:image"
@@ -53,7 +53,7 @@
         />
         <meta
             name="twitter:description"
-            content="The personal website and portfolio of Chris Mellor"
+            content="Chris Mellor, Laravel engineer and founder of Kandu. Portfolio and CV."
         />
         <meta
             name="twitter:image"
@@ -80,6 +80,14 @@
             {{ $slot }}
 
             <livewire:contact-popup />
+
+            <footer class="mx-8 mt-16 text-center text-xs text-neutral-500 lg:mx-0 dark:text-neutral-400">
+                <p>
+                    &copy; {{ date('Y') }} Mellor Code Ltd. Registered in England and Wales, company no. 17369266.
+                    <br class="sm:hidden" />
+                    Registered office: 17 Stroothers Place, Bradford, England, BD4 0BN.
+                </p>
+            </footer>
         </div>
 
         @stack('scripts')

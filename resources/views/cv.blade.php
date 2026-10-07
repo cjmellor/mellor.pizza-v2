@@ -1,22 +1,22 @@
 <x-layout.main
     container
-    subTitle="Chris Mellors' CV"
+    subTitle="Chris Mellor's CV"
 >
     <x-header />
 
     @section('meta-description')
         <meta
             name="description"
-            content="Discover Chris Mellors' professional experience and skills"
+            content="Discover Chris Mellor's professional experience and skills"
         />
     @endsection
 
     <!-- Main container -->
     <main
-        class="relative container my-20 mt-6 space-y-8 px-3.5 pt-0 sm:mt-0 sm:pt-40 md:px-24 print:my-8 print:space-y-5 print:px-4 print:pt-0 print:text-sm print:leading-tight"
+        class="relative container my-20 mt-12 space-y-8 px-4 pt-0 md:px-24 lg:mt-0 lg:pt-40 print:my-8 print:space-y-5 print:px-4 print:pt-0 print:text-sm print:leading-tight"
     >
         {{-- Print button --}}
-        <div class="hidden xl:absolute xl:top-0 xl:right-0 xl:block print:hidden">
+        <div class="hidden xl:absolute xl:top-8 xl:right-24 xl:block print:hidden">
             <button
                 type="button"
                 class="button-pizza inline-flex items-center gap-2"
@@ -165,7 +165,7 @@
                     building, the hard decisions are already made, so it lands clean and rarely needs much reworking:
                 </p>
                 <ol
-                    class="mb-4 ml-4 flex flex-nowrap items-center justify-start gap-x-1.5 whitespace-nowrap font-mono text-[0.6rem] font-medium text-gray-800 sm:gap-x-2 sm:text-xs md:gap-x-3 md:text-sm dark:text-gray-200 print:mb-2 print:ml-4 print:flex-wrap print:justify-start print:gap-x-2 print:text-sm print:text-black"
+                    class="mb-4 ml-4 flex flex-wrap items-center justify-start gap-y-1 gap-x-1.5 whitespace-nowrap font-mono text-[0.6rem] font-medium text-gray-800 sm:gap-x-2 sm:text-xs md:gap-x-3 md:text-sm dark:text-gray-200 print:mb-2 print:ml-4 print:flex-wrap print:justify-start print:gap-x-2 print:text-sm print:text-black"
                 >
                     <li class="shrink-0">Map the problem</li>
                     <li class="text-pizza dark:text-pizza-dark shrink-0 print:text-pizza" aria-hidden="true">→</li>
