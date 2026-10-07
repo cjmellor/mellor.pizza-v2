@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,17 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Model::preventLazyLoading(! $this->app->isProduction());
-
-        // “Reading Time”
-        Str::macro('readingTime', function (...$text) {
-            $totalWords = str_word_count(implode(' ', $text));
-
-            $minutes = max(1, ceil(num: $totalWords / 200));
-
-            return ($minutes > 1) ? $minutes.' minutes' : $minutes.' minute';
-        });
-
         Blade::directive('slideUp', fn () => <<< 'ANIMATE'
             x-transition:enter="ease-in-out duration-700"
             x-transition:enter-start="translate-y-full"

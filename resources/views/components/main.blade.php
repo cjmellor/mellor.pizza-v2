@@ -134,9 +134,7 @@
                     </div>
 
                     @php
-                        $featuredProjects = \App\Models\Project::query()
-                            ->featured()
-                            ->get();
+                        $featuredProjects = \App\Portfolio\Project::featured();
                     @endphp
 
                     <flux:avatar.group>
