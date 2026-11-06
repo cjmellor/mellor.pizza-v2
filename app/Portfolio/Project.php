@@ -63,6 +63,14 @@ final readonly class Project
                 url: 'app-hive.dev',
                 featured: true,
             ),
+            new self(
+                name: 'PoweredByRental',
+                description: 'A 3 month contract on a multi-tenant SaaS platform for UK equipment hire companies',
+                testimonial: '',
+                logo: asset('images/portfolio_logos/pbr.png'),
+                url: 'powered-by-rental.com',
+                featured: true,
+            ),
         ]);
     }
 
