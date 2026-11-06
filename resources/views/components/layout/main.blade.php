@@ -66,9 +66,9 @@
 
         @if (config('services.umami.website_id'))
             <script
-                defer
-                src="{{ config('services.umami.script_url') }}"
                 data-website-id="{{ config('services.umami.website_id') }}"
+                src="{{ config('services.umami.script_url') }}"
+                defer
             ></script>
         @endif
     </head>
@@ -81,7 +81,7 @@
 
             <livewire:contact-popup />
 
-            <footer class="mx-8 mt-16 text-center text-xs text-neutral-500 lg:mx-0 dark:text-neutral-400">
+            <footer class="mx-8 mt-16 text-center text-xs text-neutral-500 lg:mx-0 dark:text-neutral-400 print:mt-6">
                 <p>
                     &copy; {{ date('Y') }} Mellor Code Ltd. Registered in England and Wales, company no. 17369266.
                     <br class="sm:hidden" />
