@@ -49,13 +49,13 @@
         <header class="mb-12 text-center print:mb-6">
             <h1 class="mb-2 hidden text-4xl font-bold print:block">Chris Mellor</h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 print:text-sm print:leading-tight print:text-black">
-                <strong class="font-semibold">AI-First Full-Stack Engineer</strong>
-                · Remote
+                <strong class="font-semibold">Full-Stack Laravel &amp; Vue Engineer</strong>
+                · AI-native delivery · Remote
             </p>
             <p
                 class="mt-1 text-base text-balance text-gray-500 md:text-sm dark:text-gray-400 print:text-xs print:leading-tight print:text-black"
             >
-                I build and ship production software with Claude Code, mostly on Laravel.
+                I ship production software by writing the spec, steering coding agents and verifying what lands, mostly on Laravel.
             </p>
 
             <!-- Contact links -->
@@ -234,11 +234,11 @@
                     <div
                         class="bg-pizza/5 shadow-pizza/50 ring-pizza/20 dark:bg-dark dark:ring-dark-line rounded-lg p-6 ring-1 print:rounded-none print:border-l print:border-gray-200 print:bg-transparent print:p-0 print:pl-4 print:shadow-none print:ring-0 print:first:border-l-0 print:first:pl-0"
                     >
-                        <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">AI Engineering &amp; Workflow</h3>
+                        <h3 class="text-pizza dark:text-pizza-dark mb-3 font-bold print:text-black">AI-Native Delivery</h3>
                         <ul class="space-y-2 text-gray-700 dark:text-gray-300 print:space-y-0.5 print:text-black">
-                            <li>Claude Code (primary harness)</li>
-                            <li>Anthropic (Claude) models</li>
-                            <li>Spec-driven agent workflows</li>
+                            <li>Spec-first planning before agents build</li>
+                            <li>Parallel agent workflows (Claude Code)</li>
+                            <li>Tests &amp; CI as the merge gate</li>
                             <li>AI-assisted code &amp; security review</li>
                             <li>Comfortable across other models &amp; harnesses</li>
                         </ul>
@@ -367,12 +367,14 @@
                                             pushes, unmapped nominal codes refused, and payment actions put behind permissions
                                         </li>
                                         <li>
-                                            Worked test-first, adding PHPUnit and Vitest coverage across the platform plus CI guards that
-                                            fail the build if a known bug ever returns
+                                            Worked test-first, adding PHPUnit and Vitest coverage plus CI guards that fail the build if a
+                                            known bug ever returns, and ran an automated QA pass on my own tickets before hand-off, so they
+                                            reached the tester with no defects found
                                         </li>
                                         <li>
-                                            Designed a workflow that runs a sprint's tickets through parallel Claude Code sessions, more
-                                            than doubling monthly merged PRs while keeping CI and QA in place
+                                            Designed a workflow that runs a sprint's tickets through parallel Claude Code sessions: briefing
+                                            each agent, opening PRs, merging once checks pass and posting notes for the tester. It more than
+                                            doubled monthly merged PRs, with CI and QA as the gate
                                         </li>
                                     </ul>
                                 </flux:timeline.content>
