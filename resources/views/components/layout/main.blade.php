@@ -89,6 +89,28 @@
             {!! Seo::jsonLd($schema) !!}
         </script>
 
+        <script>
+            document.documentElement.classList.add('fonts-loading');
+            addEventListener('DOMContentLoaded', () => {
+                Promise.race([
+                    Promise.all(['900 1em Merriweather', '1em Merriweather', '1em "Roboto Mono"'].map((font) => document.fonts.load(font))),
+                    new Promise((resolve) => setTimeout(resolve, 500)),
+                ]).finally(() => requestAnimationFrame(() => document.documentElement.classList.remove('fonts-loading')));
+            });
+        </script>
+        <link
+            href="https://fonts.googleapis.com"
+            rel="preconnect"
+        />
+        <link
+            href="https://fonts.gstatic.com"
+            rel="preconnect"
+            crossorigin
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"
+        />
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @stack('stylesheets')
         @fluxAppearance
