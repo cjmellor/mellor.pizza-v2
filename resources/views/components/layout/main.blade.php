@@ -1,7 +1,6 @@
 @use(App\Seo\Seo)
 
 @props([
-    'container' => false,
     'schema' => [],
 ])
 
@@ -103,21 +102,36 @@
         @endif
     </head>
 
-    <body>
+    <body class="bg-canvas text-ink print:bg-white print:text-black">
         <x-toast />
 
-        <div {{ $attributes->class(['dark:text-dark-gray dark:text-opacity-70 mx-auto pt-8 pb-4', 'container' => $container ?? '']) }}>
-            {{ $slot }}
+        <div class="relative min-h-screen overflow-x-clip">
+            <div
+                class="screen:font-merriweather sm:screen:w-[min(1280px,calc(100%-48px))] sm:screen:border-x sm:screen:border-line relative mx-auto w-full print:container print:pt-8 print:pb-4"
+            >
+                <div
+                    class="bg-grid pointer-events-none absolute inset-x-0 top-0 h-190 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_25%,transparent_100%)] bg-top print:hidden"
+                    aria-hidden="true"
+                ></div>
+                <div
+                    class="pointer-events-none absolute top-35 left-1/2 h-125 w-[min(860px,100%)] -translate-x-1/2 bg-[radial-gradient(closest-side,var(--color-glow),transparent)] print:hidden"
+                    aria-hidden="true"
+                ></div>
 
-            <livewire:contact-popup />
+                <x-site.header />
 
-            <footer class="mx-8 mt-16 text-center text-xs text-neutral-500 lg:mx-0 dark:text-neutral-400 print:mt-6">
-                <p>
-                    &copy; {{ date('Y') }} Mellor Code Ltd. Registered in England and Wales, company no. 17369266.
-                    <br class="sm:hidden" />
-                    Registered office: 17 Stroothers Place, Bradford, England, BD4 0BN.
-                </p>
-            </footer>
+                {{ $slot }}
+
+                <footer
+                    class="screen:m-0 screen:flex screen:flex-wrap screen:justify-center screen:gap-3 screen:p-6 screen:font-roboto-mono screen:leading-relaxed screen:text-muted sm:screen:px-8 lg:screen:justify-between lg:screen:text-left mx-8 mt-16 text-center text-xs text-neutral-500 lg:mx-0 print:mt-6"
+                >
+                    <p class="screen:contents">
+                        <span>&copy; {{ date('Y') }} Mellor Code Ltd. Registered in England and Wales, company no. 17369266.</span>
+                        <br class="screen:hidden sm:hidden" />
+                        <span>Registered office: 17 Stroothers Place, Bradford, England, BD4 0BN.</span>
+                    </p>
+                </footer>
+            </div>
         </div>
 
         @stack('scripts')

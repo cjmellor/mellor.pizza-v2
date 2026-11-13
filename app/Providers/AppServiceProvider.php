@@ -22,16 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Blade::directive('slideUp', fn () => <<< 'ANIMATE'
-            x-transition:enter="ease-in-out duration-700"
-            x-transition:enter-start="translate-y-full"
-            x-transition:enter-end="translate-y-0"
-            x-transition:leave="ease-in-out duration-300"
-            x-transition:leave-start="translate-y-0"
-            x-transition:leave-end="translate-y-full"
-        ANIMATE
-        );
-
         Blade::directive('showHide', fn () => <<< 'ANIMATE'
            x-transition:enter="ease-out duration-200"
            x-transition:enter-start="opacity-0 scale-95"

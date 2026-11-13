@@ -8,8 +8,35 @@ layer(base);
 @plugin '@tailwindcss/forms';
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant screen (@media screen);
+@custom-variant nav (@media (min-width: 768px) and (min-height: 501px), (min-width: 1024px));
+@custom-variant short (@media (orientation: landscape) and (max-height: 500px) and (max-width: 1023px));
+@custom-variant phone (@media screen and (width < 40rem));
 
 @theme {
+    --color-accent: var(--color-pizza);
+    --color-accent-content: var(--color-brand-ink);
+    --color-accent-foreground: var(--color-white);
+
+    --color-canvas: #fcfcfc;
+    --color-ink: var(--color-zinc-900);
+    --color-ink-soft: var(--color-zinc-700);
+    --color-body: var(--color-zinc-600);
+    --color-muted: var(--color-zinc-500);
+    --color-line: rgb(24 24 27 / 0.1);
+    --color-panel: #f3f3f3;
+    --color-brand: var(--color-pizza);
+    --color-brand-ink: var(--color-orange-700);
+    --color-brand-hover: var(--color-orange-500);
+    --color-label: var(--color-yellow-700);
+    --color-grid: rgb(24 24 27 / 0.07);
+    --color-grid-brand: rgb(255 133 10 / 0.1);
+    --color-glow: hsl(29 100% 52% / 0.16);
+
+    --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+    --animate-rise: rise 400ms var(--ease-out-strong) both;
+    --animate-menu-in: menu-in 200ms var(--ease-out-strong) both;
+
     --animate-slide-in-down: slideInDown 0.5s;
 
     --color-dark: hsl(215, 15%, 16%);
@@ -34,18 +61,130 @@ layer(base);
             transform: translate3d(0, 0, 0);
         }
     }
+
+    @keyframes rise {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+    }
+
+    @keyframes menu-in {
+        from {
+            opacity: 0;
+            transform: translateY(-4px);
+        }
+    }
 }
 
-@utility contact-close {
-    @apply ring-pizza dark:bg-pizza-dark dark:ring-pizza-dark dark:ring-offset-dark absolute -top-4 -right-4 h-10 w-10 cursor-pointer rounded-full bg-white ring-2 ring-offset-2;
+/* Must stay unlayered: the @theme variables compile unlayered, so a layered override never wins. */
+.dark {
+    --color-accent: var(--color-pizza-dark);
+    --color-accent-content: var(--color-brand-ink);
+    --color-accent-foreground: var(--color-white);
+
+    --color-canvas: var(--color-dark);
+    --color-ink: var(--color-zinc-100);
+    --color-ink-soft: var(--color-zinc-300);
+    --color-body: var(--color-zinc-300);
+    --color-muted: var(--color-zinc-400);
+    --color-line: rgb(255 255 255 / 0.1);
+    --color-panel: hsl(215 15% 20%);
+    --color-brand: var(--color-pizza-dark);
+    --color-brand-ink: var(--color-pink-400);
+    --color-brand-hover: var(--color-pink-600);
+    --color-label: var(--color-amber-300);
+    --color-grid: rgb(255 255 255 / 0.05);
+    --color-grid-brand: hsl(331 94% 52% / 0.12);
+    --color-glow: hsl(331 94% 52% / 0.18);
 }
 
-@utility text-pop {
-    @apply from-pizza dark:from-pizza-dark bg-linear-to-r to-amber-400 bg-clip-text px-1 text-transparent dark:bg-linear-to-r dark:to-indigo-500 dark:p-0;
+@utility eyebrow {
+    @apply font-roboto-mono text-label text-xs tracking-[0.08em] uppercase;
 }
 
-@utility button-pizza {
-    @apply bg-pizza hover:ring-pizza/80 dark:bg-pizza-dark dark:hover:ring-pizza-dark/80 dark:hover:ring-offset-dark cursor-pointer rounded-md px-4 py-3 text-white shadow-md hover:ring-4 hover:ring-offset-2;
+@utility bg-grid {
+    background-image:
+        linear-gradient(var(--grid-color, var(--color-grid)) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color, var(--color-grid)) 1px, transparent 1px);
+    background-size: var(--grid-size, 48px) var(--grid-size, 48px);
+}
+
+@utility list-bullets {
+    @apply marker:text-brand flex list-outside list-disc flex-col gap-2 pl-5;
+}
+
+@utility rise-stagger {
+    & > * {
+        @apply screen:animate-rise motion-reduce:animate-none;
+    }
+    & > :nth-child(2) {
+        animation-delay: 60ms;
+    }
+    & > :nth-child(3) {
+        animation-delay: 120ms;
+    }
+    & > :nth-child(4) {
+        animation-delay: 180ms;
+    }
+    & > :nth-child(5) {
+        animation-delay: 240ms;
+    }
+}
+
+@utility panel {
+    @apply border-line bg-panel hover:border-brand/45 flex flex-col rounded-xl border p-1 transition-colors;
+}
+
+@utility panel-body {
+    @apply text-body flex-1 rounded-lg bg-white px-5 py-4 text-sm/7 shadow-xs ring-1 ring-zinc-900/8 dark:bg-black/15 dark:ring-white/8;
+}
+
+@utility lede {
+    @apply text-ink-soft max-w-[62ch] text-lg/relaxed lg:text-xl/relaxed;
+}
+
+@utility step-chip {
+    @apply inset-ring-line inline-flex min-h-8 items-center rounded-md bg-white px-2.5 inset-ring dark:bg-white/5;
+}
+
+@utility cv-text {
+    @apply text-body print:text-sm print:leading-tight print:text-black;
+}
+
+@utility copy {
+    @apply text-body max-w-[68ch] text-base/[1.8];
+}
+
+@utility cv-prose {
+    @apply cv-text screen:copy;
+}
+
+@utility timeline-flat {
+    --flux-timeline-content-gap: 0px;
+    --flux-timeline-item-gap: 0px;
+
+    & [data-flux-timeline-indicator],
+    & [data-flux-timeline-line-leading],
+    & [data-flux-timeline-line-trailing] {
+        display: none;
+    }
+}
+
+[data-flux-button] {
+    transition-property: transform, background-color, color, border-color;
+    transition-duration: 160ms;
+    transition-timing-function: var(--ease-out-strong);
+
+    &:active {
+        scale: 0.97;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &:active {
+            scale: 1;
+        }
+    }
 }
 
 @utility form-pizza {

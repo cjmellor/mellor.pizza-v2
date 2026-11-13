@@ -9,7 +9,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
-class ContactPopup extends Component
+class ContactForm extends Component
 {
     public string $contact_name = '';
 
@@ -18,10 +18,6 @@ class ContactPopup extends Component
     public string $contact_message = '';
 
     public bool $sent = false;
-
-    public bool $showContactMePopUp = false;
-
-    public bool $inline = false;
 
     protected $listeners = ['messageSent'];
 
@@ -56,20 +52,11 @@ class ContactPopup extends Component
             messageContent: 'Message sent!',
         );
 
-        $this->showContactMePopUp = false;
-
         $this->reset('contact_name', 'contact_email', 'contact_message');
-    }
-
-    public function closePopUp()
-    {
-        $this->resetValidation();
-
-        $this->showContactMePopUp = false;
     }
 
     public function render(): View
     {
-        return view($this->inline ? 'livewire.contact-inline' : 'livewire.contact-popup');
+        return view('livewire.contact-form');
     }
 }

@@ -1,0 +1,17 @@
+@blaze
+
+<svg
+    data-flux-icon
+    data-slot="icon"
+    aria-hidden="true"
+    {{ $attributes->class(Flux::classes('shrink-0')->add('[:where(&)]:size-6')) }}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+>
+    <path d="M4 4l11.733 16h4.267l-11.733-16zM4 20l6.768-8.309m2.197-2.691l6.768-8.309" />
+</svg>
