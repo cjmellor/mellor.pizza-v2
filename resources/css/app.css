@@ -36,8 +36,7 @@ layer(base);
     --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
     --animate-rise: rise 400ms var(--ease-out-strong) both;
     --animate-menu-in: menu-in 200ms var(--ease-out-strong) both;
-
-    --animate-slide-in-down: slideInDown 0.5s;
+    --animate-fade-in: fade-in 200ms ease both;
 
     --color-dark: hsl(215, 15%, 16%);
     --color-dark-input: hsl(220, 16%, 15%);
@@ -53,12 +52,9 @@ layer(base);
     --font-roboto-mono: Roboto Mono, sans-serif;
     --font-sans: Inter, sans-serif;
 
-    @keyframes slideInDown {
+    @keyframes fade-in {
         from {
-            transform: translate3d(0, -100%, 0);
-        }
-        to {
-            transform: translate3d(0, 0, 0);
+            opacity: 0;
         }
     }
 
@@ -116,7 +112,10 @@ layer(base);
 
 @utility rise-stagger {
     & > * {
-        @apply screen:animate-rise motion-reduce:animate-none;
+        @apply screen:animate-rise screen:motion-reduce:animate-fade-in;
+    }
+    [data-navigated] & > * {
+        animation: none;
     }
     & > :nth-child(2) {
         animation-delay: 60ms;
@@ -127,13 +126,13 @@ layer(base);
     & > :nth-child(4) {
         animation-delay: 180ms;
     }
-    & > :nth-child(5) {
+    & > :nth-child(n + 5) {
         animation-delay: 240ms;
     }
 }
 
 @utility panel {
-    @apply border-line bg-panel hover:border-brand/45 flex flex-col rounded-xl border p-1 transition-colors;
+    @apply border-line bg-panel flex flex-col rounded-xl border p-1;
 }
 
 @utility panel-body {
@@ -172,7 +171,7 @@ layer(base);
 }
 
 [data-flux-button] {
-    transition-property: transform, background-color, color, border-color;
+    transition-property: transform, scale, background-color, color, border-color;
     transition-duration: 160ms;
     transition-timing-function: var(--ease-out-strong);
 

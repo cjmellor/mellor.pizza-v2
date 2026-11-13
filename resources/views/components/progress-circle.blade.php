@@ -37,7 +37,7 @@
         stroke-dasharray: 100 100;
         stroke-dashoffset: {{ ! $reverse ? $lineLength : '100' }};
         stroke-linecap: round;
-        animation: progress {{ $animationSpeed }} ease-in-out;
+        animation: progress {{ $animationSpeed }} linear;
     }
 
     @keyframes progress {

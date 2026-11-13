@@ -7,7 +7,7 @@
 ])
 
 <flux:card
-    {{ $attributes->class('bg-panel hover:border-brand/45 flex flex-col transition-colors duration-150') }}
+    {{ $attributes->class('bg-panel flex flex-col') }}
     body="inset"
     variant="muted"
 >

@@ -39,7 +39,7 @@
     </nav>
 
     <div
-        class="border-line animate-menu-in short:max-h-[calc(100vh-56px)] nav:hidden flex max-h-[calc(100vh-64px)] flex-col overflow-y-auto border-t motion-reduce:animate-none"
+        class="border-line animate-menu-in short:max-h-[calc(100vh-56px)] nav:hidden motion-reduce:animate-fade-in flex max-h-[calc(100vh-64px)] flex-col overflow-y-auto border-t"
         id="site-menu"
         x-show="open"
         x-on:click="open = false"
