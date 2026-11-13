@@ -5,7 +5,10 @@ declare(strict_types=1);
 use App\Seo\Seo;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'index')->name('homepage');
+Route::get('/', fn () => response()
+    ->view('index')
+    ->header('Link', '</llms.txt>; rel="describedby"; type="text/plain", </sitemap.xml>; rel="sitemap"; type="application/xml"'))
+    ->name('homepage');
 
 Route::view('/cv', 'cv')->name('cv');
 
