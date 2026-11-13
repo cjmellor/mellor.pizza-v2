@@ -1,3 +1,17 @@
+@use(App\Seo\Seo)
+
+@props([
+    'container' => false,
+    'schema' => [],
+])
+
+@php
+    $page = Seo::page();
+    $title = "Chris Mellor - {$page['title']}";
+    $canonical = Seo::canonical();
+    $ogImage = Seo::url('images/open_graph_image.jpg');
+@endphp
+
 <!DOCTYPE html>
 <html
     class="antialiased"
@@ -5,17 +19,29 @@
 >
     <head>
         <meta charset="utf-8" />
-        @yield('meta-description')
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1"
         />
-        <title>Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website" }}</title>
+        <title>{{ $title }}</title>
+        <meta
+            name="description"
+            content="{{ $page['description'] }}"
+        />
+        <link
+            href="{{ $canonical }}"
+            rel="canonical"
+        />
+        <link
+            type="image/svg+xml"
+            href="{{ asset('favicon.svg') }}"
+            rel="icon"
+        />
 
         <!-- Facebook Meta Tags -->
         <meta
             property="og:url"
-            content="https://mellor.pizza"
+            content="{{ $canonical }}"
         />
         <meta
             property="og:type"
@@ -23,15 +49,15 @@
         />
         <meta
             property="og:title"
-            content="Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website" }}"
+            content="{{ $title }}"
         />
         <meta
             property="og:description"
-            content="Chris Mellor, Laravel engineer and founder of Kandu. Portfolio and CV."
+            content="{{ $page['description'] }}"
         />
         <meta
             property="og:image"
-            content="https://mellor.pizza/images/open_graph_image.jpg"
+            content="{{ $ogImage }}"
         />
 
         <!-- Twitter Meta Tags -->
@@ -45,20 +71,24 @@
         />
         <meta
             property="twitter:url"
-            content="https://mellor.pizza"
+            content="{{ $canonical }}"
         />
         <meta
             name="twitter:title"
-            content="Mellor.🍕 - {{ $subTitle ?? "Chris Mellor's Website" }}"
+            content="{{ $title }}"
         />
         <meta
             name="twitter:description"
-            content="Chris Mellor, Laravel engineer and founder of Kandu. Portfolio and CV."
+            content="{{ $page['description'] }}"
         />
         <meta
             name="twitter:image"
-            content="{{ asset('images/open_graph_image.jpg') }}"
+            content="{{ $ogImage }}"
         />
+
+        <script type="application/ld+json">
+            {!! Seo::jsonLd($schema) !!}
+        </script>
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @stack('stylesheets')

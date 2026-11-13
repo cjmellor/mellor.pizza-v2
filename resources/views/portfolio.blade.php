@@ -1,15 +1,8 @@
 <x-layout.main
     container
-    subTitle="Chris Mellor's Portfolio"
+    :schema="[App\Seo\Seo::webPage('CollectionPage', 'portfolio')]"
 >
     <x-header />
-
-    @section('meta-description')
-        <meta
-            name="description"
-            content="Chris Mellor's portfolio: Kandu, a product in development, and selected client projects."
-        />
-    @endsection
 
     <!-- Main container -->
     <main class="relative container my-20 mt-12 space-y-6 px-4 pt-0 sm:space-y-20 md:px-12 lg:mt-0 lg:space-y-12 lg:pt-40">

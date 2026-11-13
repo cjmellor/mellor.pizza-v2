@@ -1,14 +1,7 @@
 <x-layout.main
     container
-    subTitle="Chris Mellor's Website"
+    :schema="[App\Seo\Seo::website(), App\Seo\Seo::webPage('WebPage', 'homepage')]"
 >
-    @section('meta-description')
-        <meta
-            name="description"
-            content="Chris Mellor, Laravel engineer and founder of Kandu. Portfolio and CV."
-        />
-    @endsection
-
     <x-header></x-header>
     <x-main></x-main>
 </x-layout.main>

@@ -1,15 +1,8 @@
 <x-layout.main
     container
-    subTitle="Chris Mellor's CV"
+    :schema="[App\Seo\Seo::webPage('ProfilePage', 'cv')]"
 >
     <x-header />
-
-    @section('meta-description')
-        <meta
-            name="description"
-            content="Discover Chris Mellor's professional experience and skills"
-        />
-    @endsection
 
     <!-- Main container -->
     <main
@@ -47,7 +40,7 @@
 
         <!-- Header section -->
         <header class="mb-12 text-center print:mb-6">
-            <h1 class="mb-2 hidden text-4xl font-bold print:block">Chris Mellor</h1>
+            <h1 class="sr-only mb-2 text-4xl font-bold print:not-sr-only print:block">Chris Mellor</h1>
             <p class="text-xl text-gray-600 dark:text-gray-300 print:text-sm print:leading-tight print:text-black">
                 <strong class="font-semibold">Full-Stack Laravel &amp; Vue Engineer</strong>
                 · AI-native delivery · Remote
@@ -349,8 +342,8 @@
                                         class="mt-2 list-outside list-disc space-y-1.5 pl-5 text-sm text-gray-700 md:text-base dark:text-gray-300 print:mt-1 print:space-y-1 print:text-sm print:leading-snug print:text-black"
                                     >
                                         <li>
-                                            Shipped 650+ merged pull requests covering about 1,100 tickets in 13 weeks, including all 15
-                                            High and Highest priority production bugs
+                                            Shipped 650+ merged pull requests across about 1,100 tickets in 13 weeks, including High and
+                                            Highest priority production bugs
                                         </li>
                                         <li>
                                             Flagged the critical php2shell PHP remote-code-execution vulnerability to the team on release

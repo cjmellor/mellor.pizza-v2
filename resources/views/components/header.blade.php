@@ -10,7 +10,7 @@
             </a>
         </div>
         <div
-            class="font-roboto-mono flex w-auto max-w-full flex-col items-center space-y-4 px-6 text-lg tracking-wider uppercase min-[744px]:flex-row min-[744px]:flex-wrap min-[744px]:justify-center min-[744px]:space-y-0 min-[744px]:gap-x-6 min-[744px]:gap-y-4 min-[744px]:px-0 min-[744px]:tracking-normal md:text-xl lg:w-2/3 lg:flex-nowrap lg:justify-evenly lg:px-0 landscape:flex-row landscape:flex-wrap landscape:justify-center landscape:space-y-0 landscape:gap-x-6 landscape:gap-y-4"
+            class="font-roboto-mono flex w-auto max-w-full flex-col items-center space-y-4 px-6 text-lg tracking-wider uppercase min-[744px]:flex-row min-[744px]:flex-wrap min-[744px]:justify-center min-[744px]:space-y-0 min-[744px]:gap-x-6 min-[744px]:gap-y-4 min-[744px]:px-0 min-[744px]:tracking-normal md:text-xl lg:w-2/3 lg:flex-nowrap lg:justify-evenly lg:px-0 lg:text-lg xl:text-xl landscape:flex-row landscape:flex-wrap landscape:justify-center landscape:space-y-0 landscape:gap-x-6 landscape:gap-y-4"
         >
             <div>
                 <x-link
@@ -30,6 +30,15 @@
             </div>
             <div>
                 <x-link
+                    to="{{ route('app-security-review') }}"
+                    wire:navigate.hover
+                >
+                    Security review
+                </x-link>
+            </div>
+            <div>
+                <x-link
+                    to="{{ route('contact') }}"
                     x-data
                     x-on:click.prevent="$dispatch('show-contact')"
                 >

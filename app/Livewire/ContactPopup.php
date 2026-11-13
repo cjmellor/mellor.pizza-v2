@@ -21,6 +21,8 @@ class ContactPopup extends Component
 
     public bool $showContactMePopUp = false;
 
+    public bool $inline = false;
+
     protected $listeners = ['messageSent'];
 
     protected array $rules = [
@@ -56,7 +58,7 @@ class ContactPopup extends Component
 
         $this->showContactMePopUp = false;
 
-        $this->reset();
+        $this->reset('contact_name', 'contact_email', 'contact_message');
     }
 
     public function closePopUp()
@@ -68,6 +70,6 @@ class ContactPopup extends Component
 
     public function render(): View
     {
-        return view('livewire.contact-popup');
+        return view($this->inline ? 'livewire.contact-inline' : 'livewire.contact-popup');
     }
 }

@@ -33,7 +33,7 @@ final readonly class Project
             ),
             new self(
                 name: '16Personalities',
-                description: 'A 3 month contract job asissting in modernising the codebase and helping to develop API\'s',
+                description: 'A 3 month contract job assisting in modernising the codebase and helping to develop API\'s',
                 testimonial: '',
                 logo: asset('images/portfolio_logos/16p.svg'),
                 url: '16personalities.com',

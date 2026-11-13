@@ -1,11 +1,14 @@
-@use(App\Actions\FetchTopGithubReposAction)
+@php
+    $projects = \App\Portfolio\Project::all();
+    $pbr = $projects->firstWhere('name', 'PoweredByRental');
+    $appHive = $projects->firstWhere('name', 'App-Hive');
+@endphp
 
-<main>
-    <div class="mt-12 flex flex-col space-y-12 lg:mx-12 lg:mt-18 lg:flex-row lg:space-y-0 xl:mx-32 2xl:mx-48">
+<main class="font-merriweather">
+    <section class="mt-12 flex flex-col space-y-12 lg:mx-12 lg:mt-18 lg:flex-row lg:space-y-0 xl:mx-32 2xl:mx-48">
         <div class="flex flex-col items-center justify-center space-y-8 lg:ml-16 lg:w-1/3 lg:justify-start lg:space-y-6">
             <x-floating-head />
 
-            {{-- X (Twitter) --}}
             <div class="flex space-x-4">
                 <flux:button
                     class="group"
@@ -26,7 +29,6 @@
                     </svg>
                 </flux:button>
 
-                {{-- GitHub --}}
                 <flux:button
                     class="group"
                     href="https://github.com/cjmellor"
@@ -46,147 +48,260 @@
                     </svg>
                 </flux:button>
             </div>
-
-            <flux:separator />
-
-            <h2 class="font-semibold">Most Starred Projects on GitHub</h2>
-
-            <ul class="space-y-2.5 text-sm">
-                @foreach (app(FetchTopGithubReposAction::class)->handle() as $repo)
-                    <li class="flex items-center gap-x-4">
-                        <a
-                            class="hover:text-pizza dark:hover:text-pizza-dark flex-1 text-neutral-900 underline hover:underline dark:text-neutral-100"
-                            href="{{ $repo['html_url'] }}"
-                            target="_blank"
-                        >
-                            {{ $repo['name'] }}
-                        </a>
-                        <div class="flex w-20 justify-end">
-                            <flux:badge
-                                size="sm"
-                                variant="pill"
-                                inset
-                                color="yellow"
-                            >
-                                <flux:icon.star
-                                    class="size-4 text-amber-500"
-                                    variant="solid"
-                                />
-                                <span class="inline-block w-8 text-right">{{ $repo['stargazers_count'] }}</span>
-                            </flux:badge>
-                        </div>
-                    </li>
-                @endforeach
-            </ul>
         </div>
 
         <div class="lg:ml-24 lg:w-2/3">
-            <div
-                class="font-merriweather mx-8 flex h-full max-w-prose flex-col justify-center space-y-8 tracking-wider lg:mx-0 lg:text-left"
-            >
-                <h2 class="text-2xl lg:text-3xl">
-                    Hi, I'm
-                    <span class="font-extrabold">Chris</span>
-                </h2>
+            <div class="mx-8 flex h-full max-w-prose flex-col justify-center space-y-8 tracking-wide lg:mx-0">
+                <h1 class="text-3xl leading-tight font-extrabold text-neutral-900 lg:text-4xl dark:text-neutral-100">
+                    Laravel &amp; PHP contractor.
+                    <span class="text-pizza dark:text-pizza-dark">Remote, worldwide.</span>
+                </h1>
 
-                <flux:callout color="lime">
-                    <flux:callout.heading>
-                        <x-slot name="icon">
-                            <span class="relative flex size-4">
-                                <span
-                                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-400 opacity-75 dark:bg-lime-200"
-                                ></span>
-                                <span class="relative inline-flex size-4 rounded-full bg-lime-500 dark:bg-lime-300"></span>
-                            </span>
-                        </x-slot>
-                        Open to select contract work
-                    </flux:callout.heading>
-                </flux:callout>
+                <p class="leading-8 text-neutral-900 md:text-xl dark:text-neutral-100">
+                    AI writes a lot of my code. I review all of it before it lands, security included, because I don't take it on trust.
+                </p>
 
-                <div class="space-y-10">
-                    <p class="leading-8 text-neutral-900 md:text-xl dark:text-neutral-100">
-                        <strong>AI-First Full-Stack Engineer.</strong>
-                        I plan the work properly, then ship it with Claude Code.
-                    </p>
-
-                    <p class="text-sm text-neutral-900 sm:text-base md:text-lg dark:text-neutral-100">
-                        I write less code line by line these days and spend more time directing it — getting the spec and the edge cases
-                        sorted up front, then letting AI agents build it. I ship more, and faster, but the decisions and the review are still
-                        mine. Laravel's my main framework, and I've packaged my own workflow into tooling I carry between projects — a set of
-                        Claude Code skills and a memory system I
-                        <a
-                            class="hover:text-pizza dark:hover:text-pizza-dark font-medium text-neutral-900 underline dark:text-neutral-100"
-                            href="https://github.com/cjmellor/mella-marketplace"
-                            target="_blank"
-                            rel="noopener"
-                        >published for anyone to use</a>.
-                    </p>
-
-                    <div class="space-y-2">
-                        <h3 class="font-semibold text-neutral-900 dark:text-neutral-100">Currently building: Kandu</h3>
-                        <p class="text-sm text-neutral-900 sm:text-base md:text-lg dark:text-neutral-100">
-                            A kanban project tracker built with Laravel, inspired by Fizzy. In development and not yet released.
-                        </p>
-                    </div>
-
-                    <div>
-                        <flux:button
-                            class="bg-pizza dark:bg-pizza-dark hover:bg-orange-500 dark:hover:bg-pink-700"
-                            href="{{ route('cv') }}"
-                            aria-label="View CV"
-                            variant="primary"
-                        >
-                            Let's work together
-                        </flux:button>
-                    </div>
-
-                    @php
-                        $featuredProjects = \App\Portfolio\Project::featured();
-                    @endphp
-
-                    <flux:avatar.group>
-                        @foreach ($featuredProjects as $project)
-                            <flux:avatar
-                                src="{{ $project->logo }}"
-                                tooltip="{{ $project->name }}"
-                            />
-                        @endforeach
-
-                        <flux:avatar :href="route('portfolio')">+</flux:avatar>
-                    </flux:avatar.group>
-
-                    @php
-                        $technologies = [
-                            ['label' => 'Claude Code', 'color' => 'orange'],
-                            ['label' => 'AI Agents', 'color' => 'amber'],
-                            ['label' => 'Laravel', 'color' => 'red'],
-                            ['label' => 'Livewire', 'color' => 'yellow'],
-                            ['label' => 'Tailwind CSS', 'color' => 'sky'],
-                            ['label' => 'Vue.js', 'color' => 'green'],
-                            ['label' => 'CI/CD', 'color' => 'blue'],
-                            ['label' => 'API', 'color' => 'purple'],
-                        ];
-                    @endphp
-
-                    <ul
-                        class="mt-2 flex flex-wrap items-center gap-2 md:gap-3"
-                        role="list"
-                        aria-label="Technologies"
+                <div class="flex flex-wrap items-center gap-4">
+                    <flux:button
+                        class="bg-pizza dark:bg-pizza-dark hover:bg-orange-500 dark:hover:bg-pink-700"
+                        variant="primary"
+                        x-data
+                        x-on:click.prevent="$dispatch('show-contact')"
                     >
-                        @foreach ($technologies as $technology)
-                            <li>
-                                <flux:badge
-                                    class="transition-transform hover:scale-105"
-                                    color="{{ $technology['color'] }}"
-                                    size="lg"
-                                >
-                                    {{ $technology['label'] }}
-                                </flux:badge>
-                            </li>
-                        @endforeach
-                    </ul>
+                        Let's work together
+                    </flux:button>
+
+                    <span class="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
+                        <span class="size-2.5 rounded-full bg-lime-500 dark:bg-lime-300"></span>
+                        Available now
+                    </span>
                 </div>
             </div>
         </div>
+    </section>
+
+    <div class="mx-8 mt-24 space-y-24 lg:mx-28 xl:mx-48 2xl:mx-64">
+        <section class="space-y-8">
+            <h2 class="text-2xl font-bold text-neutral-900 lg:text-3xl dark:text-neutral-100">What I do</h2>
+
+            <div class="grid gap-6 lg:grid-cols-2">
+                <flux:card
+                    class="h-full"
+                    body="inset"
+                    variant="muted"
+                >
+                    <flux:card.header>
+                        <flux:card.heading level="3">Laravel &amp; PHP contracting</flux:card.heading>
+                    </flux:card.header>
+                    <flux:card.body>
+                        <flux:text>
+                            I join your team remotely and own the work end to end: features, fixes, integrations and releases. Spec first,
+                            then the build, then a code and security review before anything merges.
+                        </flux:text>
+                    </flux:card.body>
+                </flux:card>
+
+                <flux:card
+                    class="h-full"
+                    body="inset"
+                    variant="muted"
+                >
+                    <flux:card.header class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+                        <flux:card.heading
+                            class="whitespace-nowrap"
+                            level="3"
+                        >
+                            Rescue &amp; hardening
+                        </flux:card.heading>
+                        <flux:card.actions>
+                            <flux:button
+                                href="{{ route('app-security-review') }}"
+                                size="sm"
+                                variant="ghost"
+                                icon:trailing="arrow-right"
+                                wire:navigate.hover
+                            >
+                                See the security review
+                            </flux:button>
+                        </flux:card.actions>
+                    </flux:card.header>
+                    <flux:card.body>
+                        <flux:text>
+                            Your app was built fast, by a team in a hurry or with Lovable, Supabase or an AI agent, and now real users are
+                            on it. I find what's exposed or slow, fix it, and get it hosted, backed up and patched properly.
+                        </flux:text>
+                    </flux:card.body>
+                </flux:card>
+            </div>
+
+            <p class="text-neutral-700 dark:text-neutral-300">Laravel and PHP first. Other stacks when the job needs it.</p>
+        </section>
+
+        <section class="space-y-8">
+            <h2 class="text-2xl font-bold text-neutral-900 lg:text-3xl dark:text-neutral-100">Recent work</h2>
+
+            <div class="grid gap-6 lg:grid-cols-2">
+                <flux:card
+                    class="flex flex-col"
+                    body="inset"
+                    variant="muted"
+                >
+                    <flux:card.header class="flex items-center gap-3">
+                        <flux:avatar
+                            src="{{ $pbr->logo }}"
+                            alt="{{ $pbr->name }}"
+                            size="sm"
+                            circle
+                        />
+                        <div class="min-w-0 flex-1">
+                            <flux:card.heading level="3">PoweredByRental</flux:card.heading>
+                            <flux:card.subheading>{{ $pbr->url }}</flux:card.subheading>
+                        </div>
+                        <flux:card.actions>
+                            <flux:button
+                                href="https://{{ $pbr->url }}"
+                                aria-label="Visit PoweredByRental"
+                                size="sm"
+                                variant="ghost"
+                                icon="arrow-up-right"
+                                target="_blank"
+                            />
+                        </flux:card.actions>
+                    </flux:card.header>
+                    <flux:card.body class="flex-1">
+                        <flux:text>
+                            Full-stack contract work on a multi-tenant SaaS platform for equipment hire companies, built on PHP 8, SQL
+                            Server and Vue 3.
+                        </flux:text>
+                    </flux:card.body>
+                </flux:card>
+
+                <flux:card
+                    class="flex flex-col"
+                    body="inset"
+                    variant="muted"
+                >
+                    <flux:card.header class="flex items-center gap-3">
+                        <flux:avatar
+                            src="{{ $appHive->logo }}"
+                            alt="{{ $appHive->name }}"
+                            size="sm"
+                            circle
+                        />
+                        <div class="min-w-0 flex-1">
+                            <flux:card.heading level="3">App-Hive</flux:card.heading>
+                            <flux:card.subheading>Shopify app, Laravel and Livewire</flux:card.subheading>
+                        </div>
+                        <flux:card.actions>
+                            <flux:button
+                                href="https://{{ $appHive->url }}"
+                                aria-label="Visit App-Hive"
+                                size="sm"
+                                variant="ghost"
+                                icon="arrow-up-right"
+                                target="_blank"
+                            />
+                        </flux:card.actions>
+                    </flux:card.header>
+                    <flux:card.body class="flex-1">
+                        <flux:text>
+                            I built features and fixes alongside Philo, working from his issues and shipping each change through his review.
+                        </flux:text>
+                    </flux:card.body>
+                    <flux:card.footer>
+                        <figure class="space-y-2">
+                            <blockquote>
+                                <flux:text class="italic">“{{ $appHive->testimonial }}”</flux:text>
+                            </blockquote>
+                            <figcaption>
+                                <flux:text size="sm">Philo, App-Hive</flux:text>
+                            </figcaption>
+                        </figure>
+                    </flux:card.footer>
+                </flux:card>
+            </div>
+
+            <flux:link
+                href="{{ route('portfolio') }}"
+                wire:navigate.hover
+            >
+                More in my portfolio
+            </flux:link>
+        </section>
+
+        <section class="space-y-6">
+            <h2 class="text-2xl font-bold text-neutral-900 lg:text-3xl dark:text-neutral-100">Working with me</h2>
+
+            <flux:card
+                body="inset"
+                variant="muted"
+            >
+                <flux:card.body>
+                    <ul class="list-outside list-disc space-y-3 pl-5 leading-7 text-neutral-700 dark:text-neutral-300">
+                        <li>I reply the same day and keep you updated as the work moves.</li>
+                        <li>I review everything before it lands, whether I wrote it or an AI agent did.</li>
+                        <li>Once the work's paid for, everything's handed over: code, repo, keys and accounts.</li>
+                    </ul>
+                </flux:card.body>
+            </flux:card>
+        </section>
+
+        <flux:card
+            body="inset"
+            variant="muted"
+        >
+            <flux:card.body class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <p class="text-neutral-800 dark:text-neutral-200">
+                    Built something fast and not sure it's safe?
+                    <span class="text-neutral-600 dark:text-neutral-400">There's a fixed-price security review.</span>
+                </p>
+                <flux:button
+                    class="shrink-0"
+                    href="{{ route('app-security-review') }}"
+                    wire:navigate.hover
+                >
+                    See what's checked
+                </flux:button>
+            </flux:card.body>
+        </flux:card>
+
+        <flux:card
+            class="text-center"
+            body="inset"
+            variant="muted"
+        >
+            <flux:card.header>
+                <flux:card.heading
+                    size="lg"
+                    level="2"
+                >
+                    Tell me what you're building
+                </flux:card.heading>
+                <flux:card.subheading>Available now · I reply the same day</flux:card.subheading>
+            </flux:card.header>
+            <flux:card.body class="flex flex-wrap items-center justify-center gap-4">
+                <flux:button
+                    class="bg-pizza dark:bg-pizza-dark hover:bg-orange-500 dark:hover:bg-pink-700"
+                    variant="primary"
+                    x-data
+                    x-on:click.prevent="$dispatch('show-contact')"
+                >
+                    Get in touch
+                </flux:button>
+                <flux:button
+                    href="mailto:chris@mellor.pizza"
+                    variant="ghost"
+                >
+                    chris@mellor.pizza
+                </flux:button>
+                <flux:button
+                    href="https://www.linkedin.com/in/chrismellor85"
+                    variant="ghost"
+                    target="_blank"
+                >
+                    LinkedIn
+                </flux:button>
+            </flux:card.body>
+        </flux:card>
     </div>
 </main>
