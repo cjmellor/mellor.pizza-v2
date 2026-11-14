@@ -4,13 +4,6 @@
     'schema' => [],
 ])
 
-@php
-    $page = Seo::page();
-    $title = "Chris Mellor - {$page['title']}";
-    $canonical = Seo::canonical();
-    $ogImage = Seo::url('images/open_graph_image.jpg');
-@endphp
-
 <!DOCTYPE html>
 <html
     class="antialiased"
@@ -22,68 +15,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1"
         />
-        <title>{{ $title }}</title>
-        <meta
-            name="description"
-            content="{{ $page['description'] }}"
-        />
-        <link
-            href="{{ $canonical }}"
-            rel="canonical"
-        />
-        <link
-            type="image/svg+xml"
-            href="{{ asset('favicon.svg') }}"
-            rel="icon"
-        />
-
-        <!-- Facebook Meta Tags -->
-        <meta
-            property="og:url"
-            content="{{ $canonical }}"
-        />
-        <meta
-            property="og:type"
-            content="website"
-        />
-        <meta
-            property="og:title"
-            content="{{ $title }}"
-        />
-        <meta
-            property="og:description"
-            content="{{ $page['description'] }}"
-        />
-        <meta
-            property="og:image"
-            content="{{ $ogImage }}"
-        />
-
-        <!-- Twitter Meta Tags -->
-        <meta
-            name="twitter:card"
-            content="summary_large_image"
-        />
-        <meta
-            property="twitter:domain"
-            content="mellor.pizza"
-        />
-        <meta
-            property="twitter:url"
-            content="{{ $canonical }}"
-        />
-        <meta
-            name="twitter:title"
-            content="{{ $title }}"
-        />
-        <meta
-            name="twitter:description"
-            content="{{ $page['description'] }}"
-        />
-        <meta
-            name="twitter:image"
-            content="{{ $ogImage }}"
-        />
+        @head
 
         <script type="application/ld+json">
             {!! Seo::jsonLd($schema) !!}
@@ -98,15 +30,6 @@
                 ]).finally(() => requestAnimationFrame(() => document.documentElement.classList.remove('fonts-loading')));
             });
         </script>
-        <link
-            href="https://fonts.googleapis.com"
-            rel="preconnect"
-        />
-        <link
-            href="https://fonts.gstatic.com"
-            rel="preconnect"
-            crossorigin
-        />
         <link
             href="https://fonts.googleapis.com/css2?family=Anton&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet"

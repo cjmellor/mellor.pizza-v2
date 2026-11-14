@@ -17,9 +17,10 @@ final class Seo
      */
     public static function page(?string $routeName = null): array
     {
-        $routeName ??= Route::currentRouteName();
+        $route = Route::getRoutes()->getByName($routeName ?? Route::currentRouteName() ?? 'homepage')
+            ?? Route::getRoutes()->getByName('homepage');
 
-        return config("seo.pages.{$routeName}", config('seo.pages.homepage'));
+        return array_merge(...array_values($route->getMetadata('head', [])));
     }
 
     public static function url(string $path = '/'): string

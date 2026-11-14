@@ -26,27 +26,4 @@ return [
         'company_number' => '17369266',
     ],
 
-    'pages' => [
-        'homepage' => [
-            'title' => 'Laravel & PHP contractor',
-            'description' => 'Chris Mellor, a remote Laravel and PHP contractor. Production work, rescue and security hardening for teams worldwide.',
-        ],
-        'app-security-review' => [
-            'title' => 'App security review',
-            'description' => 'A fixed-price security review for apps built fast with Lovable, Supabase, AI agents or a team in a hurry. Written report in 5 working days.',
-        ],
-        'portfolio' => [
-            'title' => 'Portfolio',
-            'description' => "Chris Mellor's portfolio: client projects including PoweredByRental, App-Hive and 16Personalities, plus Kandu, a product in development.",
-        ],
-        'cv' => [
-            'title' => 'CV',
-            'description' => "Chris Mellor's CV: full-stack Laravel and Vue engineer working remotely, shipping production software by writing the spec, steering coding agents and verifying what lands.",
-        ],
-        'contact' => [
-            'title' => 'Contact',
-            'description' => 'Get in touch with Chris Mellor about Laravel and PHP contract work or an app security review. Available now, and I reply the same day.',
-        ],
-    ],
-
 ];
