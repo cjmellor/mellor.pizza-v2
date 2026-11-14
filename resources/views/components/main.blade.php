@@ -32,21 +32,27 @@
         </div>
 
         <div
-            class="rise-stagger nav:py-14 nav:pr-10 nav:pl-4 short:gap-4 short:py-6 short:pr-8 short:pl-0 flex min-w-0 flex-1 flex-col justify-center gap-6 px-6 pt-8 pb-14 sm:px-10 sm:pb-16 lg:gap-7 lg:py-18 lg:pr-14 lg:pl-6 xl:pl-14"
+            class="rise-stagger nav:py-14 nav:pr-10 nav:pl-4 short:gap-4 short:py-6 short:pr-8 short:pl-0 flex min-w-0 flex-1 flex-col justify-center gap-6 px-6 pt-8 pb-14 sm:px-10 sm:pb-16 lg:gap-8 lg:py-18 lg:pr-14 lg:pl-6 xl:pl-14"
         >
-            <span class="eyebrow flex items-center">
-                <span class="mr-2 size-2 rounded-full bg-lime-500 dark:bg-lime-300"></span>
-                Available now
-            </span>
+            <hgroup class="flex flex-col gap-3">
+                <span class="eyebrow flex items-center">
+                    <span class="mr-2 size-2 rounded-full bg-lime-500 dark:bg-lime-300"></span>
+                    Available now
+                </span>
 
-            <h1 class="short:text-3xl/[1.12] text-4xl/[1.12] font-black tracking-[-0.01em] lg:text-5xl/[1.12]">
-                Laravel &amp; PHP contractor.
-                <span class="text-brand">Remote, worldwide.</span>
-            </h1>
+                <flux:heading
+                    class="text-ink screen:font-black short:text-3xl/[1.12] text-4xl/[1.12] tracking-[-0.01em] lg:text-5xl/[1.12]"
+                    level="1"
+                    size="2xl"
+                >
+                    Laravel &amp; PHP contractor.
+                    <span class="text-brand">Remote, worldwide.</span>
+                </flux:heading>
+            </hgroup>
 
-            <p class="text-ink-soft nav:text-xl/relaxed short:text-base max-w-[58ch] text-lg/relaxed">
+            <flux:text class="text-ink-soft nav:text-xl/relaxed short:text-base max-w-[58ch] text-lg/relaxed">
                 AI writes a lot of my code. I review all of it before it lands, security included, because I don't take it on trust.
-            </p>
+            </flux:text>
 
             <div class="flex flex-wrap gap-3 max-sm:*:basis-full">
                 <flux:button
@@ -73,7 +79,7 @@
         label="01 — Services"
     >
         <x-slot:aside>
-            <p class="text-body mt-2 text-sm/relaxed">Laravel and PHP first. Other stacks when the job needs it.</p>
+            <flux:text class="text-body text-sm/relaxed">Laravel and PHP first. Other stacks when the job needs it.</flux:text>
         </x-slot>
 
         <x-card
@@ -110,14 +116,15 @@
         label="02 — Clients"
     >
         <x-slot:aside>
-            <a
-                class="font-roboto-mono text-brand-ink hover:text-ink mt-2 inline-flex items-center gap-1 text-xs tracking-[0.04em] uppercase"
+            <flux:link
+                class="font-roboto-mono hover:text-ink inline-flex items-center gap-1 self-start text-xs tracking-[0.04em] uppercase"
                 href="{{ route('portfolio') }}"
+                variant="ghost"
                 wire:navigate.hover
             >
                 More in my portfolio
                 <flux:icon.arrow-right class="size-3.5" />
-            </a>
+            </flux:link>
         </x-slot>
 
         <x-card
@@ -161,10 +168,10 @@
         <x-card>
             <div class="flex flex-wrap items-center justify-between gap-4">
                 <x-chip icon="lock" />
-                <p class="text-ink min-w-50 flex-1 text-base">
+                <flux:text class="text-ink min-w-50 flex-1 text-base">
                     Built something fast and not sure it's safe?
                     <span class="text-body">There's a fixed-price security review.</span>
-                </p>
+                </flux:text>
                 <flux:button
                     href="{{ route('app-security-review') }}"
                     wire:navigate.hover

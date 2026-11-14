@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use App\Mail\ContactMessageMail;
+use Flux\Flux;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
@@ -47,10 +48,7 @@ class ContactForm extends Component
 
         sleep(seconds: 1);
 
-        $this->dispatch(
-            event: 'send-toast',
-            messageContent: 'Message sent!',
-        );
+        Flux::toast(text: 'Message sent!', variant: 'success');
 
         $this->reset('contact_name', 'contact_email', 'contact_message');
     }

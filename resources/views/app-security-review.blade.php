@@ -25,11 +25,11 @@
             title="App security review"
             label="03 — Security review"
         >
-            <p class="lede">
+            <flux:text class="lede">
                 You built it fast, with Lovable, Supabase, an AI agent or a team in a hurry, and now real users are signing up. Before
                 someone else finds the holes, I'll find them for you.
-            </p>
-            <p class="text-brand-ink text-xl font-bold">$750 fixed. Written report in 5 working days.</p>
+            </flux:text>
+            <flux:text class="text-brand-ink text-xl font-bold">$750 fixed. Written report in 5 working days.</flux:text>
         </x-page-head>
 
         <x-section
@@ -73,15 +73,15 @@
             label="03"
         >
             <div class="space-y-4">
-                <p class="copy">
+                <flux:text class="copy">
                     I'm a production engineer, not a scanner. I review everything AI writes, security included, because I don't take it on
                     trust. When the php2shell PHP vulnerability landed, I flagged it to my client's team on release day. On my own server
                     the OS packages couldn't deliver the fix, so I built a containerised PHP-FPM 8.4.27 the same day and moved three
                     production sites onto it with no downtime and a tested rollback.
-                </p>
-                <p class="copy">
+                </flux:text>
+                <flux:text class="copy">
                     Once the report's done, I can fix what it finds, and keep the app hosted, backed up and patched afterwards.
-                </p>
+                </flux:text>
             </div>
         </x-section>
 

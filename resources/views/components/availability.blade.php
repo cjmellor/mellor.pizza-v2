@@ -2,7 +2,7 @@
     'dot' => false,
 ])
 
-<p {{ $attributes->class('text-ink-soft flex flex-wrap items-center text-lg') }}>
+<flux:text {{ $attributes->class('text-ink-soft flex flex-wrap items-center text-lg') }}>
     @if ($dot)
         <span
             class="mr-2 size-2 rounded-full bg-lime-500 dark:bg-lime-300"
@@ -17,4 +17,4 @@
         ·
     </span>
     I reply the same day
-</p>
+</flux:text>

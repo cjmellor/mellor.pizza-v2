@@ -10,7 +10,7 @@
     contact
 >
     <div class="flex flex-1 flex-col items-start justify-end gap-4">
-        <p class="text-ink-soft max-w-[56ch] text-lg/relaxed">{{ $slot }}</p>
+        <flux:text class="text-ink-soft max-w-[56ch] text-lg/relaxed">{{ $slot }}</flux:text>
         <flux:button
             class="max-sm:self-stretch"
             href="{{ route('contact') }}"

@@ -125,7 +125,9 @@
     </head>
 
     <body class="bg-canvas text-ink print:bg-white print:text-black">
-        <x-toast />
+        @persist('toast')
+            <flux:toast />
+        @endpersist
 
         <div class="relative min-h-screen overflow-x-clip">
             <div

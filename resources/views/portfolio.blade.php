@@ -4,10 +4,10 @@
             title="My portfolio"
             label="02 — Portfolio"
         >
-            <p class="lede">
+            <flux:text class="lede">
                 A product I’m building, plus a selection of client projects—showcasing design, development, and problem‑solving across
                 different briefs. More coming soon.
-            </p>
+            </flux:text>
         </x-page-head>
 
         <x-section
