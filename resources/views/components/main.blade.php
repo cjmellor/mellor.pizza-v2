@@ -2,6 +2,7 @@
     $projects = \App\Portfolio\Project::all();
     $pbr = $projects->firstWhere('name', 'PoweredByRental');
     $appHive = $projects->firstWhere('name', 'App-Hive');
+    $pbrTestimonial = \App\Portfolio\Testimonial::all()->firstWhere('company', 'PoweredByRental');
 @endphp
 
 <main>
@@ -163,6 +164,15 @@
             :href="'https://' . $pbr->url"
         >
             Full-stack contract work on a multi-tenant SaaS platform for equipment hire companies, built on PHP 8, SQL Server and Vue 3.
+
+            @if ($pbrTestimonial)
+                <x-slot:footer>
+                    <figure class="space-y-2">
+                        <blockquote class="italic">“{{ $pbrTestimonial->quote }}”</blockquote>
+                        <figcaption>{{ $pbrTestimonial->name }}, {{ $pbrTestimonial->role }}, {{ $pbrTestimonial->company }}</figcaption>
+                    </figure>
+                </x-slot>
+            @endif
         </x-card>
 
         <x-card
@@ -180,16 +190,6 @@
                 </figure>
             </x-slot>
         </x-card>
-
-        @foreach (\App\Portfolio\Testimonial::all() as $testimonial)
-            <figure class="border-line space-y-3 border-l-2 pl-5">
-                <blockquote class="text-ink text-lg/relaxed italic">“{{ $testimonial->quote }}”</blockquote>
-                <figcaption class="text-body text-sm">
-                    {{ $testimonial->name }}{{ $testimonial->role ? ', ' . $testimonial->role : '' }},
-                    <cite class="not-italic">{{ $testimonial->company }}</cite>
-                </figcaption>
-            </figure>
-        @endforeach
     </x-section>
 
     <x-section
