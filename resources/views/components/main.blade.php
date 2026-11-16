@@ -180,6 +180,16 @@
                 </figure>
             </x-slot>
         </x-card>
+
+        @foreach (\App\Portfolio\Testimonial::all() as $testimonial)
+            <figure class="border-line space-y-3 border-l-2 pl-5">
+                <blockquote class="text-ink text-lg/relaxed italic">“{{ $testimonial->quote }}”</blockquote>
+                <figcaption class="text-body text-sm">
+                    {{ $testimonial->name }}{{ $testimonial->role ? ', ' . $testimonial->role : '' }},
+                    <cite class="not-italic">{{ $testimonial->company }}</cite>
+                </figcaption>
+            </figure>
+        @endforeach
     </x-section>
 
     <x-section
