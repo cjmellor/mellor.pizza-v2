@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Middleware\NegotiateMarkdown;
 use App\Http\Middleware\RedirectToCanonicalUrl;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -15,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->prepend(RedirectToCanonicalUrl::class);
+        $middleware->append(NegotiateMarkdown::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

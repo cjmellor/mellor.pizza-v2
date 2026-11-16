@@ -63,6 +63,15 @@ Route::view('/contact', 'contact')
         description: 'Get in touch with Chris Mellor about a Laravel or PHP contract project, a rescue job or an app security review. Available now, and I reply the same day.',
     );
 
+Route::view('/privacy', 'privacy')
+    ->name('privacy')
+    ->withHead(
+        title: 'Privacy Policy - Chris Mellor',
+        description: 'How Mellor Code Ltd handles the personal data you send through the contact form on mellor.pizza, why, and your rights under UK GDPR.',
+    );
+
+Route::redirect('/about', '/cv', 301);
+
 foreach ([
     '/articles',
     '/replace-laravel-mix-with-vite',

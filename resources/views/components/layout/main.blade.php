@@ -77,6 +77,13 @@
                         <br class="screen:hidden sm:hidden" />
                         <span>Registered office: 17 Stroothers Place, Bradford, England, BD4 0BN.</span>
                     </p>
+                    <flux:link
+                        class="text-inherit"
+                        href="{{ route('privacy') }}"
+                        wire:navigate.hover
+                    >
+                        Privacy policy
+                    </flux:link>
                 </footer>
             </div>
         </div>
