@@ -1,7 +1,7 @@
 @php
     $checks = [
         ['icon' => 'key-round', 'title' => 'Exposed keys and secrets', 'detail' => 'API keys, service-role keys and tokens shipped to the browser or committed to the repo.'],
-        ['icon' => 'database', 'title' => 'Database access rules', 'detail' => 'Who can read and write which rows. On Supabase that means row-level security; on Laravel, policies and mass assignment.'],
+        ['icon' => 'database', 'title' => 'Database access rules', 'detail' => 'Who can read and write which rows. On Laravel, that means policies and mass assignment.'],
         ['icon' => 'lock', 'title' => 'Auth flows', 'detail' => 'Sign-up, login, password reset and session handling, and whether a logged-in user can reach another user\'s data.'],
         ['icon' => 'folder', 'title' => 'File storage', 'detail' => 'Public buckets and upload paths that leak private files.'],
         ['icon' => 'server', 'title' => 'Hosting and backups', 'detail' => 'Where it runs, whether backups exist and have ever been restored, and what happens when it goes down.'],

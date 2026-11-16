@@ -136,8 +136,8 @@
                 </flux:button>
             </x-slot>
 
-            Your app was built fast, by a team in a hurry or with Lovable, Supabase or an AI agent, and now real users are on it. I find
-            what's exposed or slow, fix it, and get it hosted, backed up and patched properly.
+            Your app was built fast, by a team in a hurry or with AI tools, and now real users are on it. I find what's exposed or slow, fix
+            it, and get it hosted, backed up and patched properly.
         </x-card>
     </x-section>
 

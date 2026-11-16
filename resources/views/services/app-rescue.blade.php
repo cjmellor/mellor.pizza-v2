@@ -98,8 +98,8 @@
                         heading="Security fixes"
                         icon="key-round"
                     >
-                        Exposed keys and secrets, database access rules (row-level security on Supabase, policies and mass assignment on
-                        Laravel), auth flows, and file storage.
+                        Exposed keys and secrets, database access rules (policies and mass assignment on Laravel), auth flows, and file
+                        storage.
                     </x-card>
                 </li>
                 <li class="flex">
