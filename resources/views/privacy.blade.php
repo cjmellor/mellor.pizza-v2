@@ -30,8 +30,9 @@
                 <ul class="list-bullets text-[15px]/[1.7]">
                     <li>
                         <strong>The contact form:</strong>
-                        the name, email address and message you type in. The message is emailed to me and kept in my iCloud Mail account. It
-                        isn't saved in a database on this site.
+                        the name, email address and message you type in. The message is emailed to me and kept in my iCloud Mail account
+                        like any other email. I don't delete enquiries on a schedule, but I'll delete yours if you ask. It isn't saved in a
+                        database on this site.
                     </li>
                     <li>
                         <strong>Visit statistics:</strong>
