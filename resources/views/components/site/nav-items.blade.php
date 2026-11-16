@@ -6,6 +6,7 @@
     $links = [
         'cv' => 'View CV',
         'portfolio' => 'Portfolio',
+        'services' => 'Services',
         'app-security-review' => 'Security review',
     ];
 @endphp

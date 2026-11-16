@@ -80,12 +80,32 @@
     >
         <x-slot:aside>
             <flux:text class="text-body text-sm/relaxed">Laravel and PHP first. Other stacks when the job needs it.</flux:text>
+            <flux:link
+                class="font-roboto-mono hover:text-ink inline-flex items-center gap-1 self-start text-xs tracking-[0.04em] uppercase"
+                href="{{ route('services') }}"
+                variant="ghost"
+                wire:navigate.hover
+            >
+                See all services
+                <flux:icon.arrow-right class="size-3.5" />
+            </flux:link>
         </x-slot>
 
         <x-card
             heading="Laravel & PHP contracting"
             icon="code"
         >
+            <x-slot:actions>
+                <flux:button
+                    href="{{ route('services.laravel-php-contractor') }}"
+                    size="sm"
+                    variant="ghost"
+                    icon:trailing="arrow-right"
+                    wire:navigate.hover
+                >
+                    See contracting
+                </flux:button>
+            </x-slot>
             I join your team remotely and own the work end to end: features, fixes, integrations and releases. Spec first, then the build,
             then a code and security review before anything merges.
         </x-card>
@@ -95,6 +115,15 @@
             icon="shield"
         >
             <x-slot:actions>
+                <flux:button
+                    href="{{ route('services.app-rescue') }}"
+                    size="sm"
+                    variant="ghost"
+                    icon:trailing="arrow-right"
+                    wire:navigate.hover
+                >
+                    See app rescue
+                </flux:button>
                 <flux:button
                     href="{{ route('app-security-review') }}"
                     size="sm"

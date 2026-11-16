@@ -61,6 +61,17 @@
                     </li>
                 @endforeach
             </ul>
+
+            <flux:text class="text-body">
+                Need something similar? See
+                <flux:link
+                    href="{{ route('services.laravel-php-contractor') }}"
+                    wire:navigate.hover
+                >
+                    contracting
+                </flux:link>
+                .
+            </flux:text>
         </x-section>
 
         <x-contact-band
@@ -68,7 +79,14 @@
             label="03"
             button="Contact me"
         >
-            Got a brief in mind or want to chat through an idea? I’m open to freelance and contract opportunities.
+            Got a brief in mind or want to chat through an idea? I’m open to freelance and contract opportunities. See
+            <flux:link
+                href="{{ route('services') }}"
+                wire:navigate.hover
+            >
+                what I offer
+            </flux:link>
+            .
         </x-contact-band>
     </main>
 </x-layout.main>

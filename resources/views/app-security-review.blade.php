@@ -23,7 +23,7 @@
     <main>
         <x-page-head
             title="App security review"
-            label="03 — Security review"
+            label="04 — Security review"
         >
             <flux:text class="lede">
                 You built it fast, with Lovable, Supabase, an AI agent or a team in a hurry, and now real users are signing up. Before
@@ -80,7 +80,20 @@
                     production sites onto it with no downtime and a tested rollback.
                 </flux:text>
                 <flux:text class="copy">
-                    Once the report's done, I can fix what it finds, and keep the app hosted, backed up and patched afterwards.
+                    Once the report's done,
+                    <flux:link
+                        href="{{ route('services.app-rescue') }}"
+                        wire:navigate.hover
+                    >
+                        I can fix what it finds
+                    </flux:link>
+                    , and keep the app hosted, backed up and patched afterwards.
+                    <flux:link
+                        href="{{ route('services') }}"
+                        wire:navigate.hover
+                    >
+                        All services
+                    </flux:link>
                 </flux:text>
             </div>
         </x-section>

@@ -2,9 +2,20 @@
     <main>
         <x-page-head
             title="Tell me what you're building"
-            label="04 — Contact"
+            label="05 — Contact"
         >
             <x-availability dot />
+
+            <flux:text class="text-body">
+                Not sure what to ask for? See
+                <flux:link
+                    href="{{ route('services') }}"
+                    wire:navigate.hover
+                >
+                    what I offer
+                </flux:link>
+                .
+            </flux:text>
 
             <div class="flex flex-wrap gap-2">
                 <flux:button

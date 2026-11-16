@@ -95,6 +95,17 @@
                     Print
                 </flux:button>
             </div>
+
+            <flux:text class="text-body print:hidden">
+                Hiring? See
+                <flux:link
+                    href="{{ route('services') }}"
+                    wire:navigate.hover
+                >
+                    what I offer
+                </flux:link>
+                .
+            </flux:text>
         </x-page-head>
 
         <x-section

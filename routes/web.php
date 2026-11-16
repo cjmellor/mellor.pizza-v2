@@ -28,6 +28,27 @@ Route::view('/portfolio', 'portfolio')
         description: 'Client projects Chris Mellor has built as a Laravel and PHP contractor, including PoweredByRental, App-Hive and 16Personalities, plus Kandu in development.',
     );
 
+Route::view('/services', 'services.index')
+    ->name('services')
+    ->withHead(
+        title: 'Laravel & PHP Development Services - Chris Mellor',
+        description: 'Laravel and PHP services from Chris Mellor: contract development, rescuing rushed or AI-built apps, and a fixed-price security review. Remote, worldwide.',
+    );
+
+Route::view('/services/laravel-php-contractor', 'services.laravel-php-contractor')
+    ->name('services.laravel-php-contractor')
+    ->withHead(
+        title: 'Remote Laravel Developer for Hire - Chris Mellor',
+        description: 'Hire Chris Mellor as a remote Laravel and PHP contractor for features, fixes, integrations and releases. Spec first, every change reviewed. Available now.',
+    );
+
+Route::view('/services/app-rescue', 'services.app-rescue')
+    ->name('services.app-rescue')
+    ->withHead(
+        title: 'App Rescue for Rushed and AI-Built Apps - Chris Mellor',
+        description: "Built fast with Lovable, Supabase, an AI agent or a team in a hurry? I find what's exposed or slow, fix it, and keep the app hosted, backed up and patched.",
+    );
+
 Route::view('/app-security-review', 'app-security-review')
     ->name('app-security-review')
     ->withHead(

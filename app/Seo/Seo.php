@@ -12,6 +12,8 @@ final class Seo
 {
     private const array EXCLUDED_ROUTES = ['sitemap', 'llms'];
 
+    private const array SERVICE_ROUTES = ['services', 'services.laravel-php-contractor', 'services.app-rescue', 'app-security-review'];
+
     /**
      * @return array{title: string, description: string}
      */
@@ -44,6 +46,7 @@ final class Seo
         return collect(Route::getRoutes()->getRoutes())
             ->filter(fn (RoutingRoute $route): bool => in_array('GET', $route->methods(), true)
                 && $route->getName() !== null
+                && $route->getMetadata('head', []) !== []
                 && $route->parameterNames() === []
                 && in_array('web', $route->gatherMiddleware(), true)
                 && ! in_array($route->getName(), self::EXCLUDED_ROUTES, true))
@@ -108,6 +111,7 @@ final class Seo
     {
         return [
             '@type' => 'Service',
+            '@id' => self::url(route($routeName, absolute: false)).'#service',
             'name' => $name,
             'description' => $description,
             'url' => self::url(route($routeName, absolute: false)),
@@ -117,16 +121,56 @@ final class Seo
         ];
     }
 
+    /**
+     * @param  list<array{question: string, answer: string}>  $faqs
+     * @return array<string, mixed>
+     */
+    public static function faqPage(array $faqs): array
+    {
+        return [
+            '@type' => 'FAQPage',
+            'mainEntity' => array_map(fn (array $faq): array => [
+                '@type' => 'Question',
+                'name' => $faq['question'],
+                'acceptedAnswer' => ['@type' => 'Answer', 'text' => $faq['answer']],
+            ], $faqs),
+        ];
+    }
+
+    /**
+     * @param  array<string, string>  $trail  route name => label
+     * @return array<string, mixed>
+     */
+    public static function breadcrumbs(array $trail): array
+    {
+        $position = 0;
+
+        return [
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => collect($trail)
+                ->map(fn (string $label, string $routeName): array => [
+                    '@type' => 'ListItem',
+                    'position' => ++$position,
+                    'name' => $label,
+                    'item' => self::url(route($routeName, absolute: false)),
+                ])
+                ->values()
+                ->all(),
+        ];
+    }
+
     public static function llmsTxt(): string
     {
-        $pages = self::publicRouteNames()
-            ->map(function (string $name): string {
-                $page = self::page($name);
-                $url = self::url(route($name, absolute: false));
+        $entry = function (string $name): string {
+            $page = self::page($name);
+            $url = self::url(route($name, absolute: false));
 
-                return "- [{$page['title']}]({$url}): {$page['description']}";
-            })
-            ->implode("\n");
+            return "- [{$page['title']}]({$url}): {$page['description']}";
+        };
+
+        $names = self::publicRouteNames();
+        $pages = $names->reject(fn (string $name): bool => in_array($name, self::SERVICE_ROUTES, true))->map($entry)->implode("\n");
+        $services = collect(self::SERVICE_ROUTES)->intersect($names)->map($entry)->implode("\n");
 
         $organization = config('seo.organization');
 
@@ -138,6 +182,10 @@ final class Seo
             '## Main pages',
             '',
             $pages,
+            '',
+            '## Services',
+            '',
+            $services,
             '',
             '## Key facts',
             '',
