@@ -14,7 +14,10 @@
 >
     <div class="flex flex-[1_1_240px] flex-col gap-4 print:block">
         <hgroup class="flex flex-col gap-2 print:block">
-            <span class="eyebrow print:hidden">{{ $label }}</span>
+            @if ($eyebrow = preg_replace('/^\d+\s*(—\s*)?/u', '', $label))
+                <span class="eyebrow print:hidden">{{ $eyebrow }}</span>
+            @endif
+
             <flux:heading
                 class="text-ink screen:font-bold print:text-pizza print:border-pizza/40 text-3xl print:mb-2 print:border-b print:pb-1 print:text-lg print:font-bold"
                 level="2"

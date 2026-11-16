@@ -1,6 +1,5 @@
 @props([
     'href',
-    'index',
     'current' => false,
     'cta' => false,
     'menu' => false,
@@ -30,15 +29,5 @@
         ])
     }}
 >
-    <span
-        @class([
-            'text-xs transition-colors duration-150',
-            'group-hover:text-brand-ink text-zinc-400' => ! $cta && ! $current,
-            'text-brand-ink' => ($current && ! $cta) || ($menu && $cta),
-            'text-white/75 group-hover:text-white' => $bar && $cta,
-        ])
-    >
-        {{ str_pad($index, 2, '0', STR_PAD_LEFT) }}
-    </span>
     {{ $slot }}
 </a>
