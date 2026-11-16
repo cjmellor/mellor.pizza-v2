@@ -10,8 +10,20 @@
 
     $faqs = [
         [
+            'question' => 'Do I have to start with the review?',
+            'answer' => 'Yes. I need to read the code before I can give you a price for the fixes. The review is a fixed $750, and that fee comes off the fix work if you go ahead with me.',
+        ],
+        [
+            'question' => 'Is this a penetration test?',
+            'answer' => 'No. It\'s a review of the code and setup you share, with a written report. It isn\'t a penetration test, and it doesn\'t certify the app as secure.',
+        ],
+        [
             'question' => 'Can you take over hosting?',
-            'answer' => 'Yes. Once the fixes are in, I can keep the app hosted, backed up and patched.',
+            'answer' => 'Once the fixes are in, I can quote for hosting, backups and patching. I don\'t publish a monthly price, because it depends on the app.',
+        ],
+        [
+            'question' => 'Can you invoice in another currency?',
+            'answer' => 'The review is priced in US dollars. I\'m happy to quote the same amount in GBP, euro, or your local currency.',
         ],
         [
             'question' => 'Who owns everything afterwards?',
@@ -38,8 +50,8 @@
             label="03 — Services"
         >
             <flux:text class="lede">
-                If your app was built fast, by a team in a hurry or with Lovable, Supabase or an AI agent, and real users are on it now, I
-                can make it safe to keep running. I find what's exposed or slow, fix it, and get it hosted, backed up and patched properly.
+                If your app was built fast, by a team in a hurry or with AI tools, and real users are on it now, I can make it safer to keep
+                running. I find what's exposed or slow, fix it, and get it hosted, backed up and patched properly.
             </flux:text>
             <flux:link
                 href="{{ route('services') }}"
@@ -135,11 +147,12 @@
                     >
                         app security review
                     </flux:link>
-                    : $750 fixed, with a written report in 5 working days, every issue ranked, and a fix estimate for each.
+                    : $750 fixed, with a written report in 5 working days, every issue ranked, and a fix estimate for each. The price is in
+                    US dollars. I'm happy to quote the same amount in GBP, euro, or your local currency if that's easier.
                 </li>
                 <li>We agree which fixes to make, using those estimates.</li>
                 <li>I make the fixes and review each one before it lands. If you hire me for the fixes, the $750 comes off the bill.</li>
-                <li>If you want, I keep the app hosted, backed up and patched afterwards.</li>
+                <li>If you want, I can quote for keeping the app hosted, backed up and patched afterwards.</li>
             </ol>
         </x-section>
 

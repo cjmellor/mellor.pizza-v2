@@ -7,6 +7,17 @@
         ['icon' => 'server', 'title' => 'Hosting and backups', 'detail' => 'Where it runs, whether backups exist and have ever been restored, and what happens when it goes down.'],
         ['icon' => 'package', 'title' => 'Runtime and dependency versions', 'detail' => 'Unpatched PHP, Node or packages with known vulnerabilities.'],
     ];
+
+    $faqs = [
+        [
+            'question' => 'Is this a penetration test?',
+            'answer' => 'No. It\'s a review of the code and setup you share, with a written report. It isn\'t a penetration test, and it doesn\'t certify the app as secure.',
+        ],
+        [
+            'question' => 'Can you invoice in another currency?',
+            'answer' => 'The review is priced in US dollars. I\'m happy to quote the same amount in GBP, euro, or your local currency.',
+        ],
+    ];
 @endphp
 
 <x-layout.main
@@ -18,6 +29,7 @@
             routeName: 'app-security-review',
             offer: ['price' => '750', 'priceCurrency' => 'USD'],
         ),
+        App\Seo\Seo::faqPage($faqs),
     ]"
 >
     <main>
@@ -26,8 +38,8 @@
             label="04 — Security review"
         >
             <flux:text class="lede">
-                You built it fast, with Lovable, Supabase, an AI agent or a team in a hurry, and now real users are signing up. Before
-                someone else finds the holes, I'll find them for you.
+                You built it fast, with AI tools or a team in a hurry, and now real users are signing up. Before someone else finds the
+                holes, I'll find them for you.
             </flux:text>
             <flux:text class="text-brand-ink text-xl font-bold">$750 fixed. Written report in 5 working days.</flux:text>
         </x-page-head>
@@ -87,7 +99,7 @@
                     >
                         I can fix what it finds
                     </flux:link>
-                    , and keep the app hosted, backed up and patched afterwards.
+                    , and quote for keeping the app hosted, backed up and patched afterwards.
                     <flux:link
                         href="{{ route('services') }}"
                         wire:navigate.hover
@@ -98,9 +110,14 @@
             </div>
         </x-section>
 
+        <x-faq
+            :items="$faqs"
+            label="04"
+        />
+
         <x-contact-band
             title="Book a review"
-            label="04"
+            label="05"
             button="Get in touch"
         >
             Tell me what the app does and what it's built with. I'll reply with a start date.

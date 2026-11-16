@@ -46,14 +46,14 @@ Route::view('/services/app-rescue', 'services.app-rescue')
     ->name('services.app-rescue')
     ->withHead(
         title: 'App Rescue for Rushed and AI-Built Apps - Chris Mellor',
-        description: "Built fast with Lovable, Supabase, an AI agent or a team in a hurry? I find what's exposed or slow, fix it, and keep the app hosted, backed up and patched.",
+        description: "Built fast by a team in a hurry or with AI tools? I find what's exposed or slow, fix it, and can quote to keep the app hosted, backed up and patched.",
     );
 
 Route::view('/app-security-review', 'app-security-review')
     ->name('app-security-review')
     ->withHead(
         title: 'Chris Mellor - App security review',
-        description: 'A fixed-price security review for apps built fast with Lovable, Supabase or AI agents. What it checks, and who it suits. Written report in 5 working days.',
+        description: 'A fixed-price code audit and security review for apps built fast with AI tools. What it checks, and who it suits. Written report in 5 working days.',
     );
 
 Route::view('/contact', 'contact')

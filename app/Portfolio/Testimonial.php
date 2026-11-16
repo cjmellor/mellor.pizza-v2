@@ -24,7 +24,7 @@ final readonly class Testimonial
             new self(
                 quote: 'Chris joined us for a 3 month contract and did exactly what we needed. We had a backlog, he did it fast and at a high quality. Will no doubt see him again.',
                 name: 'Danny Tomalin',
-                role: null,
+                role: 'Managing Director',
                 company: 'PoweredByRental',
             ),
         ]);

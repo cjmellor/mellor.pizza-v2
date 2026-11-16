@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Seo;
 
+use App\Portfolio\Testimonial;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Route;
@@ -134,6 +135,24 @@ final class Seo
                 'name' => $faq['question'],
                 'acceptedAnswer' => ['@type' => 'Answer', 'text' => $faq['answer']],
             ], $faqs),
+        ];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public static function review(Testimonial $testimonial): array
+    {
+        return [
+            '@type' => 'Review',
+            'reviewBody' => $testimonial->quote,
+            'itemReviewed' => ['@id' => self::url().'#organization'],
+            'author' => [
+                '@type' => 'Person',
+                'name' => $testimonial->name,
+                ...($testimonial->role ? ['jobTitle' => $testimonial->role] : []),
+                'worksFor' => ['@type' => 'Organization', 'name' => $testimonial->company],
+            ],
         ];
     }
 

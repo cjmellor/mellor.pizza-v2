@@ -28,11 +28,11 @@
     $facts = [
         'Business' => 'Mellor Code Ltd, registered in England and Wales, company no. 17369266',
         'Who you work with' => 'Chris Mellor, directly',
-        'Where' => 'Remote, with clients worldwide',
+        'Where' => 'Remote, with clients worldwide. I work flexibly across time zones and can adapt to your working hours.',
         'Main stack' => 'Laravel, PHP 8, Livewire, Vue.js, Inertia.js, Alpine.js, Tailwind CSS',
         'Testing and delivery' => 'Pest, PHPUnit, CI, Docker',
         'Services' => 'Laravel & PHP contracting, app rescue, app security review',
-        'Pricing' => 'Security review $750 fixed',
+        'Pricing' => 'Security review $750 fixed. I can quote in GBP, euro, or your local currency.',
         'Availability' => 'Available now',
         'Response time' => 'Same day',
     ];
@@ -59,12 +59,7 @@
     $serviceNodes = [
         Seo::service(name: 'Laravel & PHP contracting', description: 'Remote Laravel and PHP contract development: features, fixes, integrations and releases.', routeName: 'services.laravel-php-contractor'),
         Seo::service(name: 'App rescue', description: 'Finding and fixing what is exposed or slow in apps built in a hurry, then keeping them hosted, backed up and patched.', routeName: 'services.app-rescue'),
-        Seo::service(
-            name: 'App security review',
-            description: 'A fixed-price security review of an app built fast. Written report in 5 working days.',
-            routeName: 'app-security-review',
-            offer: ['price' => '750', 'priceCurrency' => 'USD'],
-        ),
+        Seo::service(name: 'App security review', description: 'A fixed-price security review of an app built fast. Written report in 5 working days.', routeName: 'app-security-review', offer: ['price' => '750', 'priceCurrency' => 'USD']),
     ];
 @endphp
 
