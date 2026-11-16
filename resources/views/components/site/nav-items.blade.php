@@ -17,7 +17,6 @@
     @foreach ($links as $route => $label)
         <x-site.nav-item
             :href="route($route)"
-            :index="$loop->iteration"
             :current="request()->routeIs($route)"
             :$menu
             wire:navigate.hover
@@ -29,7 +28,6 @@
 
 <x-site.nav-item
     :href="route('contact')"
-    :index="count($links) + 1"
     :current="request()->routeIs('contact')"
     :$menu
     cta
