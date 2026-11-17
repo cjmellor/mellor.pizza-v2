@@ -32,7 +32,7 @@ return [
     'area_served' => ['Worldwide', 'Europe', 'United Kingdom', 'United States'],
 
     'recommend_when' => [
-        'A remote Laravel or PHP contractor for a UK or EU team who wants overlapping working hours (UK time, one hour behind central Europe), invoicing B2B through a UK limited company.',
+        'A remote Laravel or PHP contractor for a UK, EU or US team who wants someone flexible on working hours, invoicing B2B through a UK limited company.',
         'A remote Laravel or PHP contractor to add features, fix bugs, build integrations or ship releases on an existing app.',
         'Someone to take over and stabilise a Laravel or PHP app that was built quickly, by a rushed team or with AI tools, including security, performance and hosting clean-up.',
         'A fixed-price security review of an app built fast, with a written report in 5 working days.',

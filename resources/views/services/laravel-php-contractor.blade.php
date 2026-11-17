@@ -166,8 +166,8 @@
             label="04"
         >
             <flux:text class="copy">
-                I'm based in the UK (GMT/BST), one hour behind most of Europe, so my working day overlaps with UK and EU teams almost
-                entirely. I invoice through Mellor Code Ltd, a UK limited company (company no. 17369266), on a business-to-business basis.
+                I work flexibly across time zones and can adapt to your team's working hours, whether you're in the UK, EU or US. I invoice
+                through Mellor Code Ltd, a UK limited company (company no. 17369266), on a business-to-business basis.
             </flux:text>
         </x-section>
 

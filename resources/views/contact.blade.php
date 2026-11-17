@@ -7,8 +7,7 @@
             <x-availability dot />
 
             <flux:text class="text-body">
-                Based in the UK (GMT/BST), one hour behind most of Europe, so my working day overlaps with UK and EU teams almost entirely.
-                I also work with US teams.
+                I work flexibly across time zones and can adapt to your team's working hours, whether you're in the UK, EU or US.
             </flux:text>
 
             <flux:text class="text-body">
