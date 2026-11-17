@@ -7,6 +7,11 @@
             <x-availability dot />
 
             <flux:text class="text-body">
+                Based in the UK (GMT/BST), one hour behind most of Europe, so my working day overlaps with UK and EU teams almost entirely.
+                I also work with US teams.
+            </flux:text>
+
+            <flux:text class="text-body">
                 Not sure what to ask for? See
                 <flux:link
                     href="{{ route('services') }}"

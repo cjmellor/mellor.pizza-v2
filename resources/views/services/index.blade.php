@@ -28,7 +28,7 @@
     $facts = [
         'Business' => 'Mellor Code Ltd, registered in England and Wales, company no. 17369266',
         'Who you work with' => 'Chris Mellor, directly',
-        'Where' => 'Remote, with clients worldwide. I work flexibly across time zones and can adapt to your working hours.',
+        'Where' => 'Remote, with clients worldwide. Based in the UK (GMT/BST), one hour behind most of Europe, so my working day overlaps with UK and EU teams almost entirely. I also work with US teams and can adapt to your working hours.',
         'Main stack' => 'Laravel, PHP 8, Livewire, Vue.js, Inertia.js, Alpine.js, Tailwind CSS',
         'Testing and delivery' => 'Pest, PHPUnit, CI, Docker',
         'Services' => 'Laravel & PHP contracting, app rescue, app security review',
@@ -40,7 +40,7 @@
     $faqs = [
         [
             'question' => 'Do you work with clients outside the UK?',
-            'answer' => 'Yes. I work remotely and take on clients worldwide.',
+            'answer' => 'Yes. I work remotely and take on clients worldwide, including UK and EU teams. I invoice through Mellor Code Ltd, a UK limited company (company no. 17369266), on a business-to-business basis.',
         ],
         [
             'question' => 'Do you only work in Laravel?',

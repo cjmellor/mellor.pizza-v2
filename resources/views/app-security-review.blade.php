@@ -64,6 +64,11 @@
                     </li>
                 @endforeach
             </ul>
+            <flux:text class="copy">
+                The review also covers how the app stores and handles personal data: access control on user records, data exposed in API
+                responses, logging of sensitive fields, and secrets in the repo. That matters if you have users in the UK or EU. It isn't a
+                GDPR audit and doesn't make an app compliant.
+            </flux:text>
         </x-section>
 
         <x-section

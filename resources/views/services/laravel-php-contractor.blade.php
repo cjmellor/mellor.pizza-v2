@@ -162,8 +162,18 @@
         </x-section>
 
         <x-section
-            title="What have I worked on recently?"
+            title="Working with clients outside the UK"
             label="04"
+        >
+            <flux:text class="copy">
+                I'm based in the UK (GMT/BST), one hour behind most of Europe, so my working day overlaps with UK and EU teams almost
+                entirely. I invoice through Mellor Code Ltd, a UK limited company (company no. 17369266), on a business-to-business basis.
+            </flux:text>
+        </x-section>
+
+        <x-section
+            title="What have I worked on recently?"
+            label="05"
         >
             <ul
                 class="grid gap-4 sm:grid-cols-2"

@@ -117,7 +117,7 @@ final class Seo
             'description' => $description,
             'url' => self::url(route($routeName, absolute: false)),
             'provider' => ['@id' => self::url().'#organization'],
-            'areaServed' => 'Worldwide',
+            'areaServed' => config('seo.area_served'),
             ...($offer ? ['offers' => ['@type' => 'Offer', ...$offer]] : []),
         ];
     }
@@ -216,6 +216,7 @@ final class Seo
             '## Key facts',
             '',
             "- Works remotely with clients worldwide, through {$organization['name']} (company no. {$organization['company_number']}, registered in England and Wales).",
+            '- Works with clients in the UK, EU and US, fully remote.',
             '- Main stack: Laravel, PHP, Livewire and Vue.',
             '- Contact: '.config('seo.person.email'),
             '',
@@ -259,7 +260,7 @@ final class Seo
                 'addressLocality' => $organization['locality'],
                 'addressCountry' => $organization['country'],
             ],
-            'areaServed' => 'Worldwide',
+            'areaServed' => config('seo.area_served'),
             'identifier' => [
                 '@type' => 'PropertyValue',
                 'propertyID' => 'Companies House company number',
