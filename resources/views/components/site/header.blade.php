@@ -8,7 +8,7 @@
         aria-label="Main"
     >
         <a
-            class="font-anton text-brand short:min-h-14 short:text-2xl nav:min-h-18 nav:px-8 nav:text-4xl flex min-h-16 flex-1 items-center px-5 text-[28px] leading-none tracking-[0.06em] uppercase sm:px-6 lg:px-6 xl:px-8"
+            class="font-anton text-brand short:min-h-14 short:text-2xl nav:min-h-18 nav:pr-8 nav:text-4xl flex min-h-16 flex-1 items-center pr-5 pl-6 text-[28px] leading-none tracking-[0.06em] uppercase sm:pr-6 sm:pl-10 lg:pr-6 lg:pl-14 xl:pr-8"
             href="{{ route('homepage') }}"
             wire:navigate.hover
         >

@@ -8,11 +8,11 @@
 
 <flux:card
     {{ $attributes->class('bg-panel flex flex-col') }}
-    body="inset"
+    body="divided"
     variant="muted"
 >
     @if ($heading)
-        <flux:card.header class="flex flex-wrap items-center gap-3">
+        <flux:card.header class="flex flex-wrap items-center gap-3 bg-transparent">
             @if ($icon)
                 <x-chip :$icon />
             @endif
@@ -55,7 +55,7 @@
     </flux:card.body>
 
     @isset($footer)
-        <flux:card.footer class="text-body text-sm/relaxed">
+        <flux:card.footer class="text-body border-t-0! bg-transparent text-sm/relaxed">
             {{ $footer }}
         </flux:card.footer>
     @endisset

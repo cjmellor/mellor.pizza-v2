@@ -72,27 +72,29 @@
                 <footer
                     class="screen:m-0 screen:flex screen:flex-wrap screen:justify-center screen:gap-3 screen:p-6 screen:font-roboto-mono screen:leading-relaxed screen:text-muted sm:screen:px-8 lg:screen:justify-between lg:screen:text-left mx-8 mt-16 text-center text-xs text-neutral-500 lg:mx-0 print:mt-6"
                 >
-                    <p class="screen:contents">
+                    <p class="screen:flex screen:flex-col">
                         <span>&copy; {{ date('Y') }} Mellor Code Ltd. Registered in England and Wales, company no. 17369266.</span>
                         <br class="screen:hidden sm:hidden" />
                         <span>Registered office: {{ App\Seo\Seo::registeredOffice() }}.</span>
                     </p>
-                    <flux:link
-                        class="text-inherit"
-                        href="{{ route('privacy') }}"
-                        wire:navigate.hover
-                    >
-                        Privacy policy
-                    </flux:link>
-                    @if (App\Articles\Article::published()->isNotEmpty())
+                    <span class="screen:flex screen:gap-6">
                         <flux:link
                             class="text-inherit"
-                            href="{{ route('articles') }}"
+                            href="{{ route('privacy') }}"
                             wire:navigate.hover
                         >
-                            Articles
+                            Privacy policy
                         </flux:link>
-                    @endif
+                        @if (App\Articles\Article::published()->isNotEmpty())
+                            <flux:link
+                                class="text-inherit"
+                                href="{{ route('articles') }}"
+                                wire:navigate.hover
+                            >
+                                Articles
+                            </flux:link>
+                        @endif
+                    </span>
                 </footer>
             </div>
         </div>

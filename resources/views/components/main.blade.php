@@ -51,7 +51,7 @@
                     size="2xl"
                 >
                     Laravel &amp; PHP contractor.
-                    <span class="text-brand">Remote, worldwide.</span>
+                    <span class="text-brand sm:whitespace-nowrap">Remote, worldwide.</span>
                 </flux:heading>
             </hgroup>
 
@@ -88,7 +88,7 @@
                 I take on Laravel and PHP contract work, rescue apps that were built in a hurry or with AI tools, and run a fixed-price
                 security review.
             </flux:text>
-            <flux:text class="text-body text-sm/relaxed">Laravel and PHP first. Other stacks when the job needs it.</flux:text>
+            <flux:text class="copy">Laravel and PHP first. Other stacks when the job needs it.</flux:text>
             <flux:link
                 class="font-roboto-mono hover:text-ink inline-flex items-center gap-1 self-start text-xs tracking-[0.04em] uppercase"
                 href="{{ route('services') }}"
@@ -132,15 +132,6 @@
                     wire:navigate.hover
                 >
                     See app rescue
-                </flux:button>
-                <flux:button
-                    href="{{ route('app-security-review') }}"
-                    size="sm"
-                    variant="ghost"
-                    icon:trailing="arrow-right"
-                    wire:navigate.hover
-                >
-                    See the security review
                 </flux:button>
             </x-slot>
 
@@ -208,10 +199,7 @@
         label="03 — Process"
     >
         <x-slot:aside>
-            <flux:text class="copy">
-                I reply the same day, review every change before it merges, and hand over the code, repo, keys and accounts once the work is
-                paid for.
-            </flux:text>
+            <flux:text class="copy">What you can count on, from the first message to handover.</flux:text>
         </x-slot>
 
         <x-card>
@@ -270,6 +258,7 @@
                 />
                 <flux:button
                     class="max-sm:flex-1"
+                    icon:class="size-4"
                     href="https://www.linkedin.com/in/chrismellor85"
                     aria-label="LinkedIn"
                     icon="brand-linkedin"

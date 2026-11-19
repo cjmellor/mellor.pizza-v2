@@ -17,7 +17,10 @@
             title="Tell me what you're building"
             label="05 — Contact"
         >
-            <x-availability dot />
+            <x-availability
+                class="text-ink-soft text-lg"
+                dot
+            />
 
             <flux:text class="text-body">
                 I work flexibly across time zones and can adapt to your team's working hours, whether you're in the UK, EU or US.
