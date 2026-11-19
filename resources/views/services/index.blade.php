@@ -102,9 +102,9 @@
             :$breadcrumbs
         >
             <flux:text class="lede">
-                I'm Chris Mellor, a Laravel and PHP contractor working remotely through my company, Mellor Code Ltd. I do three kinds of
-                work: contract development on your team, fixing apps that were built in a hurry, and a fixed-price security review. I'm
-                available now and take on clients worldwide.
+                I'm Chris Mellor, a Laravel and PHP contractor working remotely through my company, Mellor Code Ltd. I do contract
+                development on your team, fix apps that were built in a hurry, and run fixed-price security reviews and PHP patch checks.
+                I'm available now and take on clients worldwide.
             </flux:text>
         </x-page-head>
 
