@@ -5,8 +5,8 @@
             label="02 — Portfolio"
         >
             <flux:text class="lede">
-                A product I’m building, plus a selection of client projects—showcasing design, development, and problem‑solving across
-                different briefs. More coming soon.
+                Client Laravel and PHP work, including PoweredByRental, App-Hive and 16Personalities, plus Kandu, a product I'm building.
+                More coming soon.
             </flux:text>
         </x-page-head>
 
@@ -63,12 +63,26 @@
             </ul>
 
             <flux:text class="text-body">
-                Need something similar? See
+                Need something similar, or help with an app that was built in a hurry? See
                 <flux:link
                     href="{{ route('services.laravel-php-contractor') }}"
                     wire:navigate.hover
                 >
-                    contracting
+                    Laravel & PHP contracting
+                </flux:link>
+                ,
+                <flux:link
+                    href="{{ route('services.app-rescue') }}"
+                    wire:navigate.hover
+                >
+                    app rescue
+                </flux:link>
+                or the
+                <flux:link
+                    href="{{ route('app-security-review') }}"
+                    wire:navigate.hover
+                >
+                    app security review
                 </flux:link>
                 .
             </flux:text>

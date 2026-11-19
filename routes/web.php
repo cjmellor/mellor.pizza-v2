@@ -52,7 +52,7 @@ Route::view('/services/app-rescue', 'services.app-rescue')
 Route::view('/app-security-review', 'app-security-review')
     ->name('app-security-review')
     ->withHead(
-        title: 'Chris Mellor - App security review',
+        title: 'Security Review for AI-Built Apps - Chris Mellor',
         description: 'A fixed-price code audit and security review for apps built fast with AI tools. What it checks, and who it suits. Written report in 5 working days.',
     );
 
@@ -71,6 +71,7 @@ Route::view('/privacy', 'privacy')
     );
 
 Route::redirect('/about', '/cv', 301);
+Route::redirect('/services/app-security-review', '/app-security-review', 301);
 
 foreach ([
     '/articles',

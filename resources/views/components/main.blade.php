@@ -1,3 +1,7 @@
+@props([
+    'faqs',
+])
+
 @php
     $projects = \App\Portfolio\Project::all();
     $pbr = $projects->firstWhere('name', 'PoweredByRental');
@@ -76,10 +80,14 @@
     </section>
 
     <x-section
-        title="What I do"
+        title="What can I help with?"
         label="01 — Services"
     >
         <x-slot:aside>
+            <flux:text class="copy">
+                I take on Laravel and PHP contract work, rescue apps that were built in a hurry or with AI tools, and run a fixed-price
+                security review.
+            </flux:text>
             <flux:text class="text-body text-sm/relaxed">Laravel and PHP first. Other stacks when the job needs it.</flux:text>
             <flux:link
                 class="font-roboto-mono hover:text-ink inline-flex items-center gap-1 self-start text-xs tracking-[0.04em] uppercase"
@@ -142,10 +150,13 @@
     </x-section>
 
     <x-section
-        title="Recent work"
+        title="What have I worked on recently?"
         label="02 — Clients"
     >
         <x-slot:aside>
+            <flux:text class="copy">
+                Recent contract work includes PoweredByRental, a multi-tenant SaaS for equipment hire, and App-Hive, a Shopify app.
+            </flux:text>
             <flux:link
                 class="font-roboto-mono hover:text-ink inline-flex items-center gap-1 self-start text-xs tracking-[0.04em] uppercase"
                 href="{{ route('portfolio') }}"
@@ -193,9 +204,16 @@
     </x-section>
 
     <x-section
-        title="Working with me"
+        title="How do I work with you?"
         label="03 — Process"
     >
+        <x-slot:aside>
+            <flux:text class="copy">
+                I reply the same day, review every change before it merges, and hand over the code, repo, keys and accounts once the work is
+                paid for.
+            </flux:text>
+        </x-slot>
+
         <x-card>
             <ul class="list-bullets">
                 <li>I reply the same day and keep you updated as the work moves.</li>
@@ -221,9 +239,14 @@
         </x-card>
     </x-section>
 
+    <x-faq
+        :items="$faqs"
+        label="04 — FAQ"
+    />
+
     <x-section
         title="Tell me what you're building"
-        label="04 — Contact"
+        label="05 — Contact"
         contact
     >
         <div class="flex flex-1 flex-col justify-end gap-4">

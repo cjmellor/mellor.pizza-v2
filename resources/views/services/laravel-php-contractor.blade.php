@@ -17,6 +17,10 @@
             'answer' => 'Yes, mostly through Claude Code. I plan the work and write the spec first, and I review everything the AI writes, security included, before it merges.',
         ],
         [
+            'question' => 'Do you work with clients in the EU or US?',
+            'answer' => 'Yes. I work remotely with clients in the UK, EU and US. I invoice through Mellor Code Ltd, a UK limited company, on a business-to-business basis.',
+        ],
+        [
             'question' => 'How soon can you start?',
             'answer' => 'I\'m available now.',
         ],
@@ -25,6 +29,8 @@
             'answer' => 'You do. Once the work\'s paid for, everything\'s handed over: code, repo, keys and accounts.',
         ],
     ];
+
+    $breadcrumbs = ['homepage' => 'Home', 'services' => 'Services', 'services.laravel-php-contractor' => 'Laravel & PHP contracting'];
 @endphp
 
 <x-layout.main
@@ -35,7 +41,7 @@
             description: 'Remote Laravel and PHP contract development: features, fixes, integrations and releases.',
             routeName: 'services.laravel-php-contractor',
         ),
-        Seo::breadcrumbs(['homepage' => 'Home', 'services' => 'Services', 'services.laravel-php-contractor' => 'Laravel & PHP contracting']),
+        Seo::breadcrumbs($breadcrumbs),
         Seo::faqPage($faqs),
     ]"
 >
@@ -43,24 +49,22 @@
         <x-page-head
             title="Remote Laravel & PHP contractor"
             label="03 — Services"
+            :$breadcrumbs
         >
             <flux:text class="lede">
                 I'm a Laravel and PHP contractor. I join your team remotely through my company, Mellor Code Ltd, and own the work end to
                 end: features, fixes, integrations and releases. I've been building software commercially for over six years, mostly in
                 Laravel, and I'm available now.
             </flux:text>
-            <flux:link
-                href="{{ route('services') }}"
-                wire:navigate.hover
-            >
-                All services
-            </flux:link>
         </x-page-head>
 
         <x-section
             title="Who do I usually work with?"
             label="01"
         >
+            <flux:text class="copy">
+                I usually join product teams and agencies that already have a Laravel or plain PHP codebase and need another developer.
+            </flux:text>
             <x-card>
                 <ul class="list-bullets text-[15px]/[1.7]">
                     @foreach ($clients as $client)
@@ -74,6 +78,9 @@
             title="What can I take on?"
             label="02"
         >
+            <flux:text class="copy">
+                Features, fixes, integrations, performance work, releases and security upgrades, all on Laravel or PHP.
+            </flux:text>
             <ul
                 class="grid gap-4 sm:grid-cols-2"
                 role="list"
@@ -143,6 +150,10 @@
             title="How do I work?"
             label="03"
         >
+            <flux:text class="copy">
+                I map the problem, write the spec, break it into tickets, implement it, then do a code and security review before anything
+                merges.
+            </flux:text>
             <ol class="list-decimal space-y-1 ps-5 text-[15px]/[1.7]">
                 @foreach ($steps as $step)
                     <li>{{ $step }}</li>
@@ -175,6 +186,9 @@
             title="What have I worked on recently?"
             label="05"
         >
+            <flux:text class="copy">
+                Recent contract work includes a 13-week contract at PoweredByRental and ongoing work on App-Hive.
+            </flux:text>
             <ul
                 class="grid gap-4 sm:grid-cols-2"
                 role="list"
@@ -214,12 +228,38 @@
 
         <x-faq
             :items="$faqs"
-            label="05"
+            label="06"
         />
+
+        <x-section
+            title="Related services"
+            label="07"
+        >
+            <ul class="list-bullets text-[15px]/[1.7]">
+                <li>
+                    <flux:link
+                        href="{{ route('services.app-rescue') }}"
+                        wire:navigate.hover
+                    >
+                        App rescue
+                    </flux:link>
+                    is for live apps that were built in a hurry or with AI tools.
+                </li>
+                <li>
+                    <flux:link
+                        href="{{ route('app-security-review') }}"
+                        wire:navigate.hover
+                    >
+                        App security review
+                    </flux:link>
+                    is a fixed $750 review with a written report in 5 working days.
+                </li>
+            </ul>
+        </x-section>
 
         <x-contact-band
             title="Tell me about the project"
-            label="06"
+            label="08"
             button="Get in touch"
         >
             Send me what you're building and roughly how long you need someone. I reply the same day.

@@ -8,6 +8,7 @@ use App\Portfolio\Testimonial;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 final class Seo
 {
@@ -133,7 +134,7 @@ final class Seo
             'mainEntity' => array_map(fn (array $faq): array => [
                 '@type' => 'Question',
                 'name' => $faq['question'],
-                'acceptedAnswer' => ['@type' => 'Answer', 'text' => $faq['answer']],
+                'acceptedAnswer' => ['@type' => 'Answer', 'text' => mb_trim(html_entity_decode(strip_tags(Str::inlineMarkdown($faq['answer'])), ENT_QUOTES | ENT_HTML5))],
             ], $faqs),
         ];
     }
@@ -162,19 +163,16 @@ final class Seo
      */
     public static function breadcrumbs(array $trail): array
     {
-        $position = 0;
+        $routeNames = array_keys($trail);
 
         return [
             '@type' => 'BreadcrumbList',
-            'itemListElement' => collect($trail)
-                ->map(fn (string $label, string $routeName): array => [
-                    '@type' => 'ListItem',
-                    'position' => ++$position,
-                    'name' => $label,
-                    'item' => self::url(route($routeName, absolute: false)),
-                ])
-                ->values()
-                ->all(),
+            'itemListElement' => array_map(fn (string $routeName, int $index): array => [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'name' => $trail[$routeName],
+                'item' => self::url(route($routeName, absolute: false)),
+            ], $routeNames, array_keys($routeNames)),
         ];
     }
 

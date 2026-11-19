@@ -1,11 +1,16 @@
 @props([
     'label',
     'title',
+    'breadcrumbs' => null,
 ])
 
 <section
     {{ $attributes->class('rise-stagger relative flex flex-col gap-6 px-6 pt-12 pb-10 sm:px-10 sm:pt-14 sm:pb-12 lg:gap-8 lg:px-14 lg:pt-18 lg:pb-14 print:gap-4') }}
 >
+    @if ($breadcrumbs)
+        <x-breadcrumbs :trail="$breadcrumbs" />
+    @endif
+
     <hgroup class="flex flex-col gap-3">
         @if ($eyebrow = preg_replace('/^\d+\s*(—\s*)?/u', '', $label))
             <span class="eyebrow print:hidden">{{ $eyebrow }}</span>

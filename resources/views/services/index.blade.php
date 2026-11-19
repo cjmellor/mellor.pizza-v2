@@ -40,7 +40,11 @@
     $faqs = [
         [
             'question' => 'Do you work with clients outside the UK?',
-            'answer' => 'Yes. I work remotely and take on clients worldwide, including UK and EU teams. I invoice through Mellor Code Ltd, a UK limited company (company no. 17369266), on a business-to-business basis.',
+            'answer' => 'Yes. I work remotely and take on clients worldwide, including UK, EU and US teams. I invoice through Mellor Code Ltd, a UK limited company (company no. 17369266), on a business-to-business basis.',
+        ],
+        [
+            'question' => 'What\'s the difference between app rescue and the security review?',
+            'answer' => 'The [security review](' . route('app-security-review') . ') is a fixed $750 look at the code and setup, with a written report in 5 working days. [App rescue](' . route('services.app-rescue') . ') is the fix work that follows. The review fee comes off the bill if you hire me to make the fixes.',
         ],
         [
             'question' => 'Do you only work in Laravel?',
@@ -55,6 +59,8 @@
             'answer' => 'You do. Once the work\'s paid for, I hand over everything: code, repo, keys and accounts.',
         ],
     ];
+
+    $breadcrumbs = ['homepage' => 'Home', 'services' => 'Services'];
 
     $serviceNodes = [
         Seo::service(name: 'Laravel & PHP contracting', description: 'Remote Laravel and PHP contract development: features, fixes, integrations and releases.', routeName: 'services.laravel-php-contractor'),
@@ -77,6 +83,7 @@
             ],
         ],
         ...$serviceNodes,
+        Seo::breadcrumbs($breadcrumbs),
         Seo::faqPage($faqs),
     ]"
 >
@@ -84,6 +91,7 @@
         <x-page-head
             title="Laravel & PHP services"
             label="03 — Services"
+            :$breadcrumbs
         >
             <flux:text class="lede">
                 I'm Chris Mellor, a Laravel and PHP contractor working remotely through my company, Mellor Code Ltd. I do three kinds of

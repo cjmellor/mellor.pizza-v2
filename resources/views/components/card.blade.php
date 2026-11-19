@@ -21,7 +21,7 @@
                 <img
                     class="size-8 flex-none rounded-full object-cover ring-1 ring-zinc-900/10"
                     src="{{ $logo }}"
-                    alt=""
+                    alt="{{ $heading }} logo"
                 />
             @endif
 

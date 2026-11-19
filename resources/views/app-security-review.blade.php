@@ -17,7 +17,25 @@
             'question' => 'Can you invoice in another currency?',
             'answer' => 'The review is priced in US dollars. I\'m happy to quote the same amount in GBP, euro, or your local currency.',
         ],
+        [
+            'question' => 'What does the $750 include?',
+            'answer' => 'A review of the code and setup you share, a written report in 5 working days, every issue ranked, a plain-English explanation, and a fix estimate for each. It isn\'t a penetration test and doesn\'t certify the app as secure.',
+        ],
+        [
+            'question' => 'Do I have to hire you for the fixes?',
+            'answer' => 'No. The report is yours. If you do hire me to make the fixes, the $750 comes off the bill. That\'s the [app rescue](' . route('services.app-rescue') . ') work.',
+        ],
+        [
+            'question' => 'How do you handle personal data in the review?',
+            'answer' => 'The review covers how the app stores and handles personal data, for example access control on user records, data exposed in API responses, logging of sensitive fields, and secrets in the repo. That matters if you have users in the UK or EU. It isn\'t a GDPR audit and doesn\'t make an app compliant.',
+        ],
+        [
+            'question' => 'How soon can you start?',
+            'answer' => 'Tell me what the app does and what it\'s built with. I\'ll reply the same day with a start date.',
+        ],
     ];
+
+    $breadcrumbs = ['homepage' => 'Home', 'services' => 'Services', 'app-security-review' => 'App security review'];
 @endphp
 
 <x-layout.main
@@ -29,13 +47,15 @@
             routeName: 'app-security-review',
             offer: ['price' => '750', 'priceCurrency' => 'USD'],
         ),
+        App\Seo\Seo::breadcrumbs($breadcrumbs),
         App\Seo\Seo::faqPage($faqs),
     ]"
 >
     <main>
         <x-page-head
-            title="App security review"
+            title="A fixed-price security review for apps built fast"
             label="04 — Security review"
+            :$breadcrumbs
         >
             <flux:text class="lede">
                 You built it fast, with AI tools or a team in a hurry, and now real users are signing up. Before someone else finds the
@@ -45,9 +65,13 @@
         </x-page-head>
 
         <x-section
-            title="What I check"
+            title="What does the review check?"
             label="01"
         >
+            <flux:text class="copy">
+                I read the code and setup you share and look for the problems that get apps into trouble, including how personal data is
+                stored and exposed.
+            </flux:text>
             <ul
                 class="grid gap-4 sm:grid-cols-2"
                 role="list"
@@ -72,9 +96,12 @@
         </x-section>
 
         <x-section
-            title="What you get"
+            title="What do you get?"
             label="02"
         >
+            <flux:text class="copy">
+                A written report in 5 working days, with every issue ranked, explained in plain English, and given a fix estimate.
+            </flux:text>
             <x-card>
                 <ul class="list-bullets text-[15px]/[1.7]">
                     <li>A written report with every issue ranked by how bad it is and how easy it is to exploit.</li>
@@ -86,15 +113,24 @@
         </x-section>
 
         <x-section
-            title="Why me"
+            title="Why ask me to review it?"
             label="03"
+        >
+            <flux:text class="copy">
+                I'm a production engineer, not a scanner. I review everything AI writes, security included, because I don't take it on
+                trust. When the php2shell PHP vulnerability landed, I flagged it to my client's team on release day. On my own server the OS
+                packages couldn't deliver the fix, so I built a containerised PHP-FPM 8.4.27 the same day and moved three production sites
+                onto it with no downtime and a tested rollback.
+            </flux:text>
+        </x-section>
+
+        <x-section
+            title="What happens after the report?"
+            label="04"
         >
             <div class="space-y-4">
                 <flux:text class="copy">
-                    I'm a production engineer, not a scanner. I review everything AI writes, security included, because I don't take it on
-                    trust. When the php2shell PHP vulnerability landed, I flagged it to my client's team on release day. On my own server
-                    the OS packages couldn't deliver the fix, so I built a containerised PHP-FPM 8.4.27 the same day and moved three
-                    production sites onto it with no downtime and a tested rollback.
+                    You can keep the report and fix the issues yourself, or hire me to fix them. If you do, the $750 comes off the bill.
                 </flux:text>
                 <flux:text class="copy">
                     Once the report's done,
@@ -104,7 +140,14 @@
                     >
                         I can fix what it finds
                     </flux:link>
-                    , and quote for keeping the app hosted, backed up and patched afterwards.
+                    , and quote for keeping the app hosted, backed up and patched afterwards. If you then need a developer on your team, see
+                    <flux:link
+                        href="{{ route('services.laravel-php-contractor') }}"
+                        wire:navigate.hover
+                    >
+                        Laravel & PHP contracting
+                    </flux:link>
+                    .
                     <flux:link
                         href="{{ route('services') }}"
                         wire:navigate.hover
@@ -117,12 +160,12 @@
 
         <x-faq
             :items="$faqs"
-            label="04"
+            label="05"
         />
 
         <x-contact-band
             title="Book a review"
-            label="05"
+            label="06"
             button="Get in touch"
         >
             Tell me what the app does and what it's built with. I'll reply with a start date.

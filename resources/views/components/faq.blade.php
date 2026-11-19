@@ -17,7 +17,11 @@
                 >
                     {{ $item['question'] }}
                 </flux:heading>
-                <flux:text class="text-body text-[15px]/[1.7]">{{ $item['answer'] }}</flux:text>
+                <flux:text
+                    class="text-body text-[15px]/[1.7] [&_a]:font-medium [&_a]:text-(--color-accent-content) [&_a]:underline [&_a]:decoration-(--color-accent-content)/20 [&_a]:underline-offset-[6px] [&_a]:hover:decoration-current"
+                >
+                    {!! Str::inlineMarkdown($item['answer'], ['html_input' => 'escape']) !!}
+                </flux:text>
             </div>
         @endforeach
     </div>

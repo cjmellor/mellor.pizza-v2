@@ -97,12 +97,33 @@
             </div>
 
             <flux:text class="text-body print:hidden">
-                Hiring? See
+                Hiring? I offer
+                <flux:link
+                    href="{{ route('services.laravel-php-contractor') }}"
+                    wire:navigate.hover
+                >
+                    Laravel & PHP contracting
+                </flux:link>
+                ,
+                <flux:link
+                    href="{{ route('services.app-rescue') }}"
+                    wire:navigate.hover
+                >
+                    app rescue
+                </flux:link>
+                and a
+                <flux:link
+                    href="{{ route('app-security-review') }}"
+                    wire:navigate.hover
+                >
+                    fixed-price security review
+                </flux:link>
+                . See
                 <flux:link
                     href="{{ route('services') }}"
                     wire:navigate.hover
                 >
-                    what I offer
+                    all services
                 </flux:link>
                 .
             </flux:text>
@@ -402,10 +423,18 @@
                 containerised PHP-FPM 8.4.27 the same day and moved three production sites onto it with no downtime and a tested rollback.
                 <br />
                 <br />
-                I've contributed to the Laravel ecosystem for years, creating and maintaining open source packages that have collectively
-                passed 1,000 stars on GitHub, with some featured on social media and reviewed on YouTube. I'd rather build and support my
-                own solution (or a fork) than lean on something unmaintained. Alongside publishing code, I stay close to the community
-                through newsletters, Laracasts, and discussion online.
+                I've contributed to the Laravel ecosystem for years, creating and maintaining
+                <a
+                    class="text-brand-ink hover:underline print:text-inherit"
+                    href="https://github.com/cjmellor"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    open source packages
+                </a>
+                that have collectively passed 1,000 stars on GitHub, with some featured on social media and reviewed on YouTube. I'd rather
+                build and support my own solution (or a fork) than lean on something unmaintained. Alongside publishing code, I stay close
+                to the community through newsletters, Laracasts, and discussion online.
             </p>
         </x-section>
 

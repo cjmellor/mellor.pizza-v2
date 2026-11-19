@@ -29,7 +29,13 @@
             'question' => 'Who owns everything afterwards?',
             'answer' => 'You do. Code, repo, keys and accounts are all handed over once the work\'s paid for.',
         ],
+        [
+            'question' => 'What stacks do you rescue?',
+            'answer' => 'Laravel and PHP first, and other stacks when the job needs it. My most recent contract was a plain PHP 8 back end.',
+        ],
     ];
+
+    $breadcrumbs = ['homepage' => 'Home', 'services' => 'Services', 'services.app-rescue' => 'App rescue'];
 @endphp
 
 <x-layout.main
@@ -40,7 +46,7 @@
             description: 'Finding and fixing what is exposed or slow in apps built in a hurry, then keeping them hosted, backed up and patched.',
             routeName: 'services.app-rescue',
         ),
-        Seo::breadcrumbs(['homepage' => 'Home', 'services' => 'Services', 'services.app-rescue' => 'App rescue']),
+        Seo::breadcrumbs($breadcrumbs),
         Seo::faqPage($faqs),
     ]"
 >
@@ -48,17 +54,12 @@
         <x-page-head
             title="Fixing apps that were built in a hurry"
             label="03 — Services"
+            :$breadcrumbs
         >
             <flux:text class="lede">
                 If your app was built fast, by a team in a hurry or with AI tools, and real users are on it now, I can make it safer to keep
                 running. I find what's exposed or slow, fix it, and get it hosted, backed up and patched properly.
             </flux:text>
-            <flux:link
-                href="{{ route('services') }}"
-                wire:navigate.hover
-            >
-                All services
-            </flux:link>
             <flux:text class="text-body">
                 Need another developer on your team instead? See
                 <flux:link
@@ -75,6 +76,10 @@
             title="Is this for you?"
             label="01"
         >
+            <flux:text class="copy">
+                This is for live Laravel or PHP apps that were built quickly and haven't had a proper security, performance or hosting
+                check.
+            </flux:text>
             <x-card>
                 <ul class="list-bullets text-[15px]/[1.7]">
                     @foreach ($situations as $situation)
@@ -88,6 +93,10 @@
             title="What does a rescue cover?"
             label="02"
         >
+            <flux:text class="copy">
+                A rescue covers security fixes, performance, hosting, backups and patching, then a full handover of the code, repo, keys and
+                accounts.
+            </flux:text>
             <ul
                 class="grid gap-4 sm:grid-cols-2"
                 role="list"
@@ -138,6 +147,10 @@
             title="How does a rescue work?"
             label="03"
         >
+            <flux:text class="copy">
+                It starts with the fixed-price security review. We then agree which fixes to make, I make them, and I can quote for ongoing
+                hosting if you want it.
+            </flux:text>
             <ol class="list-decimal space-y-2 ps-5 text-[15px]/[1.7]">
                 <li>
                     It starts with the
@@ -161,8 +174,8 @@
             label="04"
         >
             <flux:text class="copy">
-                When the php2shell PHP vulnerability landed, I flagged it to my client's team on release day. On my own server, I moved
-                three production sites onto a patched PHP build the same day, with no downtime.
+                I'm a production engineer. When the php2shell PHP vulnerability landed, I flagged it to my client's team on release day. On
+                my own server, I moved three production sites onto a patched PHP build the same day, with no downtime.
                 <flux:link
                     href="{{ route('app-security-review') }}"
                     wire:navigate.hover
@@ -178,9 +191,35 @@
             label="05"
         />
 
+        <x-section
+            title="Related services"
+            label="06"
+        >
+            <ul class="list-bullets text-[15px]/[1.7]">
+                <li>
+                    <flux:link
+                        href="{{ route('app-security-review') }}"
+                        wire:navigate.hover
+                    >
+                        App security review
+                    </flux:link>
+                    is the $750 review that a rescue starts with.
+                </li>
+                <li>
+                    <flux:link
+                        href="{{ route('services.laravel-php-contractor') }}"
+                        wire:navigate.hover
+                    >
+                        Laravel & PHP contracting
+                    </flux:link>
+                    is for when you need a developer on the team after the fixes.
+                </li>
+            </ul>
+        </x-section>
+
         <x-contact-band
             title="Tell me what the app does"
-            label="06"
+            label="07"
             button="Get in touch"
         >
             Tell me what it's built with and what's worrying you. I reply the same day.
