@@ -36,9 +36,8 @@
             </{{ $nested ? 'h4' : 'h3' }}>
             <p
                 @class([
-                    'screen:font-roboto-mono screen:tracking-[0.02em] text-xs tabular-nums print:text-black',
-                    'text-brand-ink font-semibold' => $current,
-                    'text-muted' => ! $current,
+                    'screen:font-roboto-mono screen:tracking-[0.02em] text-muted text-xs tabular-nums print:text-black',
+                    'print:font-semibold' => $current,
                 ])
             >
                 {{ $dates }}

@@ -31,10 +31,10 @@
         <x-page-head
             class="print:mb-6 print:block print:p-0 print:text-center"
             title="Chris Mellor"
-            label="01 — CV"
+            label="Updated November 2026"
         >
             <p class="text-ink-soft text-lg/relaxed print:text-sm print:leading-tight print:text-black">
-                <strong class="screen:text-ink font-semibold">Full-Stack Laravel &amp; Vue Engineer</strong>
+                <strong class="screen:text-ink font-semibold">Full-stack Laravel &amp; Vue Engineer</strong>
                 <span class="screen:mx-2">·</span>
                 AI-native delivery
                 <span class="screen:mx-2">·</span>
@@ -42,7 +42,7 @@
             </p>
 
             <p
-                class="text-muted max-w-[62ch] text-[15px]/[1.7] text-balance print:mt-1 print:max-w-none print:text-xs print:leading-tight print:text-black"
+                class="screen:text-ink-soft max-w-[720px] text-xl/[1.625] text-pretty print:mt-1 print:max-w-none print:text-xs print:leading-tight print:text-balance print:text-black"
             >
                 I ship production software by writing the spec, steering coding agents and verifying what lands, mostly on Laravel.
             </p>
@@ -65,9 +65,10 @@
                 <flux:button
                     class="max-sm:flex-1"
                     href="https://x.com/cmellor"
-                    aria-label="X"
                     icon="brand-x"
-                />
+                >
+                    @cmellor
+                </flux:button>
             </div>
 
             <div class="hidden print:mt-6 print:flex print:flex-wrap print:justify-center print:gap-8 print:text-xs">
@@ -87,7 +88,6 @@
 
             <div class="absolute top-18 right-14 hidden xl:block print:hidden">
                 <flux:button
-                    variant="primary"
                     icon="printer"
                     x-data
                     x-on:click="window.print()"
@@ -96,41 +96,21 @@
                 </flux:button>
             </div>
 
+            {{-- format-ignore-start --}}
             <flux:text class="text-body print:hidden">
                 Hiring? I offer
-                <flux:link
-                    href="{{ route('services.laravel-php-contractor') }}"
-                    wire:navigate.hover
-                >
-                    Laravel & PHP contracting
-                </flux:link>
-                ,
-                <flux:link
-                    href="{{ route('services.app-rescue') }}"
-                    wire:navigate.hover
-                >
-                    app rescue
-                </flux:link>
+                <flux:link href="{{ route('services.laravel-php-contractor') }}" wire:navigate.hover>Laravel & PHP contracting</flux:link>,
+                <flux:link href="{{ route('services.app-rescue') }}" wire:navigate.hover>app rescue</flux:link>
                 and a
-                <flux:link
-                    href="{{ route('app-security-review') }}"
-                    wire:navigate.hover
-                >
-                    fixed-price security review
-                </flux:link>
-                . See
-                <flux:link
-                    href="{{ route('services') }}"
-                    wire:navigate.hover
-                >
-                    all services
-                </flux:link>
-                .
+                <flux:link href="{{ route('app-security-review') }}" wire:navigate.hover>fixed-price security review</flux:link>.
+                See
+                <flux:link href="{{ route('services') }}" wire:navigate.hover>all services</flux:link>.
             </flux:text>
+            {{-- format-ignore-end --}}
         </x-page-head>
 
         <x-section
-            title="Professional Summary"
+            title="Professional summary"
             label="01"
         >
             <p class="cv-prose">
@@ -153,7 +133,7 @@
         </x-section>
 
         <x-section
-            title="How I Work"
+            title="How I work"
             label="02"
         >
             <div class="screen:panel">
@@ -191,7 +171,7 @@
 
         <x-section
             class="print:break-before-page"
-            title="Technical Skills"
+            title="Technical skills"
             label="03"
         >
             <div
@@ -213,7 +193,7 @@
         </x-section>
 
         <x-section
-            title="Professional Experience"
+            title="Professional experience"
             label="04"
         >
             <flux:timeline
@@ -222,17 +202,20 @@
             >
                 <x-cv.role
                     title="Freelance"
-                    dates="02/2025 - Present"
+                    dates="02/2025 – Present"
                     current
                     group
                 >
+                    <p class="text-muted screen:mt-1 text-sm print:text-black">
+                        Paused for the full-time roles at Townsend Music and Right Global Group below.
+                    </p>
                     <flux:timeline
                         class="phone:mt-5 phone:timeline-flat mt-6 [--flux-timeline-content-gap:0.875rem] [--flux-timeline-item-gap:1.5rem] print:mt-3 print:[--flux-timeline-item-gap:0.75rem]"
                         align="start"
                     >
                         <x-cv.role
                             title="Full-stack Engineer"
-                            dates="08/2026 - 10/2026"
+                            dates="08/2026 – 10/2026"
                             org="PoweredByRental"
                             context="Multi-tenant SaaS platform for UK equipment hire companies (PHP 8, SQL Server, Vue 3 + TypeScript, RabbitMQ)."
                             nested
@@ -268,8 +251,8 @@
                         </x-cv.role>
 
                         <x-cv.role
-                            title="Fullstack Laravel Developer"
-                            dates="11/2025 - Present"
+                            title="Full-stack Laravel Developer"
+                            dates="11/2025 – Present"
                             org="App-Hive"
                             current
                             nested
@@ -290,7 +273,7 @@
 
                         <x-cv.role
                             title="Full-stack Developer"
-                            dates="06/2025 - 08/2025"
+                            dates="06/2025 – 08/2025"
                             org="Everyone Inc"
                             nested
                         >
@@ -302,7 +285,7 @@
 
                         <x-cv.role
                             title="Laravel Developer"
-                            dates="02/2025 - 05/2025"
+                            dates="02/2025 – 05/2025"
                             org="NERIS Analytics Limited"
                             nested
                         >
@@ -316,7 +299,7 @@
 
                 <x-cv.role
                     title="Software Engineer"
-                    dates="04/2026 - 07/2026"
+                    dates="04/2026 – 07/2026"
                     org="Right Global Group"
                     context="Full-stack engineer on a multi-tenant prize-competitions platform (Laravel, Inertia, Vue 3, MariaDB, Redis / Horizon) running roughly 30 production tenant sites. Everything below was built with my AI-first, spec-driven workflow."
                 >
@@ -346,7 +329,7 @@
 
                 <x-cv.role
                     title="Senior Laravel Developer"
-                    dates="08/2025 - 11/2025"
+                    dates="08/2025 – 11/2025"
                     org="Townsend Music"
                 >
                     <li>
@@ -365,7 +348,7 @@
 
                 <x-cv.role
                     title="Laravel Developer"
-                    dates="01/2022 - 11/2024"
+                    dates="01/2022 – 11/2024"
                     org="59club Ltd"
                 >
                     <li>
@@ -383,7 +366,7 @@
 
                 <x-cv.role
                     title="PHP Developer"
-                    dates="06/2021 - 12/2021"
+                    dates="06/2021 – 12/2021"
                     org="Jump Twenty Four Ltd"
                 >
                     <li>
@@ -408,7 +391,7 @@
         </x-section>
 
         <x-section
-            title="Open Source & Side Projects"
+            title="Open source & side projects"
             label="05"
         >
             <p class="cv-prose">
