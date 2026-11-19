@@ -25,7 +25,10 @@ return [
     'organization' => [
         'name' => 'Mellor Code Ltd',
         'company_number' => '17369266',
+        'street_address' => '71-75 Shelton Street',
+        'district' => 'Covent Garden',
         'locality' => 'London',
+        'postal_code' => 'WC2H 9JQ',
         'country' => 'GB',
     ],
 

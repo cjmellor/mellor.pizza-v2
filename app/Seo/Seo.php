@@ -259,6 +259,18 @@ final class Seo
         ]);
     }
 
+    public static function registeredOffice(): string
+    {
+        $organization = config('seo.organization');
+
+        return implode(', ', [
+            $organization['street_address'],
+            $organization['district'],
+            $organization['locality'],
+            $organization['postal_code'],
+        ]);
+    }
+
     /**
      * @return array<string, mixed>
      */
@@ -293,7 +305,9 @@ final class Seo
             'founder' => ['@id' => self::url().'#person'],
             'address' => [
                 '@type' => 'PostalAddress',
+                'streetAddress' => $organization['street_address'],
                 'addressLocality' => $organization['locality'],
+                'postalCode' => $organization['postal_code'],
                 'addressCountry' => $organization['country'],
             ],
             'areaServed' => config('seo.area_served'),
