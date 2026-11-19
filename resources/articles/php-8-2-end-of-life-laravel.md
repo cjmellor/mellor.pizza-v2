@@ -1,27 +1,64 @@
-PHP 8.2 stops getting security fixes on 31 December 2026. On 19 November php.net shipped another security release for every supported version, a month after October's php2shell fixes. [TBC from release notes: confirm the release shipped for every supported version.] This is what I check on a Laravel app, and what I'd do this week.
+PHP 8.2 stops getting security fixes on 31 December 2026. On 19 November php.net shipped another security release for every supported version, a month after October's php2shell fixes. This is what I check on a Laravel app, and what I'd do this week.
 
 ## What was released on 19 November 2026?
 
-[TBC from release notes: the fixed version for each branch.] Before the release, php.net said the highest severity is critical, and that the critical issues "require either non-default configuration or uncommon setups" ([announcement, 18 November](https://www.php.net/archive/2026.php#2026-11-18-1)).
+php.net released [PHP 8.2.36](https://www.php.net/archive/2026.php#2026-11-19-1), [8.3.37](https://www.php.net/archive/2026.php#2026-11-19-2), [8.4.28](https://www.php.net/archive/2026.php#2026-11-19-3) and [8.5.13](https://www.php.net/archive/2026.php#2026-11-19-4) at about 14:00 UTC. All four are security releases. Before the release, php.net said the highest severity is critical, and that the critical issues "require either non-default configuration or uncommon setups" ([announcement, 18 November](https://www.php.net/archive/2026.php#2026-11-18-1)).
 
-| Branch | Fixed version            | Changes                  |
-| ------ | ------------------------ | ------------------------ |
-| 8.2    | [TBC from release notes] | [TBC from release notes] |
-| 8.3    | [TBC from release notes] | [TBC from release notes] |
-| 8.4    | [TBC from release notes] | [TBC from release notes] |
-| 8.5    | [TBC from release notes] | [TBC from release notes] |
+| Branch | Fixed version | Changes                                                                                |
+| ------ | ------------- | -------------------------------------------------------------------------------------- |
+| 8.2    | 8.2.36        | 12 security fixes, 4 of them critical                                                  |
+| 8.3    | 8.3.37        | 13 security fixes, 5 of them critical                                                  |
+| 8.4    | 8.4.28        | 14 security fixes, 5 of them critical, plus bug fixes                                  |
+| 8.5    | 8.5.13        | 17 security fixes, 7 of them critical, plus bug fixes and an updated uriparser library |
 
-[TBC from release notes: each CVE with its ID, a one-line description, its severity and the setting or setup it needs.]
+The counts come from the [PHP 8 ChangeLog](https://www.php.net/ChangeLog-8.php). The severities and conditions below come from each GitHub advisory. Each one lists the setup an attacker needs.
 
-[TBC from release notes: whether CVE-2026-115560, the session upload progress issue, is among them.]
+| CVE                                                                                       | Severity | Branches      | What it is, and what it needs                                                                                                                                                                                                                     |
+| ----------------------------------------------------------------------------------------- | -------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [CVE-2026-129289](https://github.com/php/php-src/security/advisories/GHSA-qc49-hpvq-g2w6) | Critical | All           | PHP-FPM request smuggling that can run attacker code. Needs a front end that reuses FastCGI connections, such as nginx `fastcgi_keep_conn on` or Apache `enablereuse=on`, and an app path that opens `php://input` without reading it to the end. |
+| [CVE-2026-129496](https://github.com/php/php-src/security/advisories/GHSA-gr4f-wgx5-jpfv) | Critical | All           | Use-after-free in the timezone cache. Needs a warning at PHP startup, such as an invalid `date.timezone`, written to a PHP `error_log` file.                                                                                                      |
+| [CVE-2026-126714](https://github.com/php/php-src/security/advisories/GHSA-fm2m-fjf5-v3cp) | Critical | All           | A half-written session file can be read as attacker-controlled objects. Needs PHP's native `files` session handler, attacker influence over session data, an interrupted write and a usable gadget chain.                                         |
+| [CVE-2026-115560](https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx) | Critical | All           | The session upload progress issue. Needs upload progress enabled, two different `session.serialize_handler` values on the same session data, and a usable gadget chain.                                                                           |
+| [CVE-2026-129481](https://github.com/php/php-src/security/advisories/GHSA-g3vh-838c-65v7) | Critical | 8.3, 8.4, 8.5 | Use-after-free after session shutdown fails. Needs PHP's native sessions and a fatal error in a callback during session cleanup.                                                                                                                  |
+| [CVE-2026-129474](https://github.com/php/php-src/security/advisories/GHSA-8mjj-2r7p-4hg2) | Critical | 8.5           | Use-after-free in backtraces of `__call()` and `__callStatic()`. Needs `fatal_error_backtraces=1` and `zend.exception_ignore_args=0`.                                                                                                             |
+| [CVE-2026-129182](https://github.com/php/php-src/security/advisories/GHSA-2fjv-p558-g82m) | Critical | 8.5           | Use-after-free of a fatal error backtrace after shutdown. Needs path-specific INI overrides plus an early warning from Apache per-directory config or a `PHP_VALUE` FastCGI parameter.                                                            |
+| [CVE-2026-129291](https://github.com/php/php-src/security/advisories/GHSA-jm4m-qfqx-967m) | High     | All           | PHP-FPM local privilege escalation to the master's user, often root. Needs code already running in a worker and `catch_workers_output` enabled, which the official PHP-FPM Docker images do.                                                      |
+| [CVE-2026-128090](https://github.com/php/php-src/security/advisories/GHSA-68fq-fh7h-f8gr) | High     | All           | Phar OpenSSL signature bypass. Needs an app that loads an OpenSSL-signed Phar an attacker can replace.                                                                                                                                            |
+| [CVE-2026-128064](https://github.com/php/php-src/security/advisories/GHSA-f6gg-rchx-xw8j) | High     | All           | `HTTPS://` and `FTPS://` URLs with an uppercase `S` go out unencrypted through PHP's stream functions. Needs such a URL or redirect, and someone watching the network.                                                                            |
+| [CVE-2026-127960](https://github.com/php/php-src/security/advisories/GHSA-mmf9-xm3v-hg2x) | High     | All           | Denial of service from folded HTTP response headers. Needs the app to fetch a URL the attacker controls through PHP's stream functions.                                                                                                           |
+| [CVE-2026-129538](https://github.com/php/php-src/security/advisories/GHSA-5j3f-64r7-f564) | Medium   | All           | Out-of-bounds read and write in `php-cgi`. PHP-FPM and mod_php aren't affected.                                                                                                                                                                   |
+| [CVE-2026-129292](https://github.com/php/php-src/security/advisories/GHSA-3mg3-cr28-46gc) | Medium   | All           | XSS in the PHP-FPM status page. Needs the status page enabled and viewed as HTML.                                                                                                                                                                 |
+| [CVE-2026-15353](https://github.com/php/php-src/security/advisories/GHSA-q23r-hr55-xmpg)  | Medium   | All           | SOAP leaks a few bytes of memory. Needs a SOAP endpoint or client that handles untrusted input.                                                                                                                                                   |
+| [CVE-2026-129506](https://github.com/php/php-src/security/advisories/GHSA-4646-p932-gw34) | Medium   | All           | SOAP use-after-free that crashes the worker. Needs untrusted SOAP XML, WSDL or schema input.                                                                                                                                                      |
+| [CVE-2026-129501](https://github.com/php/php-src/security/advisories/GHSA-x8r7-mg3g-74hg) | Medium   | 8.4, 8.5      | Double free that crashes the worker. Needs `saveXml()` on an untrusted `Dom\XMLDocument` or `Dom\HTMLDocument`.                                                                                                                                   |
+| [CVE-2026-129438](https://github.com/php/php-src/security/advisories/GHSA-mg3p-mxj9-g2mm) | Medium   | 8.5           | `Uri\Rfc3986\Uri` returns a wrong string for a URI of about 2 GiB.                                                                                                                                                                                |
 
-[TBC from release notes: whether PHP 8.6.0 shipped the same day.]
+PHP 8.5.13 also updates its bundled uriparser to 1.0.3 for CVE-2026-48841. That fix has no php-src advisory.
+
+CVE-2026-115560, the session upload progress issue, is in the list. The section on `session.upload_progress.enabled` covers what it means now.
+
+php.net hasn't announced PHP 8.6.0 yet. The section on PHP 8.6 has the details.
 
 If php.net publishes more detail, I'll update this page and the date at the top will change.
 
 ## Am I affected?
 
-Every supported version got fixes, so update in the normal way. The critical issues only affect [TBC from release notes: the non-default or uncommon setups php.net names]. Most Laravel apps on a standard setup are in the lower-severity group. [TBC from release notes: confirm that every branch got fixes, and that a standard Laravel setup is outside the critical group.]
+Every supported version got fixes, so update in the normal way. Each critical issue needs a particular setup, listed in the table above. On a Laravel app, three of them are worth checking first.
+
+- **PHP 8.5 with `zend.exception_ignore_args=0`.** That's CVE-2026-129474. Its advisory names Laravel facades as a potentially relevant path, but says no one has shown an attack on a complete Laravel app. `php.ini-production` sets `zend.exception_ignore_args=1`, which blocks it. PHP's built-in default is 0, and the official Docker image loads no `php.ini` unless you copy one in. I ran `php:8.5-fpm` with no changes, and it reported 0.
+- **A front end that keeps FastCGI connections open.** That's CVE-2026-129289, and it needs no unusual PHP setting. Look for `fastcgi_keep_conn on` in nginx or `enablereuse=on` in Apache.
+- **A PHP startup warning written to an error log file.** That's CVE-2026-129496. An invalid `date.timezone` or a deprecated session setting is enough.
+
+The three session issues need PHP's native sessions. Laravel's session drivers don't call `session_start()`, so they apply only if other code in your app does.
+
+Check the settings in the PHP that serves requests, not the CLI:
+
+```bash
+php-fpm8.5 -i | grep -E 'exception_ignore_args|fatal_error_backtraces|error_log|upload_progress.enabled'
+sudo nginx -T | grep fastcgi_keep_conn
+```
+
+If you're on PHP 8.5 and can't update today, set `zend.exception_ignore_args = 1` in `php.ini` or the FPM pool and restart the workers. The advisory gives this as the workaround for CVE-2026-129474.
 
 The bigger risk is October's release. If you haven't installed PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12, you're still exposed to php2shell. That's two critical bugs that allow unauthenticated remote code execution, [CVE-2026-109618](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w) and [CVE-2026-109619](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp). php.net named PHP-FPM, Apache with mod_php, php-cgi, FrankenPHP and LiteSpeed as at risk, with mod_php the highest ([advisory, 21 October](https://www.php.net/archive/2026.php#2026-10-21-5)). CISA added both bugs to its Known Exploited Vulnerabilities catalogue on 26 October ([CISA alert](https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching)).
 
@@ -67,9 +104,11 @@ Run the last two only if you use queues or Horizon, and only if a process manage
 
 ## Should I turn off `session.upload_progress.enabled`?
 
-On 23 October php.net suggested setting `session.upload_progress.enabled=0` until the next regular bugfix release, to block an unlikely remote code execution vector ([advisory, 23 October](https://www.php.net/archive/2026.php#2026-10-23-1)). Whether you still need it after 19 November depends on the release notes. [TBC from release notes]
+On 23 October php.net suggested setting `session.upload_progress.enabled=0` until the next regular bugfix release, to block an unlikely remote code execution vector ([advisory, 23 October](https://www.php.net/archive/2026.php#2026-10-23-1)). The 19 November release fixes that issue as [CVE-2026-115560](https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx). It also turns session upload progress off by default, and it rejects runtime changes to session settings while upload progress is on.
 
-The issue needs an unusual setup. The app sets `session.serialize_handler` to `php_binary` or `php_serialize` in its configuration, then switches it to `php` with `ini_set()` before calling `session_start()`, with upload progress still enabled. php.net said it would publish the full advisory for CVE-2026-115560 with the next release. The same setting was already a listed mitigation for CVE-2026-109619.
+After you update, you don't need to change anything unless your configuration turns upload progress on explicitly. An explicit `session.upload_progress.enabled = 1` overrides the new default. The fix also doesn't make separate configurations use the same serializer. If you keep upload progress on, every app, pool and CLI job that reads that session store must use the same `session.serialize_handler`.
+
+The issue needs an unusual setup. Session data written with one serializer, `php_binary` or `php_serialize`, has to be read with `php`. That happens when an app switches the handler with `ini_set()` before calling `session_start()`. It also happens when two apps, pools or CLI jobs with different settings share one session store. Code execution needs a suitable gadget chain too, and the reporters used Guzzle and Monolog. The same setting was already a listed mitigation for CVE-2026-109619 and is one for CVE-2026-126714.
 
 Most Laravel apps don't use PHP's native upload progress, and Laravel's own sessions don't depend on it. Check that nothing in your app or your packages does before you turn it off. Set it in `php.ini` or the FPM pool, not with `ini_set()` or `.user.ini`, then restart every worker:
 
@@ -131,7 +170,7 @@ On Laravel Forge, install PHP 8.4 or 8.5 on the server, then switch each site to
 
 ## What about PHP 8.6?
 
-php.net set the PHP 8.6 release date as 19 November 2026 ([RC7 announcement](https://www.php.net/archive/2026.php#2026-11-12-1)). [TBC from release notes: whether PHP 8.6.0 shipped.] It's new, so I wouldn't move production onto it the same week. Wait until your packages and hosting support it, and for the first patch releases.
+php.net set the PHP 8.6 release date as 19 November 2026 ([RC7 announcement](https://www.php.net/archive/2026.php#2026-11-12-1)). When I published this at 14:20 UTC, php.net hadn't announced PHP 8.6.0, and it wasn't in php.net's list of supported versions. The `php-8.6.0` tag is already in php-src, so the announcement may follow later today. It's new, so I wouldn't move production onto it the same week. Wait until your packages and hosting support it, and for the first patch releases.
 
 ## When should I get help?
 
