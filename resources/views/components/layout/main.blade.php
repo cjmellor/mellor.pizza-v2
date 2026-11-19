@@ -75,7 +75,7 @@
                     <p class="screen:contents">
                         <span>&copy; {{ date('Y') }} Mellor Code Ltd. Registered in England and Wales, company no. 17369266.</span>
                         <br class="screen:hidden sm:hidden" />
-                        <span>Registered office: 17 Stroothers Place, Bradford, England, BD4 0BN.</span>
+                        <span>Registered office: 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ.</span>
                     </p>
                     <flux:link
                         class="text-inherit"

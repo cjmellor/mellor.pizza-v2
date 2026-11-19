@@ -15,8 +15,8 @@
             label="Controller"
         >
             <flux:text class="copy">
-                Mellor Code Ltd, company no. 17369266, registered in England and Wales, is the data controller. Registered office: 17
-                Stroothers Place, Bradford, England, BD4 0BN. You can contact me at
+                Mellor Code Ltd, company no. 17369266, registered in England and Wales, is the data controller. Registered office: 71-75
+                Shelton Street, Covent Garden, London, WC2H 9JQ. You can contact me at
                 <flux:link href="mailto:chris@mellor.pizza">chris@mellor.pizza</flux:link>
                 .
             </flux:text>

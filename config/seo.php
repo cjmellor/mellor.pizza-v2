@@ -25,7 +25,7 @@ return [
     'organization' => [
         'name' => 'Mellor Code Ltd',
         'company_number' => '17369266',
-        'locality' => 'Bradford',
+        'locality' => 'London',
         'country' => 'GB',
     ],
 
