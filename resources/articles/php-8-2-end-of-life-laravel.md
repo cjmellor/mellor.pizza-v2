@@ -1,4 +1,4 @@
-PHP 8.2 stops getting security fixes on 31 December 2026. On 19 November php.net shipped another security release for every supported version, a month after October's php2shell fixes. This is what I check on a Laravel app, and what I'd do this week.
+PHP 8.2 stops getting security fixes on 31 December 2026. On 19 November php.net shipped another security release for every supported version, a month after October's php2shell fixes. This is what I check on any PHP server, and what I'd do this week. If you run Laravel, the section for Laravel users near the end covers the extra checks.
 
 ## What was released on 19 November 2026?
 
@@ -43,13 +43,12 @@ If php.net publishes more detail, I'll update this page and the date at the top 
 
 ## Am I affected?
 
-Every supported version got fixes, so update in the normal way. Each critical issue needs a particular setup, listed in the table above. On a Laravel app, three of them are worth checking first.
+Every supported version got fixes, so update in the normal way. Each critical issue needs a particular setup, listed in the table above. Check these four first.
 
-- **PHP 8.5 with `zend.exception_ignore_args=0`.** That's CVE-2026-129474. Its advisory names Laravel facades as a potentially relevant path, but says no one has shown an attack on a complete Laravel app. `php.ini-production` sets `zend.exception_ignore_args=1`, which blocks it. PHP's built-in default is 0, and the official Docker image loads no `php.ini` unless you copy one in. I ran `php:8.5-fpm` with no changes, and it reported 0.
+- **Your own `session_start()` calls.** Three critical issues need PHP's native sessions: CVE-2026-126714, CVE-2026-115560 and CVE-2026-129481. Most plain PHP apps and many CMSs use native sessions, usually with the default `files` handler. If your app does, these three are the reason to update today.
+- **PHP 8.5 with `zend.exception_ignore_args=0`.** That's CVE-2026-129474. An attack needs a request path that reaches a `__call()` or `__callStatic()` method, and most frameworks and many libraries have one. `php.ini-production` sets `zend.exception_ignore_args=1`, which blocks it. PHP's built-in default is 0, and the official Docker image loads no `php.ini` unless you copy one in. I ran `php:8.5-fpm` with no changes, and it reported 0.
 - **A front end that keeps FastCGI connections open.** That's CVE-2026-129289, and it needs no unusual PHP setting. Look for `fastcgi_keep_conn on` in nginx or `enablereuse=on` in Apache.
 - **A PHP startup warning written to an error log file.** That's CVE-2026-129496. An invalid `date.timezone` or a deprecated session setting is enough.
-
-The three session issues need PHP's native sessions. Laravel's session drivers don't call `session_start()`, so they apply only if other code in your app does.
 
 Check the settings in the PHP that serves requests, not the CLI:
 
@@ -68,17 +67,16 @@ PHP 8.1 and older no longer receive updates from the PHP project. For php2shell,
 
 Check the PHP that serves web requests, not only the CLI. They're separate binaries, and on a server with several PHP versions installed they can differ.
 
-- **Command line.** `php -v` shows the CLI version. `php artisan about` shows the PHP and Laravel versions, but the PHP it reports is also the CLI one.
-- **PHP-FPM.** Run the FPM binary for your version, for example `php-fpm8.4 -v`. You can also add a temporary `phpinfo()` page, read it, and delete it straight away.
+- **Command line.** `php -v` shows the CLI version.
+- **PHP-FPM.** Run the FPM binary for your version, for example `php-fpm8.4 -v`. You can also add a temporary `phpinfo()` page, read it, and then delete it.
 - **composer.json.** The `require.php` line is a constraint. It doesn't tell you what's running.
-- **Laravel Forge.** Each PHP version on a Forge server runs its own FPM process, and you patch a version from the server's Runtime tab ([Forge docs](https://laravel.com/forge/docs/servers/php)). Check the version on the server after you patch it.
+- **Hosting panels.** If a control panel or server management service patches PHP for you, check the version on the server afterwards, not only in the panel.
 - **Docker.** An image tag like `php:8.4-fpm` doesn't update itself. Pull and rebuild the PHP Docker image, then confirm the version from the image itself.
 - **Distro packages.** To check the PHP version on Ubuntu or Debian, use `apt policy`. On Red Hat and Fedora, use `dnf info`. Distros often backport fixes without changing the upstream version number, so check your vendor's security tracker for the CVE. Debian, Ubuntu and Red Hat all have one.
 
 ```bash
 php -v
 php-fpm8.4 -v
-php artisan about
 apt policy php8.4-fpm
 docker run --rm php:8.4-fpm php -v
 ```
@@ -89,28 +87,27 @@ When php2shell landed, I flagged it to my client's team on release day. On my ow
 
 Update the package or image, restart every PHP worker, then check the version again.
 
-1. Update the PHP package, use Forge's Update option, or rebuild the Docker image.
-2. Restart PHP-FPM or the web server. Restart queue workers, Horizon and Octane too. They're long-running PHP processes, and they keep the old binary until they restart.
-3. Check `php -v` and the version your web server reports.
-4. Run your test suite and watch the logs.
+1. Update the PHP package, use your hosting panel's update option, or rebuild the Docker image.
+2. Restart PHP-FPM or the web server.
+3. Restart queue workers, daemons and other long-running PHP processes. They keep the old binary until they restart.
+4. Check `php -v` and the version your web server reports.
+5. Run your test suite and watch the logs.
 
 ```bash
 sudo systemctl restart php8.4-fpm
-php artisan queue:restart
-php artisan horizon:terminate
 ```
 
-Run the last two only if you use queues or Horizon, and only if a process manager such as Supervisor starts them again. If you run Octane, stop and start it through your process manager, so the new workers start on the new PHP binary. A patch release inside a branch, such as moving to a later 8.4 release, doesn't need code changes in normal cases. Treat it like any other PHP security update.
+If Supervisor or systemd runs your workers, restart them through it. A patch release inside a branch, such as moving to a later 8.4 release, doesn't need code changes in normal cases. Treat it like any other PHP security update.
 
 ## Should I turn off `session.upload_progress.enabled`?
 
-On 23 October php.net suggested setting `session.upload_progress.enabled=0` until the next regular bugfix release, to block an unlikely remote code execution vector ([advisory, 23 October](https://www.php.net/archive/2026.php#2026-10-23-1)). The 19 November release fixes that issue as [CVE-2026-115560](https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx). It also turns session upload progress off by default, and it rejects runtime changes to session settings while upload progress is on.
+On 23 October php.net suggested setting `session.upload_progress.enabled=0` until the next regular bugfix release, to block an unlikely remote code execution path ([advisory, 23 October](https://www.php.net/archive/2026.php#2026-10-23-1)). The 19 November release fixes that issue as [CVE-2026-115560](https://github.com/php/php-src/security/advisories/GHSA-658j-r8rw-q6mx). It also turns session upload progress off by default, and it rejects runtime changes to session settings while upload progress is on.
 
 After you update, you don't need to change anything unless your configuration turns upload progress on explicitly. An explicit `session.upload_progress.enabled = 1` overrides the new default. The fix also doesn't make separate configurations use the same serializer. If you keep upload progress on, every app, pool and CLI job that reads that session store must use the same `session.serialize_handler`.
 
 The issue needs an unusual setup. Session data written with one serializer, `php_binary` or `php_serialize`, has to be read with `php`. That happens when an app switches the handler with `ini_set()` before calling `session_start()`. It also happens when two apps, pools or CLI jobs with different settings share one session store. Code execution needs a suitable gadget chain too, and the reporters used Guzzle and Monolog. The same setting was already a listed mitigation for CVE-2026-109619 and is one for CVE-2026-126714.
 
-Most Laravel apps don't use PHP's native upload progress, and Laravel's own sessions don't depend on it. Check that nothing in your app or your packages does before you turn it off. Set it in `php.ini` or the FPM pool, not with `ini_set()` or `.user.ini`, then restart every worker:
+Few apps use upload progress. The feature stores the progress of a file upload in the PHP session. Before you turn it off, check that nothing in your app or your packages uses it. Set it in `php.ini` or the FPM pool, not with `ini_set()` or `.user.ini`, then restart every worker:
 
 ```ini
 session.upload_progress.enabled = 0
@@ -129,31 +126,23 @@ These are the PHP supported versions, from [php.net](https://www.php.net/support
 | 8.4    | 31 December 2026     | 31 December 2028       |
 | 8.5    | 31 December 2027     | 31 December 2029       |
 
-Laravel's PHP version compatibility matters as much. From Laravel's [support policy](https://laravel.com/docs/13.x/releases):
-
-| Laravel | PHP        | Security fixes until |
-| ------- | ---------- | -------------------- |
-| 11      | 8.2 to 8.4 | 12 March 2026        |
-| 12      | 8.2 to 8.5 | 24 February 2027     |
-| 13      | 8.3 to 8.5 | 17 March 2028        |
-
-So an app on Laravel 11 hasn't had framework security fixes since 12 March 2026. If it's also on PHP 8.2, it gets no PHP security fixes after 31 December 2026 either. Some distros and LTS vendors offer extended support for PHP after its end of support. That can cover PHP for longer, but it doesn't cover Laravel.
+Some distros and LTS vendors offer extended support for PHP after its end of support. That support covers PHP itself, not your framework, CMS or Composer packages. Check their support dates too.
 
 ## Why does staying on PHP 8.2 carry more risk now?
 
-Serious runtime bugs are being found and turned into working exploits faster than before. A PHP version that no longer gets fixes is exposed sooner.
+Researchers now find serious runtime bugs faster, and attackers turn them into working exploits faster. A PHP version that no longer gets fixes is exposed sooner.
 
 php2shell is an example. OpenAI says [Calif found a critical flaw using GPT-5.6 Sol](https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/), as part of OpenAI's Patch the Planet programme, and that Wiz independently found and reported both bugs. Amazon [recorded an exploitation attempt dated 17 October](https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/), four days before the fixes were public. CISA listed both bugs as known exploited on 26 October.
 
 It isn't only PHP. On 21 October, the day of the PHP fixes, Node.js fixed an out-of-bounds write in its bundled Brotli decoder, [CVE-2026-111497](https://nodejs.org/en/blog/vulnerability/october-2026-security-releases), and its advisory credits OpenAI Codex Security with the report. Andi Gutmans, one of PHP's original co-authors, [made this point on 18 November](https://x.com/andigutmans/status/2123100688385523903). His view is that the pattern is showing up across runtimes, not in PHP alone.
 
-The gap between a fix and a working exploit is getting shorter, and the PHP serving production often lags behind php.net, on Forge servers, in Docker images and in distro packages. That's why I check what's running, as in the section on checking your version. On PHP 8.2 after 31 December, there won't be a fix to apply at all.
+The gap between a fix and a working exploit is getting shorter. The PHP that serves production often lags behind php.net, on managed servers, in Docker images and in distro packages. That's why I check what's running, as in the section on checking your version. On PHP 8.2 after 31 December, there won't be a fix to apply at all.
 
 ## Should I upgrade PHP 8.2 to 8.4 or 8.5?
 
-Both work with Laravel 12 and 13. PHP 8.5 gets security fixes for a year longer, until 31 December 2029, so I'd aim for 8.5 unless a package you depend on doesn't support it yet. If one doesn't, 8.4 is supported until 31 December 2028. Check your Composer packages first.
+PHP 8.5 gets security fixes for a year longer, until 31 December 2029, so I'd aim for 8.5 unless a package you depend on doesn't support it yet. If one doesn't, 8.4 is supported until 31 December 2028. Check your Composer packages first.
 
-1. Check that your Laravel version supports the target PHP version. Laravel 11 stops at 8.4.
+1. Check that your framework or CMS supports the target PHP version.
 2. Ask Composer what's in the way.
 3. Update the packages that block the upgrade.
 4. Read php.net's migration guides for [8.3](https://www.php.net/manual/migration83.php), [8.4](https://www.php.net/manual/migration84.php) and [8.5](https://www.php.net/manual/migration85.php). Moving from 8.2 to 8.5 crosses all three.
@@ -166,11 +155,38 @@ Both work with Laravel 12 and 13. PHP 8.5 gets security fixes for a year longer,
 composer why-not php 8.5
 ```
 
-On Laravel Forge, install PHP 8.4 or 8.5 on the server, then switch each site to it. With Docker, change the base image tag and rebuild.
+On a server that runs several PHP versions, install 8.4 or 8.5 next to 8.2, then switch each site to it. With Docker, change the base image tag and rebuild.
 
 ## What about PHP 8.6?
 
-php.net set the PHP 8.6 release date as 19 November 2026 ([RC7 announcement](https://www.php.net/archive/2026.php#2026-11-12-1)). When I published this at 14:20 UTC, php.net hadn't announced PHP 8.6.0, and it wasn't in php.net's list of supported versions. The `php-8.6.0` tag is already in php-src, so the announcement may follow later today. It's new, so I wouldn't move production onto it the same week. Wait until your packages and hosting support it, and for the first patch releases.
+php.net set the PHP 8.6 release date as 19 November 2026 ([RC7 announcement](https://www.php.net/archive/2026.php#2026-11-12-1)). When I published this at 14:20 UTC, php.net hadn't announced PHP 8.6.0, and it wasn't in php.net's list of supported versions. The `php-8.6.0` tag is already in php-src, so the announcement may follow later today. It's new, so I wouldn't move production onto it the same week. Wait until your packages and your hosting support it. Wait for the first patch releases too.
+
+## What should Laravel users check?
+
+Everything above applies to Laravel apps. These checks are specific to Laravel.
+
+- **Sessions.** Laravel's session drivers don't call `session_start()`. The three native session issues apply only if other code in your app calls it.
+- **PHP 8.5 and facades.** The CVE-2026-129474 advisory names Laravel facades as a potentially relevant path, because facades use `__callStatic()`. The advisory also says no one has shown an attack on a complete Laravel app. Check `zend.exception_ignore_args` in the PHP that serves requests.
+- **`php artisan about`.** The command shows the PHP and Laravel versions, but the PHP version it reports is the CLI one.
+- **Laravel Forge.** Each PHP version on a Forge server runs its own FPM process. You patch a version from the server's **Runtime** tab ([Forge docs](https://laravel.com/forge/docs/servers/php)). Check the version on the server after you patch it. To upgrade, install PHP 8.4 or 8.5 on the server, then switch each site to it.
+- **Workers.** Queue workers, Horizon and Octane keep the old PHP binary until they restart.
+
+```bash
+php artisan queue:restart
+php artisan horizon:terminate
+```
+
+Run these commands only if you use queues or Horizon, and only if a process manager such as Supervisor starts the workers again. If you run Octane, stop and start it through your process manager.
+
+Laravel's own support dates matter as much as PHP's. From Laravel's [support policy](https://laravel.com/docs/13.x/releases):
+
+| Laravel | PHP        | Security fixes until |
+| ------- | ---------- | -------------------- |
+| 11      | 8.2 to 8.4 | 12 March 2026        |
+| 12      | 8.2 to 8.5 | 24 February 2027     |
+| 13      | 8.3 to 8.5 | 17 March 2028        |
+
+An app on Laravel 11 hasn't had framework security fixes since 12 March 2026, and it can't move past PHP 8.4. Laravel 12 and 13 both run on PHP 8.4 and 8.5. Extended PHP support from a distro or LTS vendor doesn't cover Laravel.
 
 ## When should I get help?
 
