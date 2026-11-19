@@ -13,15 +13,20 @@ final class HtmlToMarkdown
 {
     private const array SKIPPED_TAGS = ['script', 'style', 'svg', 'template', 'noscript', 'ui-tooltip', 'form', 'input', 'textarea', 'select', 'button'];
 
+    /** @var list<string> */
+    private array $codeBlocks = [];
+
     public static function convert(string $html): string
     {
         $document = HTMLDocument::createFromString($html, LIBXML_NOERROR);
         $root = $document->querySelector('main') ?? $document->body;
 
-        $markdown = (new self)->children($root);
+        $converter = new self;
+        $markdown = $converter->children($root);
         $markdown = preg_replace(['/[ \t]+\n/', '/\n[ \t]+/', '/(?<=\)) (?=[.,;:](?:\s|$))/'], ["\n", "\n", ''], $markdown);
+        $markdown = mb_trim(preg_replace('/\n{3,}/', "\n\n", $markdown));
 
-        return mb_trim(preg_replace('/\n{3,}/', "\n\n", $markdown)).PHP_EOL;
+        return preg_replace_callback('/\x00(\d+)\x00/', fn (array $match): string => $converter->codeBlocks[(int) $match[1]], $markdown).PHP_EOL;
     }
 
     private function children(Node $node): string
@@ -53,9 +58,18 @@ final class HtmlToMarkdown
             return '';
         }
 
+        if ($tag === 'pre') {
+            return $this->codeBlock($node);
+        }
+
+        if ($tag === 'table') {
+            return $this->table($node);
+        }
+
         $inner = $this->children($node);
 
         return match (true) {
+            $tag === 'code' => '`'.$this->inline($inner).'`',
             preg_match('/^h([1-6])$/', $tag, $level) === 1 => "\n\n".str_repeat('#', (int) $level[1]).' '.$this->inline($inner)."\n\n",
             $tag === 'a' => $this->link($node, $inner),
             $tag === 'strong' || $tag === 'b' => $this->wrap($inner, '**'),
@@ -85,6 +99,43 @@ final class HtmlToMarkdown
         );
 
         return "\n\n".implode("\n", $lines)."\n\n";
+    }
+
+    private function codeBlock(Element $pre): string
+    {
+        $code = $pre->querySelector('code') ?? $pre;
+        preg_match('/(?:^|\s)language-(\S+)/', $code->getAttribute('class') ?? '', $language);
+
+        $this->codeBlocks[] = '```'.($language[1] ?? '')."\n".mb_rtrim($code->textContent)."\n```";
+
+        return "\n\n\x00".array_key_last($this->codeBlocks)."\x00\n\n";
+    }
+
+    private function table(Element $table): string
+    {
+        $rows = [];
+        $columns = null;
+
+        foreach ($table->querySelectorAll('tr') as $row) {
+            $cells = [];
+
+            foreach ($row->childNodes as $cell) {
+                if ($cell instanceof Element && in_array(mb_strtolower($cell->localName), ['th', 'td'], true)) {
+                    $cells[] = str_replace('|', '\|', $this->inline($this->children($cell)));
+                }
+            }
+
+            $columns ??= count($cells);
+            $rows[] = '| '.implode(' | ', $cells).' |';
+        }
+
+        if ($rows === []) {
+            return '';
+        }
+
+        $separator = '|'.str_repeat(' --- |', $columns);
+
+        return "\n\n".implode("\n", [$rows[0], $separator, ...array_slice($rows, 1)])."\n\n";
     }
 
     private function link(Element $anchor, string $inner): string

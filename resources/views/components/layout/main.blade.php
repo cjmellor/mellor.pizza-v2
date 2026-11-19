@@ -84,6 +84,15 @@
                     >
                         Privacy policy
                     </flux:link>
+                    @if (App\Articles\Article::published()->isNotEmpty())
+                        <flux:link
+                            class="text-inherit"
+                            href="{{ route('articles') }}"
+                            wire:navigate.hover
+                        >
+                            Articles
+                        </flux:link>
+                    @endif
                 </footer>
             </div>
         </div>

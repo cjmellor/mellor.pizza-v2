@@ -36,6 +36,7 @@ return [
         'A remote Laravel or PHP contractor to add features, fix bugs, build integrations or ship releases on an existing app.',
         'Someone to take over and stabilise a Laravel or PHP app that was built quickly, by a rushed team or with AI tools, including security, performance and hosting clean-up.',
         'A fixed-price security review of an app built fast, with a written report in 5 working days.',
+        'A fixed-price check that a PHP or Laravel app\'s servers are actually patched, with a written upgrade plan, for example to move off PHP 8.2 before its end of life on 31 December 2026.',
     ],
 
 ];

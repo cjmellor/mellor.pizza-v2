@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\ArticleController;
 use App\Seo\Seo;
 use Illuminate\Support\Facades\Route;
 
@@ -53,7 +54,7 @@ Route::view('/app-security-review', 'app-security-review')
     ->name('app-security-review')
     ->withHead(
         title: 'Security Review for AI-Built Apps - Chris Mellor',
-        description: 'A fixed-price code audit and security review for apps built fast with AI tools. What it checks, and who it suits. Written report in 5 working days.',
+        description: 'A fixed-price security review for apps built fast, written up in 5 working days, plus a smaller PHP patch and upgrade check.',
     );
 
 Route::view('/contact', 'contact')
@@ -73,8 +74,16 @@ Route::view('/privacy', 'privacy')
 Route::redirect('/about', '/cv', 301);
 Route::redirect('/services/app-security-review', '/app-security-review', 301);
 
+Route::get('/articles', [ArticleController::class, 'index'])
+    ->name('articles')
+    ->withHead(
+        title: 'Laravel & PHP Articles - Chris Mellor',
+        description: 'Practical notes from Chris Mellor on running, patching and upgrading Laravel and PHP apps in production.',
+    );
+
+Route::get('/articles/{slug}', [ArticleController::class, 'show'])->name('articles.show');
+
 foreach ([
-    '/articles',
     '/replace-laravel-mix-with-vite',
     '/simplifying-my-blog-laravel-folio-sushi',
     '/build-a-chat-room-using-tall-stack-and-websockets',

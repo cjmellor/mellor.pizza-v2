@@ -23,6 +23,14 @@
             'route' => 'app-security-review',
             'price' => '$750 fixed, with a written report in 5 working days.',
         ],
+        [
+            'icon' => 'server',
+            'heading' => 'PHP patch and upgrade check',
+            'situation' => 'You want to know your PHP is patched and what to upgrade to.',
+            'route' => 'app-security-review',
+            'anchor' => 'php-patch-check',
+            'price' => '$295 fixed.',
+        ],
     ];
 
     $facts = [
@@ -31,8 +39,8 @@
         'Where' => 'Remote, with clients worldwide. I work flexibly across time zones and can adapt to your team\'s working hours, whether you\'re in the UK, EU or US.',
         'Main stack' => 'Laravel, PHP 8, Livewire, Vue.js, Inertia.js, Alpine.js, Tailwind CSS',
         'Testing and delivery' => 'Pest, PHPUnit, CI, Docker',
-        'Services' => 'Laravel & PHP contracting, app rescue, app security review',
-        'Pricing' => 'Security review $750 fixed. I can quote in GBP, euro, or your local currency.',
+        'Services' => 'Laravel & PHP contracting, app rescue, app security review, PHP patch and upgrade check',
+        'Pricing' => 'Security review $750 fixed. PHP patch and upgrade check $295 fixed. I can quote in GBP, euro, or your local currency.',
         'Availability' => 'Available now',
         'Response time' => 'Same day',
     ];
@@ -121,12 +129,18 @@
                             @endif
 
                             <x-slot:footer>
-                                <flux:link
-                                    href="{{ route($option['route']) }}"
-                                    wire:navigate.hover
-                                >
-                                    {{ $option['heading'] }}
-                                </flux:link>
+                                @isset($option['anchor'])
+                                    <flux:link href="{{ route($option['route']) }}#{{ $option['anchor'] }}">
+                                        {{ $option['heading'] }}
+                                    </flux:link>
+                                @else
+                                    <flux:link
+                                        href="{{ route($option['route']) }}"
+                                        wire:navigate.hover
+                                    >
+                                        {{ $option['heading'] }}
+                                    </flux:link>
+                                @endisset
                             </x-slot>
                         </x-card>
                     </li>

@@ -128,7 +128,9 @@
                         icon="server"
                     >
                         Somewhere sensible to run it, backups that have been restored at least once, and PHP, Node and packages kept up to
-                        date.
+                        date. If you only need PHP checked and an upgrade plan, the smaller
+                        <flux:link href="{{ route('app-security-review') }}#php-patch-check">PHP patch and upgrade check</flux:link>
+                        covers that.
                     </x-card>
                 </li>
                 <li class="flex">

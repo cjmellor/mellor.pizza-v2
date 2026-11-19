@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Seo;
 
+use App\Articles\Article;
 use App\Portfolio\Testimonial;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Collection;
@@ -51,7 +52,8 @@ final class Seo
                 && $route->getMetadata('head', []) !== []
                 && $route->parameterNames() === []
                 && in_array('web', $route->gatherMiddleware(), true)
-                && ! in_array($route->getName(), self::EXCLUDED_ROUTES, true))
+                && ! in_array($route->getName(), self::EXCLUDED_ROUTES, true)
+                && ($route->getName() !== 'articles' || Article::published()->isNotEmpty()))
             ->map(fn (RoutingRoute $route): string => $route->getName())
             ->values();
     }
@@ -109,14 +111,16 @@ final class Seo
      * @param  array<string, mixed>|null  $offer
      * @return array<string, mixed>
      */
-    public static function service(string $name, string $description, string $routeName, ?array $offer = null): array
+    public static function service(string $name, string $description, string $routeName, ?array $offer = null, ?string $anchor = null): array
     {
+        $url = self::url(route($routeName, absolute: false));
+
         return [
             '@type' => 'Service',
-            '@id' => self::url(route($routeName, absolute: false)).'#service',
+            '@id' => $url.'#'.($anchor ?? 'service'),
             'name' => $name,
             'description' => $description,
-            'url' => self::url(route($routeName, absolute: false)),
+            'url' => $anchor ? "{$url}#{$anchor}" : $url,
             'provider' => ['@id' => self::url().'#organization'],
             'areaServed' => config('seo.area_served'),
             ...($offer ? ['offers' => ['@type' => 'Offer', ...$offer]] : []),
@@ -158,22 +162,54 @@ final class Seo
     }
 
     /**
-     * @param  array<string, string>  $trail  route name => label
+     * @return array<string, mixed>
+     */
+    public static function blogPosting(Article $article): array
+    {
+        return [
+            '@type' => 'BlogPosting',
+            '@id' => $article->url().'#article',
+            'headline' => $article->h1,
+            'description' => $article->description,
+            'url' => $article->url(),
+            'mainEntityOfPage' => $article->url(),
+            'datePublished' => $article->publishedAt->toIso8601String(),
+            'dateModified' => $article->updatedAt->toIso8601String(),
+            'author' => ['@id' => self::url().'#person'],
+            'publisher' => ['@id' => self::url().'#organization'],
+            'image' => self::url('images/open_graph_image.jpg'),
+            'inLanguage' => 'en-GB',
+            'about' => [
+                ['@type' => 'SoftwareApplication', 'name' => 'PHP'],
+                ['@type' => 'SoftwareApplication', 'name' => 'Laravel'],
+            ],
+        ];
+    }
+
+    /**
+     * @param  array<string, string>  $trail  route name or absolute URL => label
      * @return array<string, mixed>
      */
     public static function breadcrumbs(array $trail): array
     {
-        $routeNames = array_keys($trail);
+        $targets = array_keys($trail);
 
         return [
             '@type' => 'BreadcrumbList',
-            'itemListElement' => array_map(fn (string $routeName, int $index): array => [
+            'itemListElement' => array_map(fn (string $target, int $index): array => [
                 '@type' => 'ListItem',
                 'position' => $index + 1,
-                'name' => $trail[$routeName],
-                'item' => self::url(route($routeName, absolute: false)),
-            ], $routeNames, array_keys($routeNames)),
+                'name' => $trail[$target],
+                'item' => self::breadcrumbUrl($target),
+            ], $targets, array_keys($targets)),
         ];
+    }
+
+    public static function breadcrumbUrl(string $target): string
+    {
+        return str_starts_with($target, 'https://') || str_starts_with($target, 'http://')
+            ? $target
+            : self::url(route($target, absolute: false));
     }
 
     public static function llmsTxt(): string
@@ -188,6 +224,7 @@ final class Seo
         $names = self::publicRouteNames();
         $pages = $names->reject(fn (string $name): bool => in_array($name, self::SERVICE_ROUTES, true))->map($entry)->implode("\n");
         $services = collect(self::SERVICE_ROUTES)->intersect($names)->map($entry)->implode("\n");
+        $articles = Article::published()->map(fn (Article $article): string => "- [{$article->title}]({$article->url()}): {$article->description}")->implode("\n");
 
         $organization = config('seo.organization');
 
@@ -211,6 +248,7 @@ final class Seo
             '',
             $services,
             '',
+            ...($articles === '' ? [] : ['## Articles', '', $articles, '']),
             '## Key facts',
             '',
             "- Works remotely with clients worldwide, through {$organization['name']} (company no. {$organization['company_number']}, registered in England and Wales).",

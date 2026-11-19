@@ -161,6 +161,55 @@
     @apply cv-text screen:copy;
 }
 
+@utility article-prose {
+    @apply text-body text-base/[1.8];
+
+    & > * + * {
+        @apply mt-5;
+    }
+
+    & h2 {
+        @apply text-ink mt-12 text-2xl/snug font-bold;
+    }
+
+    & h3 {
+        @apply text-ink mt-8 text-lg font-bold;
+    }
+
+    & a {
+        @apply font-medium text-(--color-accent-content) underline decoration-(--color-accent-content)/20 underline-offset-[6px] hover:decoration-current;
+    }
+
+    & ul {
+        @apply list-bullets;
+    }
+
+    & ol {
+        @apply flex list-outside list-decimal flex-col gap-2 pl-5;
+    }
+
+    & :not(pre) > code {
+        @apply bg-panel font-roboto-mono rounded px-1.5 py-0.5 text-[0.85em];
+    }
+
+    & pre {
+        @apply bg-panel border-line font-roboto-mono overflow-x-auto rounded-lg border p-4 text-sm/relaxed;
+    }
+
+    & table {
+        @apply block w-full overflow-x-auto text-sm;
+    }
+
+    & th,
+    & td {
+        @apply border-line border-b px-3 py-2 text-left align-top;
+    }
+
+    & th {
+        @apply text-ink font-semibold;
+    }
+}
+
 @utility timeline-flat {
     --flux-timeline-content-gap: 0px;
     --flux-timeline-item-gap: 0px;
