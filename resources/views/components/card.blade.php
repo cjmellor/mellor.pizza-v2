@@ -50,12 +50,12 @@
         </flux:card.header>
     @endif
 
-    <flux:card.body class="text-body flex-1 text-sm/7">
+    <flux:card.body @class(['text-body flex-1 text-sm/7', 'pb-4' => isset($footer)])>
         {{ $slot }}
     </flux:card.body>
 
     @isset($footer)
-        <flux:card.footer class="text-body border-t-0! bg-transparent text-sm/relaxed">
+        <flux:card.footer class="text-body border-t-0! bg-transparent pt-0 text-sm/6.5">
             {{ $footer }}
         </flux:card.footer>
     @endisset
