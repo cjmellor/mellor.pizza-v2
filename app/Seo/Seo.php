@@ -180,8 +180,8 @@ final class Seo
             'image' => self::url('images/open_graph_image.jpg'),
             'inLanguage' => 'en-GB',
             'about' => [
-                ['@type' => 'SoftwareApplication', 'name' => 'PHP'],
-                ['@type' => 'SoftwareApplication', 'name' => 'Laravel'],
+                ['@type' => 'ComputerLanguage', 'name' => 'PHP', 'sameAs' => 'https://www.php.net'],
+                ['@type' => 'Thing', 'name' => 'Laravel', 'sameAs' => 'https://laravel.com'],
             ],
         ];
     }
