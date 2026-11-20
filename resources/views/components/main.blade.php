@@ -33,6 +33,15 @@
                     target="_blank"
                     tooltip="Check out my GitHub"
                 />
+                <flux:button
+                    icon:class="size-4"
+                    href="https://www.linkedin.com/in/chrismellor85"
+                    aria-label="LinkedIn"
+                    variant="ghost"
+                    icon="brand-linkedin"
+                    target="_blank"
+                    tooltip="Connect on LinkedIn"
+                />
             </div>
         </div>
 
@@ -188,7 +197,7 @@
             <x-slot:footer>
                 <figure class="space-y-2">
                     <blockquote class="italic">“{{ $appHive->testimonial }}”</blockquote>
-                    <figcaption>Philo, App-Hive</figcaption>
+                    <figcaption>Philo Hermans, Founder, App-Hive</figcaption>
                 </figure>
             </x-slot>
         </x-card>
@@ -228,6 +237,7 @@
     </x-section>
 
     <x-faq
+        title="What do people usually ask?"
         :items="$faqs"
         label="04 — FAQ"
     />
@@ -238,7 +248,7 @@
         contact
     >
         <div class="flex flex-1 flex-col justify-end gap-4">
-            <x-availability />
+            <x-availability dot />
             <div class="flex flex-wrap gap-2">
                 <flux:button
                     class="max-sm:basis-full"
@@ -252,18 +262,19 @@
                 <flux:button
                     class="max-sm:flex-1"
                     href="mailto:chris@mellor.pizza"
-                    aria-label="Email chris@mellor.pizza"
-                    tooltip="chris@mellor.pizza"
                     icon="mail"
-                />
+                >
+                    Email
+                </flux:button>
                 <flux:button
                     class="max-sm:flex-1"
                     icon:class="size-4"
                     href="https://www.linkedin.com/in/chrismellor85"
-                    aria-label="LinkedIn"
                     icon="brand-linkedin"
                     target="_blank"
-                />
+                >
+                    LinkedIn
+                </flux:button>
             </div>
         </div>
     </x-section>

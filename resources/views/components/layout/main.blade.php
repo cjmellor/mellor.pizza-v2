@@ -73,9 +73,19 @@
                     class="screen:m-0 screen:flex screen:flex-wrap screen:justify-center screen:gap-3 screen:p-6 screen:font-roboto-mono screen:leading-relaxed screen:text-muted sm:screen:px-10 lg:screen:px-14 lg:screen:justify-between lg:screen:text-left mx-8 mt-16 text-center text-xs text-neutral-500 lg:mx-0 print:mt-6"
                 >
                     <p class="screen:flex screen:flex-col">
-                        <span>&copy; {{ date('Y') }} Mellor Code Ltd. Registered in England and Wales, company no. 17369266.</span>
+                        <span>
+                            <span class="whitespace-nowrap">&copy; {{ date('Y') }} Mellor Code Ltd.</span>
+                            <span class="whitespace-nowrap">Registered in England and Wales,</span>
+                            <span class="whitespace-nowrap">company no. 17369266.</span>
+                        </span>
                         <br class="screen:hidden sm:hidden" />
-                        <span>Registered office: {{ App\Seo\Seo::registeredOffice() }}.</span>
+                        <span>
+                            <span class="whitespace-nowrap">Registered office: {{ config('seo.organization.street_address') }},</span>
+                            <span class="whitespace-nowrap">
+                                {{ config('seo.organization.district') }}, {{ config('seo.organization.locality') }},
+                                {{ config('seo.organization.postal_code') }}.
+                            </span>
+                        </span>
                     </p>
                     <span class="screen:flex screen:gap-6">
                         <flux:link

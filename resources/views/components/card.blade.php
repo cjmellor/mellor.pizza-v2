@@ -28,11 +28,15 @@
             <div class="min-w-0 flex-1">
                 <flux:card.heading level="3">{{ $heading }}</flux:card.heading>
                 @if ($subheading)
-                    <flux:card.subheading class="truncate">{{ $subheading }}</flux:card.subheading>
+                    <flux:card.subheading>{{ $subheading }}</flux:card.subheading>
                 @endif
             </div>
 
-            {{ $actions ?? '' }}
+            @isset($actions)
+                <div class="max-sm:basis-full max-sm:pl-11">
+                    {{ $actions }}
+                </div>
+            @endisset
 
             @if ($href)
                 <flux:card.actions>

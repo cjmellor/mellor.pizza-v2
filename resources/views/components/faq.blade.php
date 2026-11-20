@@ -1,10 +1,11 @@
 @props([
     'items',
     'label',
+    'title' => 'Frequently asked questions',
 ])
 
 <x-section
-    title="Frequently asked questions"
+    :$title
     :$label
 >
     <div class="space-y-6">
