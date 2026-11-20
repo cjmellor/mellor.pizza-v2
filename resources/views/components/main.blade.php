@@ -237,7 +237,6 @@
     </x-section>
 
     <x-faq
-        title="What do people usually ask?"
         :items="$faqs"
         label="04 — FAQ"
     />

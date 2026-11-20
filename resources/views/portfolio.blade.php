@@ -56,7 +56,7 @@
 
             <x-project-card
                 heading="Kandu"
-                subheading="Kanban project tracker"
+                subheading="Laravel side project"
                 badge="In progress"
             >
                 <x-slot:cover>
@@ -83,7 +83,7 @@
                     <flux:icon.kanban class="size-7" />
                 </x-slot>
 
-                Built with Laravel, taking its cues from 37signals’ Fizzy: boards, cards and columns, kept deliberately simple.
+                A kanban tracker taking its cues from 37signals’ Fizzy: boards, cards and columns, kept deliberately simple.
             </x-project-card>
         </x-section>
 

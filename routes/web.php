@@ -26,7 +26,7 @@ Route::view('/portfolio', 'portfolio')
     ->name('portfolio')
     ->withHead(
         title: 'Laravel & PHP Client Portfolio - Chris Mellor',
-        description: 'Client projects Chris Mellor has built as a Laravel and PHP contractor, including PoweredByRental, App-Hive and 16Personalities, plus Kandu in development.',
+        description: 'Laravel and PHP client work by Chris Mellor, including PoweredByRental, App-Hive and 16Personalities, plus Glowbreak, a browser game, and Kandu in development.',
     );
 
 Route::view('/services', 'services.index')
