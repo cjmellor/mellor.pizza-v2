@@ -1,10 +1,16 @@
 @php
     use App\Seo\Seo;
+    use Illuminate\Support\Str;
 
     $breadcrumbs = ['homepage' => 'Home', 'articles' => 'Articles', $article->url() => $article->shortTitle];
+    $schema = [Seo::blogPosting($article), Seo::breadcrumbs($breadcrumbs)];
+
+    if ($article->faqs !== []) {
+        $schema[] = Seo::faqPage($article->faqs);
+    }
 @endphp
 
-<x-layout.main :schema="[Seo::blogPosting($article), Seo::breadcrumbs($breadcrumbs)]">
+<x-layout.main :$schema>
     <main>
         <x-page-head
             :title="$article->h1"
@@ -24,15 +30,30 @@
         <section class="relative px-6 py-10 sm:px-10 sm:py-12 lg:px-14">
             <div class="article-prose max-w-[72ch]">
                 {{ $article->body() }}
+
+                @if ($article->faqs !== [])
+                    <h2>Frequently asked questions</h2>
+
+                    @foreach ($article->faqs as $faq)
+                        <h3>{{ $faq['question'] }}</h3>
+                        <p>{{ Str::of($faq['answer'])->inlineMarkdown()->toHtmlString() }}</p>
+                    @endforeach
+                @endif
             </div>
 
             <div class="border-brand/40 mt-12 flex max-w-[72ch] flex-col items-start gap-4 border-l-2 pl-4">
-                <flux:text class="copy">
-                    If you'd like a second pair of eyes, I do a fixed-price
-                    <flux:link href="{{ route('app-security-review') }}#php-patch-check">PHP patch and upgrade check</flux:link>
-                    that covers what PHP your servers are really running, whether they picked up the fixes, and a written plan to get off
-                    8.2. It's $295, written up within one working day.
-                </flux:text>
+                @if ($article->cta)
+                    <div class="article-prose">
+                        {{ Str::of($article->cta)->markdown()->toHtmlString() }}
+                    </div>
+                @else
+                    <flux:text class="copy">
+                        If you'd like a second pair of eyes, I do a fixed-price
+                        <flux:link href="{{ route('app-security-review') }}#php-patch-check">PHP patch and upgrade check</flux:link>
+                        that covers what PHP your servers are really running, whether they picked up the fixes, and a written plan to get
+                        off 8.2. It's $295, written up within one working day.
+                    </flux:text>
+                @endif
                 <flux:button
                     href="{{ route('contact') }}"
                     variant="primary"

@@ -12,6 +12,9 @@ use Illuminate\Support\Str;
 
 final readonly class Article
 {
+    /**
+     * @param  list<array{question: string, answer: string}>  $faqs
+     */
     public function __construct(
         public string $slug,
         public string $title,
@@ -21,6 +24,8 @@ final readonly class Article
         public CarbonImmutable $publishedAt,
         public CarbonImmutable $updatedAt,
         public bool $published,
+        public array $faqs = [],
+        public ?string $cta = null,
     ) {}
 
     /**
@@ -38,6 +43,8 @@ final readonly class Article
                 publishedAt: CarbonImmutable::parse($article['published_at']),
                 updatedAt: CarbonImmutable::parse($article['updated_at']),
                 published: $article['published'],
+                faqs: $article['faqs'] ?? [],
+                cta: $article['cta'] ?? null,
             ))
             ->filter(fn (self $article): bool => $article->published)
             ->sortByDesc(fn (self $article): int => $article->publishedAt->getTimestamp())

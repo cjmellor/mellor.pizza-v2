@@ -37,7 +37,7 @@ PHP 8.5.13 also updates its bundled uriparser to 1.0.3 for CVE-2026-48841. That 
 
 CVE-2026-115560, the session upload progress issue, is in the list. The section on `session.upload_progress.enabled` covers what it means now.
 
-php.net hasn't announced PHP 8.6.0 yet. The section on PHP 8.6 has the details.
+php.net announced PHP 8.6.0 later on 19 November. The section on PHP 8.6 has the details.
 
 If php.net publishes more detail, I'll update this page and the date at the top will change.
 
@@ -159,7 +159,9 @@ On a server that runs several PHP versions, install 8.4 or 8.5 next to 8.2, then
 
 ## What about PHP 8.6?
 
-php.net set the PHP 8.6 release date as 19 November 2026 ([RC7 announcement](https://www.php.net/archive/2026.php#2026-11-12-1)). When I published this at 14:20 UTC, php.net hadn't announced PHP 8.6.0, and it wasn't in php.net's list of supported versions. The `php-8.6.0` tag is already in php-src, so the announcement may follow later today. It's new, so I wouldn't move production onto it the same week. Wait until your packages and your hosting support it. Wait for the first patch releases too.
+php.net [announced PHP 8.6.0](https://www.php.net/archive/2026.php#2026-11-19-5) on 19 November 2026. It's new, so I wouldn't move production onto it the same week. Wait until your packages and your hosting support it. Wait for the first patch releases too. If you're leaving 8.2 now, move to 8.4 or 8.5.
+
+My [PHP 8.6 for Laravel article](/articles/php-8-6-laravel) covers what's new in 8.6, what might break, and how to check whether an app is ready.
 
 ## What should Laravel users check?
 
