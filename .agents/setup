@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+step() {
+  local name="$1"
+  shift
+  local start=$SECONDS
+  echo "==> $name"
+  "$@"
+  echo "    $name took $((SECONDS - start))s"
+}
+
+php_version=8.4.23
+
+install_php() {
+  if [ "$(php -r 'echo PHP_VERSION;' 2>/dev/null || true)" = "$php_version" ]; then
+    echo "    PHP $php_version already installed"
+    return
+  fi
+
+  # Debian 12 ships PHP 8.2, and packages.sury.org's CDN often serves an InRelease that
+  # does not match its cached Packages index, so apt installs fail. static-php-cli's
+  # "common" build has every extension CI installs, including pdo_sqlite.
+  local arch sha
+  arch="$(uname -m)"
+  case "$arch" in
+    aarch64) sha=0978d89157292bcc9268a34a73a4d5d2793f8dff1403b5138a94d2af6b7a09b0 ;;
+    x86_64) sha=1aeed5bc7967977ca5b1da7163acd91bf9ba3ac56037045d4e91ee2ff2712bb7 ;;
+    *) echo "Unsupported architecture: $arch" >&2; exit 1 ;;
+  esac
+
+  local tmp
+  tmp="$(mktemp -d)"
+  curl -fsSL --retry 3 -o "$tmp/php.tar.gz" \
+    "https://dl.static-php.dev/static-php-cli/common/php-$php_version-cli-linux-$arch.tar.gz"
+  echo "$sha  $tmp/php.tar.gz" | sha256sum -c --quiet
+  tar -xzf "$tmp/php.tar.gz" -C "$tmp" php
+  sudo install -m 0755 "$tmp/php" /usr/local/bin/php
+  rm -rf "$tmp"
+}
+
+install_composer() {
+  if command -v composer >/dev/null 2>&1; then
+    echo "    composer already installed"
+    return
+  fi
+  local tmp
+  tmp="$(mktemp -d)"
+  curl -fsSL --retry 3 -o "$tmp/composer.phar" https://getcomposer.org/download/latest-stable/composer.phar
+  curl -fsSL --retry 3 -o "$tmp/composer.phar.sha256" https://getcomposer.org/download/latest-stable/composer.phar.sha256
+  echo "$(cat "$tmp/composer.phar.sha256")  $tmp/composer.phar" | sha256sum -c --quiet
+  sudo install -m 0755 "$tmp/composer.phar" /usr/local/bin/composer
+  rm -rf "$tmp"
+}
+
+composer_install() {
+  # flux-pro is a paid package served from composer.fluxui.dev. COMPOSER_AUTH keeps the
+  # license key out of auth.json, which would otherwise be baked into the shared snapshot.
+  if [ -z "${FLUX_USERNAME:-}" ] || [ -z "${FLUX_LICENSE_KEY:-}" ]; then
+    echo "FLUX_USERNAME and FLUX_LICENSE_KEY must be set as Amp project secrets to install livewire/flux-pro." >&2
+    exit 1
+  fi
+  COMPOSER_AUTH="$(printf '{"http-basic":{"composer.fluxui.dev":{"username":"%s","password":"%s"}}}' "$FLUX_USERNAME" "$FLUX_LICENSE_KEY")" \
+    composer install --no-interaction --no-progress --prefer-dist
+}
+
+prepare_env() {
+  [ -f .env ] || cp -- .env.example .env
+  grep -q '^APP_KEY=base64:' .env || php artisan key:generate --ansi --no-interaction
+}
+
+step "Install PHP $php_version" install_php
+step "Install Composer" install_composer
+step "Install PHP dependencies" composer_install
+step "Install JS dependencies" bun install --frozen-lockfile
+step "Prepare .env" prepare_env
+# Vite imports Flux's CSS from vendor/, so this must follow composer install.
+step "Build assets" bun run build
