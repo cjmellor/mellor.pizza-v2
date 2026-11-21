@@ -7,7 +7,11 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant screen (@media screen);
-@custom-variant nav (@media (min-width: 768px) and (min-height: 501px), (min-width: 1024px));
+@custom-variant nav {
+    @media (min-width: 768px) and (min-height: 501px), (min-width: 1024px) {
+        @slot;
+    }
+}
 @custom-variant short (@media (orientation: landscape) and (max-height: 500px) and (max-width: 1023px));
 @custom-variant phone (@media screen and (width < 40rem));
 
