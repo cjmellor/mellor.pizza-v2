@@ -5,6 +5,13 @@
         "build": "vite build",
         "dev": "vite"
     },
+    "packageExtensions": {
+        "vite-plugin-full-reload": {
+            "peerDependencies": {
+                "vite": "*"
+            }
+        }
+    },
     "devDependencies": {
         "@tailwindcss/postcss": "^4.1.16",
         "axios": "^1.13.1",
