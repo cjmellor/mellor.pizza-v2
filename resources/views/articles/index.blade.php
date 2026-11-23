@@ -31,6 +31,13 @@
             <flux:text class="lede">
                 Notes on running and upgrading Laravel and PHP apps in production, from client work and my own servers.
             </flux:text>
+
+            {{-- format-ignore-start --}}
+            <flux:text class="text-body">
+                If you want the PHP version on your servers checked, I offer a
+                <flux:link href="{{ route('app-security-review') }}#php-patch-check">PHP patch and upgrade check</flux:link>.
+            </flux:text>
+            {{-- format-ignore-end --}}
         </x-page-head>
 
         <section class="relative px-6 py-10 sm:px-10 sm:py-12 lg:px-14">
